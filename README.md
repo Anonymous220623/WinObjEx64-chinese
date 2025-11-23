@@ -4,34 +4,34 @@
 >
 > 项目未开始施工
 
-<img src="https://raw.githubusercontent.com/hfiref0x/WinObjEx64/master/Docs/Screenshots/MainWindow.png" width="600" />
+<img width="786" height="593" alt="图片" src="https://github.com/user-attachments/assets/991369d1-513e-4490-82ad-7cdb5a1b30a8" />
 
-WinObjEx64 is an advanced utility that lets you explore the Windows Object Manager namespace. For certain object types, you can double-click on it or use the "Properties..." toolbar button to get more information, such as description, attributes, resource usage etc. WinObjEx64 let you view and edit object-related security information if you have required access rights.
+WinObjEx64 是一款高级实用程序，可用于浏览 Windows 对象管理器命名空间。对于某些对象类型，您可以双击该对象或使用工具栏上的“属性...”按钮来获取更多信息，例如描述、属性、资源使用情况等。如果您拥有相应的访问权限，WinObjEx64 还允许您查看和编辑与对象相关的安全信息。
 
-# System Requirements
+# 系统要求
 
-WinObjEx64 does not require administrative privileges. However, administrative privileges are required to view much of the namespace and to edit object-related security information.
+WinObjEx64 不需要管理员权限。但是查看大部分命名空间以及编辑对象相关的安全信息需要管理员权限。
 
-WinObjEx64 works only on the following x64 Windows: Windows 7, Windows 8, Windows 8.1, and Windows 10/11, including Server variants.
+WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windows 8.1 和 Windows 10/11（包括服务器版本）。
 
 
-# Features
+# 功能
 
 <details>
-  <summary>View list</summary>
+  <summary>单击此处展开功能列表</summary>
 
-- **Explore all of Windows Object Manager namespace**  
-	- Hierarchical objects tree  
-	- Symbolic links resolving  
-	- Version information for `Section`-type objects backed by an image file  
-	- Additional information for `WindowStation`-type objects  
-	- **View objects details**:  
-		- Descriptions  
-		- Flags  
-		- Invalid attributes  
-		- Memory pool type  
-		- Object type-specific information  
-		- Object-related structure memory dumps<sup>1</sup>:  
+- **浏览 Windows 对象管理器命名空间的所有内容**  
+	- 层级化对象树   
+	- 解析符号链接   
+	- 由映像文件支持的节（Section）类型对象的版本信息  
+	- 有关窗口站（WindowsStation）类型对象的附加信息  
+	- **查看对象详细信息**:  
+		- 描述  
+		- 标志  
+		- 无效属性  
+		- 内存池类型  
+		- 对象类型特定信息  
+		- 对象相关结构内存转储<sup>1</sup>:  
 			- `ALPC_PORT`  
 			- `CALLBACK_OBJECT`  
 			- `DEVICE_OBJECT`  
