@@ -24,7 +24,7 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 层级化对象树   
 	- 解析符号链接   
 	- 由映像文件支持的节（Section）类型对象的版本信息  
-	- 有关窗口站（WindowsStation）类型对象的附加信息  
+	- 有关窗口站（WindowStation）类型对象的附加信息  
 	- **查看对象详细信息**:  
 		- 描述  
 		- 标志  
