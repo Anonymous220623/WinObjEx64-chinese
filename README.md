@@ -59,10 +59,10 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 		- `UNICODE_STRING`  
 		- 更多信息...  
 
-	- Edit object-related security information<sup>2</sup>  
-	- Detect driver object IRP modifications (via structure dump)<sup>1</sup>  
-	- Detect kernel object hooking (via structure dump)<sup>1</sup>  
-	- Search for objects by name and/or type  
+	- 编辑对象相关的安全信息<sup>2</sup>  
+	- 检测驱动程序对象 IRP 修改（通过结构转储）<sup>1</sup>  
+	- 检测内核对象挂钩（通过结构体转储）<sup>1</sup>  
+	- 按名称和/或类型搜索对象  
 
 - **System information viewer**  
 	- Boot state and type  
