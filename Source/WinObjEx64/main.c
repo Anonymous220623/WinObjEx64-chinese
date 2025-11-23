@@ -1468,7 +1468,7 @@ VOID guiInsertRunAsMainMenuEntry(
                         //
                         RtlSecureZeroMemory(szWindowTitle, sizeof(szWindowTitle));
                         _strcpy(szWindowTitle, PROGRAM_NAME);
-                        _strcat(szWindowTitle, TEXT(" (LocalSystem)"));
+                        _strcat(szWindowTitle, TEXT(" (以 SYSTEM 身份运行)"));
                         SetWindowText(g_hwndMain, szWindowTitle);
                     }
                 }
