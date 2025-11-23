@@ -1,0 +1,5 @@
+Source/.vs
+Source/.vs/*
+Source/WinObjEx64/output
+Source/WinObjEx64/output/*
+Source/WinObjEx64/Resource.aps
