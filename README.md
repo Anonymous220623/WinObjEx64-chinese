@@ -45,19 +45,19 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 			- `KQUEUE` (IoCompletion)  
 			- `OBJECT_SYMBOLIC_LINK`  
 			- `OBJECT_TYPE`  
-		- Opened handles  
-		- Statistics  
-		- Supported access rights  
-		- Process Trust label  
-		- And more...  
+		- 已打开句柄  
+		- 统计数据  
+		- 支持的访问权限  
+		- 进程信任级别  
+		- 更多信息...  
 
-	- **Display in dump sub-structures**<sup>1</sup>:  
+	- **在转储子结构中显示**<sup>1</sup>:  
 		- `ALPC_PORT_ATTRIBUTES`  
 		- `DEVICE_MAP`  
 		- `LDR_DATA_TABLE_ENTRY`  
 		- `OBJECT_TYPE_INITIALIZER`  
 		- `UNICODE_STRING`  
-		- And many others  
+		- 更多信息...  
 
 	- Edit object-related security information<sup>2</sup>  
 	- Detect driver object IRP modifications (via structure dump)<sup>1</sup>  
