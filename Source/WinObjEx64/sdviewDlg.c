@@ -272,7 +272,7 @@ VOID SDViewUpdateStatusBar(
 
     RtlStringCchPrintfSecure(szBuffer,
         RTL_NUMBER_OF(szBuffer),
-        L"DACL Entries: %lu, SACL Entries: %lu",
+        L"DACL 条目数: %lu, SACL 条目数: %lu",
         DaclCount,
         SaclCount);
 
@@ -804,11 +804,11 @@ VOID SDViewInitControls(
     LVGROUP lvg;
     LVCOLUMNS_DATA columnData[] =
     {
-        { L"AceType", 80, LVCFMT_CENTER, I_IMAGENONE },
-        { L"AceFlags", 80, LVCFMT_CENTER, I_IMAGENONE },
-        { L"AccessMask", 120, LVCFMT_CENTER, I_IMAGENONE },
+        { L"ACE 类型", 80, LVCFMT_CENTER, I_IMAGENONE },
+        { L"ACE 标志", 80, LVCFMT_CENTER, I_IMAGENONE },
+        { L"访问掩码", 120, LVCFMT_CENTER, I_IMAGENONE },
         { L"SID", 120, LVCFMT_LEFT, I_IMAGENONE },
-        { L"Domain\\Name", 200, LVCFMT_LEFT, I_IMAGENONE },
+        { L"域 \\ 名称", 200, LVCFMT_LEFT, I_IMAGENONE },
         { L"UseName", 120, LVCFMT_LEFT, I_IMAGENONE }
     };
 
