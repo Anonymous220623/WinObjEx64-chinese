@@ -61,7 +61,7 @@ typedef HWND(WINAPI *pfnHtmlHelpW)(
 #define WINOBJEX64_WNDCLASS     L"WinObjEx64Class"
 #define WINOBJEX64_PSLISTCLASS  L"WinObjEx64PsListClass"
 
-#define T_COPY_OBJECT_NAME      L"复制名称"
+#define T_COPY_OBJECT_NAME      L"复制名称(&C)"
 #define T_COPY_OBJECT_NAME_BIN  L"复制名称 (二进制)"
 
 #define T_PROPERTIES            L"属性...\tEnter"

@@ -630,7 +630,6 @@ VOID MainWindowHandleTreePopupMenu(
     hMenu = CreatePopupMenu();
     if (hMenu) {
         InsertMenu(hMenu, uPosition++, MF_BYCOMMAND, ID_OBJECT_COPY_NAME, T_COPY_OBJECT_NAME);
-        InsertMenu(hMenu, uPosition++, MF_BYCOMMAND, ID_OBJECT_COPY_NAME_BINARY, T_COPY_OBJECT_NAME_BIN);
         InsertMenu(hMenu, uPosition++, MF_BYPOSITION | MF_SEPARATOR, 0, NULL);
         InsertMenu(hMenu, uPosition++, MF_BYCOMMAND, ID_OBJECT_PROPERTIES, T_PROPERTIES);
 
@@ -670,7 +669,6 @@ VOID MainWindowHandleObjectPopupMenu(
     if (hMenu == NULL) return;
 
     InsertMenu(hMenu, uPosition++, MF_BYCOMMAND, ID_OBJECT_COPY_NAME, T_COPY_OBJECT_NAME);
-    InsertMenu(hMenu, uPosition++, MF_BYCOMMAND, ID_OBJECT_COPY_NAME_BINARY, T_COPY_OBJECT_NAME_BIN);
     InsertMenu(hMenu, uPosition++, MF_BYPOSITION | MF_SEPARATOR, 0, NULL);
     InsertMenu(hMenu, uPosition++, MF_BYCOMMAND, ID_OBJECT_PROPERTIES, T_PROPERTIES);
 
