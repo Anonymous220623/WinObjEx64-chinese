@@ -537,13 +537,13 @@ VOID FindDlgHandleSearchComplete(
     WCHAR searchString[MAX_PATH + 1];
 
     // Return to search mode
-    SetDlgItemText(hwndDlg, ID_SEARCH_FIND, TEXT("Search"));
+    SetDlgItemText(hwndDlg, ID_SEARCH_FIND, TEXT("查找(&F)"));
     EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), TRUE);
 
     // Check if search was cancelled
     if (g_FindDlgContext.SearchCancelled) {
         g_FindDlgContext.SearchCancelled = FALSE;
-        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Search cancelled"));
+        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("已取消查找"));
 
         // Free the result list
         while (flist != NULL) {
@@ -577,7 +577,7 @@ VOID FindDlgHandleSearchComplete(
 
     // Update status
     ultostr(cci, searchString);
-    _strcat(searchString, TEXT(" matching object(s)."));
+    _strcat(searchString, TEXT(" 个匹配的对象。"));
     SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, searchString);
 
     // End batch processing
@@ -610,7 +610,7 @@ VOID FindDlgHandleSearch(
         // Signal cancellation
         if (WaitForSingleObject(g_FindDlgContext.SearchThread, 0) == WAIT_TIMEOUT) {
             g_FindDlgContext.SearchCancelled = TRUE;
-            SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Cancelling search..."));
+            SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("正在取消..."));
             return;
         }
 
@@ -629,13 +629,13 @@ VOID FindDlgHandleSearch(
 
     // Update status and UI
     ListView_DeleteAllItems(g_FindDlgContext.SearchList);
-    SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Searching..."));
+    SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("正在查找..."));
     EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), FALSE);
 
     // Allocate search params
     searchParams = (PFIND_SEARCH_PARAMS)supHeapAlloc(sizeof(FIND_SEARCH_PARAMS));
     if (searchParams == NULL) {
-        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Memory allocation failed"));
+        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("内存分配失败"));
         EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), TRUE);
         return;
     }
@@ -663,7 +663,7 @@ VOID FindDlgHandleSearch(
     g_FindDlgContext.SearchThread = CreateThread(NULL, 0, FindDlgSearchWorkerThread, searchParams, 0, NULL);
     if (!g_FindDlgContext.SearchThread) {
         supHeapFree(searchParams);
-        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Failed to create search thread"));
+        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("创建搜索线程失败。"));
         EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), TRUE);
     }
 }
@@ -683,8 +683,8 @@ VOID FindDlgOnInit(
     INT iImage = ImageList_GetImageCount(g_ListViewImages) - 1;
     LVCOLUMNS_DATA columnData[] =
     {
-        { L"Name", 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
-        { L"Type", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { L"名称", 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
+        { L"类型", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     g_FindDlgContext.DialogWindow = hwndDlg;
