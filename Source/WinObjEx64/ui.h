@@ -55,29 +55,29 @@ typedef HWND(WINAPI *pfnHtmlHelpW)(
 #ifdef _USE_OWN_DRIVER
 #define PROGRAM_NAME            L"Windows Object Explorer 64-bit (Non-public version)"
 #else 
-#define PROGRAM_NAME            L"Windows Object Explorer 64-bit"
+#define PROGRAM_NAME            L"Windows 对象管理器 64 位"
 #endif
-#define PROFRAM_NAME_AND_TITLE  L"Object Explorer for Windows 7/8/8.1/10/11"
+#define PROFRAM_NAME_AND_TITLE  L"Windows 7/8/8.1/10/11 上的对象管理器"
 #define WINOBJEX64_WNDCLASS     L"WinObjEx64Class"
 #define WINOBJEX64_PSLISTCLASS  L"WinObjEx64PsListClass"
 
-#define T_COPY_OBJECT_NAME      L"Copy Name"
-#define T_COPY_OBJECT_NAME_BIN  L"Copy Name (Binary)"
+#define T_COPY_OBJECT_NAME      L"复制名称"
+#define T_COPY_OBJECT_NAME_BIN  L"复制名称 (二进制)"
 
-#define T_PROPERTIES            L"Properties...\tEnter"
-#define T_GOTOLINKTARGET        L"Go To Link Target\tCtrl+->"
-#define T_VIEWSD                L"View Security Descriptor..."
-#define T_RUNASADMIN            L"R&un as Administrator"
-#define T_RUNASSYSTEM           L"R&un as LocalSystem"
-#define T_EXPORTTOFILE          L"Export List"
-#define T_JUMPTOFILE            L"Jump to File"
-#define T_VIEW_REFRESH          L"Refresh\tF5"
-#define T_VIEW_PLUGINS          L"View Plugins"
+#define T_PROPERTIES            L"属性...\tEnter"
+#define T_GOTOLINKTARGET        L"跳转至链接目标\tCtrl+->"
+#define T_VIEWSD                L"查看安全描述符..."
+#define T_RUNASADMIN            L"以管理员身份运行(&U)"
+#define T_RUNASSYSTEM           L"以 SYSTEM 身份运行(&U)"
+#define T_EXPORTTOFILE          L"导出列表"
+#define T_JUMPTOFILE            L"跳转至文件"
+#define T_VIEW_REFRESH          L"刷新\tF5"
+#define T_VIEW_PLUGINS          L"查看扩展"
 #define T_EMPTY                 L" "
 #define T_MSG_SETTINGS_CHANGE   L"wobjSettingsChange"
 
-#define T_CSV_FILE_FILTER       TEXT("CSV Files\0*.csv\0\0")
-#define T_LIST_EXPORT_SUCCESS   TEXT("List export - OK")
+#define T_CSV_FILE_FILTER       TEXT("CSV 文件\0*.csv\0\0")
+#define T_LIST_EXPORT_SUCCESS   TEXT("列表导出 - 完成")
 #define T_RICHEDIT_LIB          TEXT("RICHED32.DLL")
 
 #define MAX_TEXT_CONVERSION_ULONG64 32
@@ -182,7 +182,7 @@ typedef struct _LVCOLUMNS_DATA {
 #define INIT_ERROR_NOSPLITTERWND    13
 #define INIT_ERROR_UNSPECIFIED      14
 
-#define T_WOBJINIT_NOCRT TEXT("Could not initialize CRT, abort")
+#define T_WOBJINIT_NOCRT TEXT("无法初始化 CRT，中止")
 
 #define ErrShadowWin32kNotFound             1
 #define ErrShadowMemAllocFail               2

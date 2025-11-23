@@ -1551,7 +1551,7 @@ DWORD guiCreateMainWindowAndComponents(
         RtlSecureZeroMemory(szWindowTitle, sizeof(szWindowTitle));
         _strcpy(szWindowTitle, PROGRAM_NAME);
         if (bIsFullAdmin != FALSE) {
-            _strcat(szWindowTitle, TEXT(" (Administrator)"));
+            _strcat(szWindowTitle, TEXT(" (以管理员身份运行)"));
         }
 
         if (Globals->IsWine != FALSE) {
