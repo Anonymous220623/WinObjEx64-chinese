@@ -142,7 +142,7 @@ VOID extrasProcessElevationRequiredDialogs(
 
         RtlStringCchPrintfSecure(szText,
             RTL_NUMBER_OF(szText),
-            TEXT("Could not connect to driver, feature is unavailable.\nDriver load status: 0x%lX\nDriver open status: 0x%lX"),
+            TEXT("无法连接到驱动程序，该功能不可用。\n驱动程序加载状态: 0x%lX\n驱动程序打开状态: 0x%lX"),
             g_kdctx.DriverContext.LoadStatus,
             g_kdctx.DriverContext.OpenStatus);
 
