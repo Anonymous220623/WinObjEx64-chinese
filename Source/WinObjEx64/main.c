@@ -1248,9 +1248,9 @@ VOID guiCreateObjectListColumns()
 {
     LVCOLUMNS_DATA columnData[] =
     {
-        { TEXT("Name"), 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  g_ListViewImages ? ImageList_GetImageCount(g_ListViewImages) - 1 : I_IMAGENONE },
-        { TEXT("Type"), 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { TEXT("Additional Information"), 170, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { TEXT("名称"), 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  g_ListViewImages ? ImageList_GetImageCount(g_ListViewImages) - 1 : I_IMAGENONE },
+        { TEXT("类型"), 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { TEXT("附加信息"), 170, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     supAddLVColumnsFromArray(g_hwndObjectList, columnData, RTL_NUMBER_OF(columnData));

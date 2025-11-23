@@ -411,13 +411,13 @@ BOOL supInitTreeListForDump(
     hdritem.mask = HDI_FORMAT | HDI_TEXT | HDI_WIDTH;
     hdritem.fmt = HDF_LEFT | HDF_BITMAP_ON_RIGHT | HDF_STRING;
     hdritem.cxy = SCALE_DPI_VALUE(220, g_WinObj.CurrentDPI);
-    hdritem.pszText = TEXT("Field");
+    hdritem.pszText = TEXT("字段");
     TreeList_InsertHeaderItem(TreeList, 0, &hdritem);
     hdritem.cxy = SCALE_DPI_VALUE(130, g_WinObj.CurrentDPI);
-    hdritem.pszText = TEXT("Value");
+    hdritem.pszText = TEXT("值");
     TreeList_InsertHeaderItem(TreeList, 1, &hdritem);
     hdritem.cxy = SCALE_DPI_VALUE(210, g_WinObj.CurrentDPI);
-    hdritem.pszText = TEXT("Additional Information");
+    hdritem.pszText = TEXT("附加信息");
     TreeList_InsertHeaderItem(TreeList, 2, &hdritem);
 
     return TRUE;
@@ -666,7 +666,7 @@ VOID supShowHelp(
     if (!bHelpFileFound) {
         s = (LPWSTR)supHeapAlloc((MAX_PATH + _strlen(szHelpFile)) * sizeof(WCHAR));
         if (s) {
-            _strcpy(s, TEXT("Help file could not be found - "));
+            _strcpy(s, TEXT("帮助文件未找到 - "));
             _strcat(s, szHelpFile);
             MessageBox(ParentWindow, s, NULL, MB_ICONINFORMATION);
             supHeapFree(s);

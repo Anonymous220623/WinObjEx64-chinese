@@ -881,7 +881,7 @@ VOID SDViewInitControls(
 
                 RtlStringCchPrintfSecure(caption,
                     captionLength / sizeof(WCHAR),
-                    TEXT("Security Descriptor: %ws"),
+                    TEXT("°²È«ÃèÊö·û£º%ws"),
                     normalizedName.Buffer);
 
                 SetWindowText(hwndDlg, caption);
