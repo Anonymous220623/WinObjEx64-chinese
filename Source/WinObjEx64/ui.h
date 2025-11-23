@@ -135,24 +135,24 @@ typedef struct _LVCOLUMNS_DATA {
 #define T_NotAssigned       T_CannotQuery
 
 // Value is not defined
-#define T_None              TEXT("None")
-#define T_NoneValue         TEXT("(None)")
+#define T_None              TEXT("无")
+#define T_NoneValue         TEXT("(无)")
 
 // Value is invalid
-#define T_Invalid           TEXT("Invalid")
-#define T_InvalidValue      TEXT("(Invalid)")
+#define T_Invalid           TEXT("未知")
+#define T_InvalidValue      TEXT("(无效)")
 
 // Display for unknown type value
-#define T_UnknownType       TEXT("Unknown Type")
+#define T_UnknownType       TEXT("未知类型")
 
 // Display for unknown flag value
-#define T_UnknownFlag       TEXT("Unknown Flag")
+#define T_UnknownFlag       TEXT("未知标志")
 
 // Display for unknown process
-#define T_UnknownProcess    TEXT("Unknown Process")
+#define T_UnknownProcess    TEXT("未知进程")
 
 // Display for unknown value
-#define T_Unknown           TEXT("Unknown")
+#define T_Unknown           TEXT("未知")
 
 // Empty string
 #define T_EmptyString       TEXT("")
