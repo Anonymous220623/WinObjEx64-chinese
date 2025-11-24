@@ -18,7 +18,7 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 # 功能
 
 <details>
-  <summary>单击此处展开功能列表</summary>
+  <summary>单击此处展开或收起功能列表</summary>
 
 - **浏览 Windows 对象管理器命名空间的所有内容**  
 	- 层级化对象树   
