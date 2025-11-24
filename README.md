@@ -243,13 +243,7 @@ WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsof
 
 # 支持本项目
 
-若您喜欢使用本软件并希望协助开发者进行维护与改进，请考虑通过捐赠支持我们。您的贡献将推动开发进程、保障更新发布，并维持项目持续运行。
-
-### 加密货币捐赠:
-
-比特币: bc1qzkvtpa0053cagf35dqmpvv9k8hyrwl7krwdz84q39mcpy68y6tmqsju0g4
-
-这完全是可选的，感谢捐赠者的支持！~
+请跳转至[原仓库 hfiref0x/WinObjEx64](https://github.com/hfiref0x/WinObjEx64?tab=readme-ov-file#support-our-work) 以查看相关信息。
 
 # 作者
 
