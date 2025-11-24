@@ -1,8 +1,8 @@
-# Auto detect text files and perform LF normalization
 * text=auto
-*.c binary
-*.cpp binary
-*.h binary
-*.hpp binary
-*.cxx binary
-*.hxx binary
+*.rc text
+*.c working-tree-encoding=GBK
+*.cpp working-tree-encoding=GBK
+*.h working-tree-encoding=GBK
+*.hpp working-tree-encoding=GBK
+*.cxx working-tree-encoding=GBK
+*.hxx working-tree-encoding=GBK
