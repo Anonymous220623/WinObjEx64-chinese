@@ -55,29 +55,29 @@ typedef HWND(WINAPI *pfnHtmlHelpW)(
 #ifdef _USE_OWN_DRIVER
 #define PROGRAM_NAME            L"Windows Object Explorer 64-bit (Non-public version)"
 #else 
-#define PROGRAM_NAME            L"Windows ¶ÔÏó¹ÜÀíÆ÷ 64 Î»"
+#define PROGRAM_NAME            L"Windows å¯¹è±¡ç®¡ç†å™¨ 64 ä½"
 #endif
-#define PROFRAM_NAME_AND_TITLE  L"Windows 7/8/8.1/10/11 ÉÏµÄ¶ÔÏó¹ÜÀíÆ÷"
+#define PROFRAM_NAME_AND_TITLE  L"Windows 7/8/8.1/10/11 ä¸Šçš„å¯¹è±¡ç®¡ç†å™¨"
 #define WINOBJEX64_WNDCLASS     L"WinObjEx64Class"
 #define WINOBJEX64_PSLISTCLASS  L"WinObjEx64PsListClass"
 
-#define T_COPY_OBJECT_NAME      L"¸´ÖÆÃû³Æ(&C)"
-#define T_COPY_OBJECT_NAME_BIN  L"¸´ÖÆÃû³Æ (¶ş½øÖÆ)"
+#define T_COPY_OBJECT_NAME      L"å¤åˆ¶åç§°(&C)"
+#define T_COPY_OBJECT_NAME_BIN  L"å¤åˆ¶åç§° (äºŒè¿›åˆ¶)"
 
-#define T_PROPERTIES            L"ÊôĞÔ...\tEnter"
-#define T_GOTOLINKTARGET        L"Ìø×ªÖÁÁ´½ÓÄ¿±ê\tCtrl+->"
-#define T_VIEWSD                L"²é¿´°²È«ÃèÊö·û..."
-#define T_RUNASADMIN            L"ÒÔ¹ÜÀíÔ±Éí·İÔËĞĞ(&U)"
-#define T_RUNASSYSTEM           L"ÒÔ SYSTEM Éí·İÔËĞĞ(&U)"
-#define T_EXPORTTOFILE          L"µ¼³öÁĞ±í"
-#define T_JUMPTOFILE            L"Ìø×ªÖÁÎÄ¼ş"
-#define T_VIEW_REFRESH          L"Ë¢ĞÂ\tF5"
-#define T_VIEW_PLUGINS          L"²é¿´À©Õ¹"
+#define T_PROPERTIES            L"å±æ€§...\tEnter"
+#define T_GOTOLINKTARGET        L"è·³è½¬è‡³é“¾æ¥ç›®æ ‡\tCtrl+->"
+#define T_VIEWSD                L"æŸ¥çœ‹å®‰å…¨æè¿°ç¬¦..."
+#define T_RUNASADMIN            L"ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œ(&U)"
+#define T_RUNASSYSTEM           L"ä»¥ SYSTEM èº«ä»½è¿è¡Œ(&U)"
+#define T_EXPORTTOFILE          L"å¯¼å‡ºåˆ—è¡¨"
+#define T_JUMPTOFILE            L"è·³è½¬è‡³æ–‡ä»¶"
+#define T_VIEW_REFRESH          L"åˆ·æ–°\tF5"
+#define T_VIEW_PLUGINS          L"æŸ¥çœ‹æ‰©å±•"
 #define T_EMPTY                 L" "
 #define T_MSG_SETTINGS_CHANGE   L"wobjSettingsChange"
 
-#define T_CSV_FILE_FILTER       TEXT("CSV ÎÄ¼ş\0*.csv\0\0")
-#define T_LIST_EXPORT_SUCCESS   TEXT("ÁĞ±íµ¼³ö - Íê³É")
+#define T_CSV_FILE_FILTER       TEXT("CSV æ–‡ä»¶\0*.csv\0\0")
+#define T_LIST_EXPORT_SUCCESS   TEXT("åˆ—è¡¨å¯¼å‡º - å®Œæˆ")
 #define T_RICHEDIT_LIB          TEXT("RICHED32.DLL")
 
 #define MAX_TEXT_CONVERSION_ULONG64 32
@@ -135,24 +135,24 @@ typedef struct _LVCOLUMNS_DATA {
 #define T_NotAssigned       T_CannotQuery
 
 // Value is not defined
-#define T_None              TEXT("ÎŞ")
-#define T_NoneValue         TEXT("(ÎŞ)")
+#define T_None              TEXT("æ— ")
+#define T_NoneValue         TEXT("(æ— )")
 
 // Value is invalid
-#define T_Invalid           TEXT("Î´Öª")
-#define T_InvalidValue      TEXT("(ÎŞĞ§)")
+#define T_Invalid           TEXT("æ— æ•ˆ")
+#define T_InvalidValue      TEXT("(æ— æ•ˆ)")
 
 // Display for unknown type value
-#define T_UnknownType       TEXT("Î´ÖªÀàĞÍ")
+#define T_UnknownType       TEXT("æœªçŸ¥ç±»å‹")
 
 // Display for unknown flag value
-#define T_UnknownFlag       TEXT("Î´Öª±êÖ¾")
+#define T_UnknownFlag       TEXT("æœªçŸ¥æ ‡å¿—")
 
 // Display for unknown process
-#define T_UnknownProcess    TEXT("Î´Öª½ø³Ì")
+#define T_UnknownProcess    TEXT("æœªçŸ¥è¿›ç¨‹")
 
 // Display for unknown value
-#define T_Unknown           TEXT("Î´Öª")
+#define T_Unknown           TEXT("æœªçŸ¥")
 
 // Empty string
 #define T_EmptyString       TEXT("")
@@ -182,7 +182,7 @@ typedef struct _LVCOLUMNS_DATA {
 #define INIT_ERROR_NOSPLITTERWND    13
 #define INIT_ERROR_UNSPECIFIED      14
 
-#define T_WOBJINIT_NOCRT TEXT("ÎŞ·¨³õÊ¼»¯ CRT£¬ÖĞÖ¹")
+#define T_WOBJINIT_NOCRT TEXT("æ— æ³•åˆå§‹åŒ– CRTï¼Œä¸­æ­¢")
 
 #define ErrShadowWin32kNotFound             1
 #define ErrShadowMemAllocFail               2
