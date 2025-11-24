@@ -64,7 +64,7 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 检测内核对象挂钩（通过结构体转储）<sup>1</sup>  
 	- 按名称和/或类型搜索对象  
 
-- **System information viewer**  
+- **系统信息查看器**  
 	- Boot state and type  
 	- Code Integrity options  
 	- Mitigation flags  
