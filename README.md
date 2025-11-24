@@ -196,23 +196,23 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 3. Wine/Wine-Staging 不支持 Windows 内部功能。  
 4. 某些命名管道需要管理员权限。  
 
-### Driver support
+### 驱动程序支持
 
-WinObjEx64 supports two types of driver helpers:  
+WinObjEx64 支持两种类型的辅助驱动程序：  
 
-1. **Helper for read-only access to kernel memory**:  
-   - Default version uses the **Kernel Local Debugging Driver (KLDBGDRV)** from WinDbg.  
-   - Requires:  
-     - Windows booted in debug mode (`bcdedit -debug on`)  
-     - WinObjEx64 running with administrator privileges  
-   - **Custom helper driver versions** do **not** require Windows debug mode.  
-   - Multiple third-party drivers can be used as helpers, though only the **WinDbg-type** driver is included by default.  
+1. **用于对内核内存进行只读访问的辅助驱动程序**:  
+   - 默认版本使用来自 WinDbg 的 **内核本地调试驱动程序 (KLDBGDRV)**。  
+   - 要求:  
+     - Windows 以调试模式启动（`bcdedit -debug on`）  
+     - 以管理员权限运行 WinObjEx64  
+   - **自定义辅助驱动程序版本** **不需要** Windows 调试模式。  
+   - 虽然可以使用多个第三方驱动程序作为辅助驱动程序，但默认情况下只包含 **WinDbg 类型**驱动程序。  
 
-2. **Helper to access object handles**:  
-   - WinObjEx64 (any variant) **supports** Process Explorer driver v1.5.2 for opening processes/threads.  
-   - Enable by running **both** Process Explorer and WinObjEx64 with administrator privileges.  
+2. **用于访问对象句柄的辅助驱动程序**:  
+   - WinObjEx64（任何变体）**支持** Process Explorer 驱动程序 v1.5.2，用于打开进程/线程。  
+   - 启用方法是：以管理员权限运行 Process Explorer 和 WinObjEx64。  
 
-**Note**: All driver helpers require WinObjEx64 to run with administrative privileges.  
+**备注**: 所有辅助驱动程序都需要 WinObjEx64 以管理员权限运行。  
 
 </details>
 
