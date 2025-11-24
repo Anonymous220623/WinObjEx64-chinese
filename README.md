@@ -65,10 +65,10 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 按名称和/或类型搜索对象  
 
 - **系统信息查看器**  
-	- Boot state and type  
-	- Code Integrity options  
-	- Mitigation flags  
-	- Windows version and build  
+	- 引导/启动状态和类型  
+	- 代码完整性选项  
+	- 缓解标志 
+	- Windows 版本和构建信息 
 
 - **Loaded drivers list viewer**  
 	- Dump selected driver<sup>1</sup>  
