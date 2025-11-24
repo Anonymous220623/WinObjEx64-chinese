@@ -70,35 +70,35 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 缓解标志 
 	- Windows 版本和构建信息 
 
-- **Loaded drivers list viewer**  
-	- Dump selected driver<sup>1</sup>  
-	- Export driver list to CSV file  
-	- Jump to driver file location  
-	- Detect Kernel Shim Engine "shimmed" drivers<sup>1</sup>  
-	- View driver file properties  
+- **已加载驱动程序列表查看器**  
+	- 转储选定的驱动程序<sup>1</sup>  
+	- 将驱动程序列表导出到 CSV 文件  
+	- 跳转到驱动程序文件位置  
+	- 检测内核填充码(shim)引擎填充码驱动程序<sup>1</sup>  
+	- 查看驱动程序文件属性  
 
-- **Mailslots/Named pipes viewer**  
-	- List all registered mailslots/named pipes  
-	- Edit named pipes security information<sup>4</sup>  
-	- Object statistics  
+- **邮件槽/命名管道查看器**  
+	- 列出所有已登记的邮箱槽/命名管道  
+	- 编辑命名管道安全信息<sup>4</sup>  
+	- 对象统计  
 
-- **Hierarchical process tree viewer**<sup>2</sup>  
-	- Show process ID, user name, `EPROCESS` addresses  
-	- Highlight processes by type (similar to Process Explorer)  
-	- Show thread list for selected process  
-	- Show `ETHREAD` addresses  
-	- **Common properties for Process/Thread objects**:  
-		- Basic properties (as other object types)  
-		- Start time  
-		- Process type  
-		- Image file name  
-		- Command line  
-		- Current directory  
-		- Applied mitigations  
-		- Protection  
-		- "Critical Process" flag state  
-		- Security edit  
-	- Jump to process file location  
+- **层级进程树查看器**<sup>2</sup>  
+	- 显示进程 ID、用户名、`EPROCESS` 地址  
+	- 按类型突出显示进程（类似于 Sysinternals<sup>TM</sup> Process Explorer）  
+	- 显示所选进程的线程列表  
+	- 显示 `ETHREAD` 地址  
+	- **进程/线程对象的通用属性**:  
+		- 基本属性（与其他对象类型一致）  
+		- 开始时间  
+		- 进程类型  
+		- 映像文件名  
+		- 命令行  
+		- 当前工作目录  
+		- 应用缓解措施  
+		- 保护  
+		- “关键进程”标志状态  
+		- 安全编辑  
+	- 跳转到进程文件位置  
 	- **Process/Thread token information**:  
 		- User name  
 		- User SID  
@@ -230,8 +230,8 @@ WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsof
 * 对于 v140 及以上版本，请设置目标平台版本（项目->属性->常规）：
   * 如果是 v140，选择 8.1;
   * 如果是 v141 及以上，选择 10;
-* Minimum required Windows SDK version: 8.1
-* Recommended Windows SDK version: 10.0.19041 and above
+* 最低要求的 Windows SDK 版本：8.1
+* 推荐的 Windows SDK 版本：10.0.19041 及以上
  
  
 # 更新说明
