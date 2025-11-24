@@ -99,19 +99,19 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 		- “关键进程”标志状态  
 		- 安全编辑  
 	- 跳转到进程文件位置  
-	- **Process/Thread token information**:  
-		- User name  
-		- User SID  
-		- AppContainer SID  
-		- Session  
-		- UIAccess  
-		- Elevation state  
-		- Integrity level  
-		- Privileges and groups  
-	- **Additional token properties**:  
-		- Basic properties (as other object types)  
-		- Security attributes list  
-		- Security edit  
+	- **进程/线程令牌信息**:  
+		- 用户名  
+		- 用户 SID  
+		- 应用沙箱 SID  
+		- 会话  
+		- UI 访问  
+		- 提升（Elevation）状态  
+		- 完整性级别  
+		- 特权和组  
+	- **附加令牌属性**:  
+		- 基本属性（与其他对象类型一致）  
+		- 安全属性列表  
+		- 安全编辑  
 
 - **Software Licensing Cache viewer**  
 	- List registered licenses  
