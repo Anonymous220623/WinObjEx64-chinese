@@ -1,0 +1,264 @@
+v2.1.0
+win11 25H2 compatibility improvements
+fixed incorrect object quota information dump
+more descriptions for object types
+internal rearrangement
+
+v2.0.9
+internal rearrangement
+updated RTLs (ntos, ntsup, treelist)
+
+v2.0.8
+fixed various spelling errors throughout the codebase and documentation
+plugins have been upgraded to the new interface version, improving compatibility and extensibility
+fixed memory leaks in several plugins and addressed application-wide memory leaks
+performed internal refactoring for object management, which should theoretically improve performance
+optimized the process tree view, resulting in better performance for the process list dialog, especially with large process sets
+improved Authenticode hash calculations, adding better padding logic and enhanced error handling
+updated the object search dialog logic for better handling of large/big search queries
+updated the MSVC compiler versions database for more accurate build/version reporting
+updated RTLs (ntos, ntsup, ntldr, tabctrl, symparser) to their latest versions for improved stability and feature support
+support Vista again (limited set of features), as per feature request #44
+
+v2.0.7
+win11 24h2 compatibility improvements
+
+v2.0.6
+win11 24h2/25h2 compatibility improvements
+RTLs updated
+
+v2.0.5
+added Pnp manager callbacks
+win11 22h2/23h2/24h2 compatibility improvements
+
+v2.0.4
+win11 23h2 compatibility
+win11+ 24h2 compatibility improvements
+fixed tooltip flickering for drivers list
+fixed log UI highlight glitch
+fixed Authenticode hash missing pad bytes (in some cases)
+driver list tooltip now includes information if the given driver is registered as filter (admin priv. required)
+
+v2.0.3
+recent win11 compatibility improvements
+win11 24h2 preliminary support
+
+v2.0.2
+recent win10/win11 compatibility improvements
+display more details about shimmed drivers
+
+v2.0.1
+recent win10/win11 compatibility improvements
+token properties dialog changes
+added and updated some object type descriptions (from Windows Internals 7ed book)
+
+v2.0.0
+added entirely new handling of object names to support embedded nulls
+added Pico providers, Nmi, SiloMonitor and Errata manager callbacks
+added CmControlVector viewer
+added Copy Name/Copy Name (Binary) commands to the main window popup menus
+added program statistics (see Help->Statistics)
+added legend window description for process list
+added ability to fix image sections for dumped drivers
+added RegistryTransaction object view and access rights
+moved "Globals" from about box to the View->System Information and rearranged its output
+drivers dump operation can now be cancelled
+fixed display of PUNICODE_STRING dump
+fixed ALPC Port type objects sometimes unable to open while they can be opened
+plugin SDK updated to accommodate new named objects handling 
+imagescope plugin updated to accommodate plugin SDK changes
+elevation required features in "extras" will now request elevation instead of just being disabled
+help file updated with drivers and symbols usage
+internal rearrangement and minor UI changes
+
+v1.9.3
+updated SeCiCallbacks search for newest Windows versions
+added Windows Server 2022 support
+fixed win32k ApiSet resolving for Win10 21H2
+fixed ObCallbacks enumeration issues
+support for various kernel driver helpers
+ported to msvc 2022 (with backward compatibility to 2019)
+bugfixes
+RTLs updated
+
+v1.9.2
+more Win10/11 21h2 compatibility changes
+added FLT_FILTER, FLT_OBJECT structured dump
+added Authenticode hash calculation for loaded drivers (extras->Drivers, use popup menu on driver entry)
+added coalescing callbacks to callbacks list
+various minor UI changes
+fixed misbehavior with recent Wine staging 6.x
+internal rearrangement
+RTLs updated
+
+v1.9.1
+21h2 compatibility improvements
+RTLs updated
+
+v1.9.0
+added Section object structured dump
+added ALPC port connections list (similar to !alpc /lpc windbg command)
+added MmUnloadedDrivers list
+added ExCreateCallback list to the callbacks list (PR #26)
+updated ApiSet plugin now supports in-place search filter
+internal rearrangement
+
+v1.8.8
+internal rearrangement
+view security for alpc ports (most of them)
+security descriptor view dialog (object sid, dacl & sacl)
+fixed SCM services list query
+fixed "jump to file may fail under certain conditions" bug
+various minor UI changes
+21h1 compatibility improvements
+
+v1.8.7
+20h1/20h2/21h1 compatibility improvements
+added recognizing of shimmed drivers for drivers list (win10+)
+show process trust label for sections if it present
+plugins system extended and upgraded to support context plugins
+added imagescope plugin for section object types backed by imagefile
+added plugins viewer
+various minor changes
+treelist: fixed tooltips flickering on Windows 7
+turned off Spectre nonsense
+RTLs updated
+
+v1.8.6
+reimplemented directory object dump to output more data
+added callbacks registered with ExRegisterExtension
+fixed for pipes (PR #17)
+internal rearrangement
+fixed high CPU usage for splitter drag (report/fix by RamMerlabs) 
+fixed security dialog regression (reported by RamMerlabs) 
+
+v1.8.5
+fixed object cookie
+added error log
+20h1/20h2 compatibility improvements
+
+v1.8.4
+support of additional helper driver
+fixed Windows 7 regressions
+
+v1.8.3
+internal rearrangement
+ported to msvc 2019 (with backward compatibility to 2017)
+fixed current directory value for elevated/system re-launch (reported by RamMerlabs)
+
+v1.8.2
+added Token object properties
+added PsAltSystemCallHandlers to callbacks dialog
+fixed High DPI issues
+fixed Pipe security dialog not shown where available
+fixed multiple Wine/Wine Staging misbehavior
+corrected typo in DebugObject description
+more 20H1 support changes
+various minor changes
+
+v1.8.1
+19H2 support
+Preliminary 20H1 support
+
+v1.8.0
+improved run as localsystem feature
+added plugin subsystem
+added example plugin
+added Sonar plugin - NDIS protocols viewer
+added ApiSetView plugin - ApiSetSchema viewer (supported v2, v4, v6)
+
+v1.7.4
+added software licensing cache view (extras)
+resolve apisets while viewing shadow table in Windows 10 20H1 >= 18890 builds
+fixed displaying sid user/domain information for private namespaces
+added refresh (f5) for private namespace dialog
+
+v1.7.3
+threads list in processes dialog
+view file properties for KisServiceTable/W32pServiceTable dialogs
+process/thread/token object properties dialogs
+bugfixes
+
+v1.7.2
+symbolic link object dump
+internal fixes after profiling
+support for 19H1 SeCiCallbacks scan
+added and updated more object type descriptions
+
+v1.7.1
+SeCiCallbacks/g_CiCallbacks, DbgkLmdCallbacks added to the callbacks viewer
+Session object view and access rights, merged pull request #8 #9
+fixed regression added in 1.7.0
+treelist updated
+
+v1.7.0
+code can now be compiled as C++
+added W32pServiceTable view
+added process list dialog (extras)
+added Callback object type callbacks list (Properties->Object)
+added callbacks viewer for certain callback types (registry, ps, ob, kebugcheck, se, dbg, po, io etc)
+reimplemented "type" object type view (added missing fields from w10+)
+reimplemented service tables extraction code
+
+v1.6.0
+ported to msvc 2017 (with backward compatibility to 2015)
+reimplemented private namespaces lookup
+object directory dump reflects Win10 changes
+added alpc port dump and additional dialog
+treelist control updated
+private namespaces dialog updated
+usershareddata dialog updated
+internal rearrangement
+merged pull request #7, fixed Job object process list display
+multiple Wine Staging fixes
+RTLs updated 
+
+v1.5.5
+tweaked PTL display
+
+v1.5.4
+added display of Process Trust Label for Directory object type
+
+v1.5.3
+OpenWindowStation fix
+
+v1.5.2
+internal rearrangement
+
+v1.5.1
+bugfixes
+
+v1.5.0
+added Partition, DxgkCurrentDxgProcessObject objects description
+added mailslots viewer dialog
+added file properties for drivers (menu -> extras -> Drivers)
+added FltConnectionPort object dump
+switched to hde instead of ldasm
+fixed Wine behavior along with some bugs
+RTLs updated, switched to VS2015 U3
+note: Windows 10 RS2 (15063), RS1 (14393) supported as well as TH1(10240)/TH2(10586), RS3 supported (16288+ build)
+
+v1.4.0
+drivers list and dump (menu -> extras)
+kiservicetable dump for all supported Windows versions
+some code revision and corrections
+
+v1.3.0
+official support for Windows 10
+private namespaces (menu -> extras)
+
+v1.2.0
+added KUSER_SHARED_DATA dump (menu -> extras)
+code revision and corrections
+ported to msvc 2015
+
+v1.1.0
+added popup menu for Process page 
+added file properties dialog for Process page 
+added descriptions for more object types 
+added named pipes dialog (menu -> extras) 
+added information for IoCompletion object type, including structured object body dump2 
+some code revision and corrections 
+
+v1.0.0 (Feb 23, 2015)
+initial release
