@@ -2,7 +2,7 @@
 
 > [!WARNING]
 >
-> 项目未开始施工
+> 项目正在施工
 
 <img width="786" height="593" alt="图片" src="https://github.com/user-attachments/assets/991369d1-513e-4490-82ad-7cdb5a1b30a8" />
 
@@ -160,7 +160,7 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 通用对象属性  
 
 - **KiServiceTable 查看器**<sup>1</sup>  
-	- 转储由 `ntoskrnl.exe` 管理的 `KiServiceTable` (SSDT)  
+	- 转储由 `ntoskrnl` 管理的 `KiServiceTable` (SSDT)  
 	- 跳转至服务入口模块  
 	- 导出为 CSV 文件  
 
@@ -171,48 +171,48 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 跳转至服务入口模块  
 	- 导出为 CSV 文件  
 
-- **CmControlVector viewer**  
-	- Dump `Ntoskrnl` `CmControlVector` array  
-	- Export kernel memory data to file<sup>1</sup>  
-	- Export to CSV file  
+- **CmControlVector 查看器**  
+	- 转储 `ntoskrnl` 中的 `CmControlVector` 数组  
+	- 将内核内存数据导出到文件<sup>1</sup>  
+	- 导出为 CSV 文件  
 
-- **Clipboard integration**: Copy object addresses/names to clipboard  
+- **剪贴板集成**: 将对象地址/名称复制到剪贴板  
 
-- **Wine/Wine-Staging support**<sup>3</sup>  
+- **Wine/Wine-Staging 支持**<sup>3</sup>  
 
-- **Plugins subsystem**  
-	- **Included plugins**:  
-		- **ApiSetView**: Windows ApiSetSchema viewer (supports loading schema from file)  
-		- **Example plugin**: Developer template  
-		- **Sonar**: NDIS protocols viewer (dumps protocol details)  
-		- **ImageScope**: Enhanced `Section`-type object details (via context menu)  
+- **扩展子系统**  
+	- **内置扩展**:  
+		- **API 集查看器**: Windows API 集架构（`ApiSetSchema.dll`）查看器（支持从文件加载架构）  
+		- **示例扩展**: 开发者模板扩展  
+		- **Sonar**: NDIS 协议查看器（导出协议详情）  
+		- **ImageScope**: 增强的“节”类型对象详细信息（通过上下文菜单）  
 
-- **Documentation**  
-	- Windows Callbacks  
-	- Plugins subsystem  
+- **文档**  
+	- Windows 回调  
+	- 扩展子系统  
 
-1. Requires driver support (see "Driver Support" section).  
-2. Administrator privileges may be required.  
-3. Windows internals features unavailable on Wine/Wine-Staging.  
-4. Administrator privileges required for some named pipes.  
+1. 需要驱动程序支持（请参阅“驱动程序支持”部分）。  
+2. 可能需要管理员权限。  
+3. Wine/Wine-Staging 不支持 Windows 内部功能。  
+4. 某些命名管道需要管理员权限。  
 
-### Driver support
+### 驱动程序支持
 
-WinObjEx64 supports two types of driver helpers:  
+WinObjEx64 支持两种类型的辅助驱动程序：  
 
-1. **Helper for read-only access to kernel memory**:  
-   - Default version uses the **Kernel Local Debugging Driver (KLDBGDRV)** from WinDbg.  
-   - Requires:  
-     - Windows booted in debug mode (`bcdedit -debug on`)  
-     - WinObjEx64 running with administrator privileges  
-   - **Custom helper driver versions** do **not** require Windows debug mode.  
-   - Multiple third-party drivers can be used as helpers, though only the **WinDbg-type** driver is included by default.  
+1. **用于对内核内存进行只读访问的辅助驱动程序**:  
+   - 默认版本使用来自 WinDbg 的 **内核本地调试驱动程序 (KLDBGDRV)**。  
+   - 要求:  
+     - Windows 以调试模式启动（`bcdedit -debug on`）  
+     - 以管理员权限运行 WinObjEx64  
+   - 自定义辅助驱动程序版本**不需要** Windows 调试模式。  
+   - 虽然可以使用多个第三方驱动程序作为辅助驱动程序，但默认情况下只包含 **WinDbg 类型**驱动程序。  
 
-2. **Helper to access object handles**:  
-   - WinObjEx64 (any variant) **supports** Process Explorer driver v1.5.2 for opening processes/threads.  
-   - Enable by running **both** Process Explorer and WinObjEx64 with administrator privileges.  
+2. **用于访问对象句柄的辅助驱动程序**:  
+   - WinObjEx64（任何变体）**支持** Process Explorer 驱动程序 v1.5.2，用于打开进程/线程。  
+   - 启用方法是：以管理员权限运行 Process Explorer 和 WinObjEx64。  
 
-**Note**: All driver helpers require WinObjEx64 to run with administrative privileges.  
+**备注**: 所有辅助驱动程序都需要 WinObjEx64 以管理员权限运行。  
 
 </details>
 
@@ -236,9 +236,9 @@ WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsof
  
 # 更新说明
 
-[v2.0.0 更新说明](https://github.com/hfiref0x/WinObjEx64/blob/master/Docs/WHATSNEW_200.md)
+[v2.0.0 更新说明](https://github.com/Anonymous220623/WinObjEx64-chinese/blob/master/Docs/WHATSNEW_200.md)
 
-[完整变更日志](https://github.com/hfiref0x/WinObjEx64/blob/master/Source/CHANGELOG.txt)
+[完整变更日志](https://github.com/Anonymous220623/WinObjEx64-chinese/blob/master/Source/CHANGELOG.txt)
 
 
 # 支持本项目
@@ -247,6 +247,6 @@ WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsof
 
 # 作者
 
-(c) 2015 – 2025 WinObjEx64 项目, hfiref0x
+(c) 2015 – 2025 WinObjEx64 项目, [hfiref0x](https://github.com/hfiref0x)
 
 原项目 WinObjEx (c) 2003 – 2005 Four-F
