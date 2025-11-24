@@ -48,7 +48,7 @@
 // Plugins prior to 1.87 had "WinObjEx64 Plugin" description field.
 // Make a new one to distinguish them because changes in plugin system are too complex.
 //
-#define WINOBJEX_PLUGIN_DESCRIPTION TEXT("WinObjEx64 ²å¼þ V1.2")
+#define WINOBJEX_PLUGIN_DESCRIPTION TEXT("WinObjEx64 À©Õ¹ V1.2")
 
 typedef BOOL(CALLBACK* pfnReadSystemMemoryEx)(
     _In_ ULONG_PTR Address,
