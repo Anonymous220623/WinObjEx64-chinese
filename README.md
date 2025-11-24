@@ -216,7 +216,7 @@ WinObjEx64 supports two types of driver helpers:
 
 </details>
 
-# Build 
+# 构建 
 
 WinObjEx64 comes with full source code. To build from source, you need Microsoft Visual Studio 2015 or later.
 
