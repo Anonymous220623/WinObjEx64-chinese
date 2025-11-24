@@ -160,7 +160,7 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 通用对象属性  
 
 - **KiServiceTable 查看器**<sup>1</sup>  
-	- 转储由 `ntoskrnl.exe` 管理的 `KiServiceTable` (SSDT)  
+	- 转储由 `ntoskrnl` 管理的 `KiServiceTable` (SSDT)  
 	- 跳转至服务入口模块  
 	- 导出为 CSV 文件  
 
@@ -171,30 +171,30 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 	- 跳转至服务入口模块  
 	- 导出为 CSV 文件  
 
-- **CmControlVector viewer**  
-	- Dump `Ntoskrnl` `CmControlVector` array  
-	- Export kernel memory data to file<sup>1</sup>  
-	- Export to CSV file  
+- **CmControlVector 查看器**  
+	- 转储 `ntoskrnl` 中的 `CmControlVector` 数组  
+	- 将内核内存数据导出到文件<sup>1</sup>  
+	- 导出为 CSV 文件  
 
-- **Clipboard integration**: Copy object addresses/names to clipboard  
+- **剪贴板集成**: 将对象地址/名称复制到剪贴板  
 
-- **Wine/Wine-Staging support**<sup>3</sup>  
+- **Wine/Wine-Staging 支持**<sup>3</sup>  
 
-- **Plugins subsystem**  
-	- **Included plugins**:  
-		- **ApiSetView**: Windows ApiSetSchema viewer (supports loading schema from file)  
-		- **Example plugin**: Developer template  
-		- **Sonar**: NDIS protocols viewer (dumps protocol details)  
-		- **ImageScope**: Enhanced `Section`-type object details (via context menu)  
+- **扩展子系统**  
+	- **内置扩展**:  
+		- **API 集查看器**: Windows API 集架构（`ApiSetSchema.dll`）查看器（支持从文件加载架构）  
+		- **示例扩展**: 开发者模板扩展  
+		- **Sonar**: NDIS 协议查看器（导出协议详情）  
+		- **ImageScope**: 增强的“节”类型对象详细信息（通过上下文菜单）  
 
-- **Documentation**  
-	- Windows Callbacks  
-	- Plugins subsystem  
+- **文档**  
+	- Windows 回调  
+	- 扩展子系统  
 
-1. Requires driver support (see "Driver Support" section).  
-2. Administrator privileges may be required.  
-3. Windows internals features unavailable on Wine/Wine-Staging.  
-4. Administrator privileges required for some named pipes.  
+1. 需要驱动程序支持（请参阅“驱动程序支持”部分）。  
+2. 可能需要管理员权限。  
+3. Wine/Wine-Staging 不支持 Windows 内部功能。  
+4. 某些命名管道需要管理员权限。  
 
 ### Driver support
 
