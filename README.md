@@ -113,16 +113,16 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 		- 安全属性列表  
 		- 安全编辑  
 
-- **Software Licensing Cache viewer**  
-	- List registered licenses  
-	- Display license data  
-	- Dump `SL_DATA_BINARY` license data to file  
+- **软件许可缓存查看器**  
+	- 列出已注册的许可证  
+	- 显示许可证数据  
+	- 将 `SL_DATA_BINARY` 许可证数据转储到文件  
 
-- **User Shared Data viewer**  
-	- Structured dump of key `KUSER_SHARED_DATA` sections  
+- **用户共享数据查看器**  
+	- 关键 `KUSER_SHARED_DATA` 部分的结构化转储  
 
-- **System callbacks viewer**<sup>1</sup>  
-	- Display callback addresses, modules, and details for:  
+- **系统回调查看器**<sup>1</sup>  
+	- 显示以下各项的回调地址、模块和详细信息:  
 		- `PsSetCreateProcessNotifyRoutine`  
 		- `PsSetCreateProcessNotifyRoutineEx`  
 		- `PsSetCreateProcessNotifyRoutineEx2`  
@@ -154,22 +154,22 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 		- `PsRegisterSiloMonitor`  
 		- `EmProviderRegister`  
 
-- **Windows Object Manager private namespace viewer**<sup>1</sup>  
-	- Namespace entry information  
-	- Boundary descriptor details  
-	- Common object properties  
+- **Windows 对象管理器私有命名空间查看器**<sup>1</sup>  
+	- 命名空间条目信息  
+	- 边界描述符详情  
+	- 通用对象属性  
 
-- **KiServiceTable viewer**<sup>1</sup>  
-	- Dump `Ntoskrnl`-managed `KiServiceTable` (SSDT)  
-	- Jump to service entry module  
-	- Export to CSV file  
+- **KiServiceTable 查看器**<sup>1</sup>  
+	- 转储由 `ntoskrnl.exe` 管理的 `KiServiceTable` (SSDT)  
+	- 跳转至服务入口模块  
+	- 导出为 CSV 文件  
 
-- **W32pServiceTable viewer**<sup>1</sup>  
-	- Dump `Win32k`-managed `W32pServiceTable` (Shadow SSDT)  
-	- Win32k import forwarding support  
-	- Win32k ApiSets resolving  
-	- Jump to service entry module  
-	- Export to CSV file  
+- **W32pServiceTable 查看器**<sup>1</sup>  
+	- 转储由 `win32k*.sys` 管理的 `W32pServiceTable`（影子 SSDT）  
+	- Win32k 导入转发支持  
+	- Win32k API 集解析  
+	- 跳转至服务入口模块  
+	- 导出为 CSV 文件  
 
 - **CmControlVector viewer**  
 	- Dump `Ntoskrnl` `CmControlVector` array  
