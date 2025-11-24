@@ -236,9 +236,9 @@ WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsof
  
 # 更新说明
 
-[v2.0.0 更新说明](https://github.com/hfiref0x/WinObjEx64/blob/master/Docs/WHATSNEW_200.md)
+[v2.0.0 更新说明](https://github.com/Anonymous220623/WinObjEx64-chinese/blob/master/Docs/WHATSNEW_200.md)
 
-[完整变更日志](https://github.com/hfiref0x/WinObjEx64/blob/master/Source/CHANGELOG.txt)
+[完整变更日志](https://github.com/Anonymous220623/WinObjEx64-chinese/blob/master/Source/CHANGELOG.txt)
 
 
 # 支持本项目
