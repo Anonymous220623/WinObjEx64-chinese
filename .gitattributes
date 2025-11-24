@@ -1,5 +1,5 @@
 * text=auto
-*.rc text
+*.rc binary
 *.c working-tree-encoding=GBK
 *.cpp working-tree-encoding=GBK
 *.cxx working-tree-encoding=GBK
