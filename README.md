@@ -220,16 +220,16 @@ WinObjEx64 supports two types of driver helpers:
 
 WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsoft Visual Studio 2015 或更高版本。
 
-## Instructions
+## 说明
 
-* Select Platform ToolSet first for the project in the solution you want to build (Project->Properties->General): 
-  * v140 for Visual Studio 2015; 
-  * v141 for Visual Studio 2017;
-  * v142 for Visual Studio 2019;
-  * v143 for Visual Studio 2022.
-* For v140 and above, set Target Platform Version (Project->Properties->General):
-  * If v140, select 8.1;
-  * If v141 and above, select 10.
+* 首先在要构建的解决方案中为项目选择平台工具集（项目->属性->常规）：
+  * v140 对应于 Visual Studio 2015; 
+  * v141 对应于 Visual Studio 2017;
+  * v142 对应于 Visual Studio 2019;
+  * v143 对应于 Visual Studio 2022.
+* 对于 v140 及以上版本，请设置目标平台版本（项目->属性->常规）：
+  * 如果是 v140，选择 8.1;
+  * 如果是 v141 及以上，选择 10;
 * Minimum required Windows SDK version: 8.1
 * Recommended Windows SDK version: 10.0.19041 and above
  
