@@ -234,26 +234,25 @@ WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsof
 * Recommended Windows SDK version: 10.0.19041 and above
  
  
-# What is new
+# 更新说明
 
-[Whats New in 2.0.0](https://github.com/hfiref0x/WinObjEx64/blob/master/Docs/WHATSNEW_200.md)
+[v2.0.0 更新说明](https://github.com/hfiref0x/WinObjEx64/blob/master/Docs/WHATSNEW_200.md)
 
-[Complete changelog](https://github.com/hfiref0x/WinObjEx64/blob/master/Source/CHANGELOG.txt)
+[完整变更日志](https://github.com/hfiref0x/WinObjEx64/blob/master/Source/CHANGELOG.txt)
 
 
 # 支持本项目
 
 若您喜欢使用本软件并希望协助开发者进行维护与改进，请考虑通过捐赠支持我们。您的贡献将推动开发进程、保障更新发布，并维持项目持续运行。
 
-### Cryptocurrency Donations:
+### 加密货币捐赠:
 
-BTC (Bitcoin): bc1qzkvtpa0053cagf35dqmpvv9k8hyrwl7krwdz84q39mcpy68y6tmqsju0g4
+比特币: bc1qzkvtpa0053cagf35dqmpvv9k8hyrwl7krwdz84q39mcpy68y6tmqsju0g4
 
-This is purely optional, thank you!~
+这完全是可选的，感谢捐赠者的支持！~
 
-# Authors
+# 作者
 
+(c) 2015 – 2025 WinObjEx64 项目, hfiref0x
 
-(c) 2015 – 2025 WinObjEx64 Project, hfiref0x
-
-Original WinObjEx (c) 2003 – 2005 Four-F
+原项目 WinObjEx (c) 2003 – 2005 Four-F
