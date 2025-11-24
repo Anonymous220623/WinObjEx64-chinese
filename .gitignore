@@ -1,8 +1,0 @@
-Source/.vs
-Source/.vs/*
-Source/WinObjEx64/output
-Source/WinObjEx64/output/*
-source/plugins/apisetview/output
-source/plugins/apisetview/output/*
-source/winobjex64/plugins
-*.aps
