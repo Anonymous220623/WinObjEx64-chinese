@@ -142,7 +142,7 @@ VOID extrasProcessElevationRequiredDialogs(
 
         RtlStringCchPrintfSecure(szText,
             RTL_NUMBER_OF(szText),
-            TEXT("ÎŞ·¨Á¬½Óµ½Çı¶¯³ÌĞò£¬¸Ã¹¦ÄÜ²»¿ÉÓÃ¡£\nÇı¶¯³ÌĞò¼ÓÔØ×´Ì¬: 0x%lX\nÇı¶¯³ÌĞò´ò¿ª×´Ì¬: 0x%lX"),
+            TEXT("æ— æ³•è¿æ¥åˆ°é©±åŠ¨ç¨‹åºï¼Œè¯¥åŠŸèƒ½ä¸å¯ç”¨ã€‚\né©±åŠ¨ç¨‹åºåŠ è½½çŠ¶æ€: 0x%lX\né©±åŠ¨ç¨‹åºæ‰“å¼€çŠ¶æ€: 0x%lX"),
             g_kdctx.DriverContext.LoadStatus,
             g_kdctx.DriverContext.OpenStatus);
 

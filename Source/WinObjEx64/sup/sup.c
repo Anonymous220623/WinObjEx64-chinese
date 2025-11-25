@@ -411,13 +411,13 @@ BOOL supInitTreeListForDump(
     hdritem.mask = HDI_FORMAT | HDI_TEXT | HDI_WIDTH;
     hdritem.fmt = HDF_LEFT | HDF_BITMAP_ON_RIGHT | HDF_STRING;
     hdritem.cxy = SCALE_DPI_VALUE(220, g_WinObj.CurrentDPI);
-    hdritem.pszText = TEXT("◊÷∂Œ");
+    hdritem.pszText = TEXT("Â≠óÊÆµ");
     TreeList_InsertHeaderItem(TreeList, 0, &hdritem);
     hdritem.cxy = SCALE_DPI_VALUE(130, g_WinObj.CurrentDPI);
-    hdritem.pszText = TEXT("÷µ");
+    hdritem.pszText = TEXT("ÂÄº");
     TreeList_InsertHeaderItem(TreeList, 1, &hdritem);
     hdritem.cxy = SCALE_DPI_VALUE(210, g_WinObj.CurrentDPI);
-    hdritem.pszText = TEXT("∏Ωº”–≈œ¢");
+    hdritem.pszText = TEXT("ÈôÑÂä†‰ø°ÊÅØ");
     TreeList_InsertHeaderItem(TreeList, 2, &hdritem);
 
     return TRUE;
@@ -666,7 +666,7 @@ VOID supShowHelp(
     if (!bHelpFileFound) {
         s = (LPWSTR)supHeapAlloc((MAX_PATH + _strlen(szHelpFile)) * sizeof(WCHAR));
         if (s) {
-            _strcpy(s, TEXT("∞Ô÷˙Œƒº˛Œ¥’“µΩ - "));
+            _strcpy(s, TEXT("Â∏ÆÂä©Êñá‰ª∂Êú™ÊâæÂà∞ - "));
             _strcat(s, szHelpFile);
             MessageBox(ParentWindow, s, NULL, MB_ICONINFORMATION);
             supHeapFree(s);
