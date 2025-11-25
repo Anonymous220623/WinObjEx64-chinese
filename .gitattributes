@@ -1,5 +1,5 @@
 *.c text working-tree-encoding=GBK
 Source/WinObjEx64/ui.h text working-tree-encoding=GBK
 Source/WinObjEx64/resource.h text working-tree-encoding=UTF-16LE-BOM
-Source/WinObjEx64/resource.rc text working-tree-encoding=UTF-16LE-BOM
+Source/WinObjEx64/resource.rc binary
 Source/WinObjEx64/sup/sup.c text working-tree-encoding=GBK
