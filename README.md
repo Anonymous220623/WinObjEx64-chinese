@@ -247,6 +247,8 @@ WinObjEx64 附带完整的源代码。要从源代码构建，您需要 Microsof
 
 # 作者
 
+备注：本软件版权归原作者所有；本人只负责翻译，不拥有该软件版权。
+
 (c) 2015 – 2025 WinObjEx64 项目, [hfiref0x](https://github.com/hfiref0x)
 
 原项目 WinObjEx (c) 2003 – 2005 Four-F
