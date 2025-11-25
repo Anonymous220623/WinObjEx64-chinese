@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************* 
 *
 *  (C) COPYRIGHT AUTHORS, 2015 - 2025
 *
@@ -537,13 +537,13 @@ VOID FindDlgHandleSearchComplete(
     WCHAR searchString[MAX_PATH + 1];
 
     // Return to search mode
-    SetDlgItemText(hwndDlg, ID_SEARCH_FIND, TEXT("≤È’“(&F)"));
+    SetDlgItemText(hwndDlg, ID_SEARCH_FIND, TEXT("Êü•Êâæ(&F)"));
     EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), TRUE);
 
     // Check if search was cancelled
     if (g_FindDlgContext.SearchCancelled) {
         g_FindDlgContext.SearchCancelled = FALSE;
-        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("“—»°œ˚≤È’“"));
+        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Â∑≤ÂèñÊ∂àÊü•Êâæ"));
 
         // Free the result list
         while (flist != NULL) {
@@ -577,7 +577,7 @@ VOID FindDlgHandleSearchComplete(
 
     // Update status
     ultostr(cci, searchString);
-    _strcat(searchString, TEXT(" ∏ˆ∆•≈‰µƒ∂‘œÛ°£"));
+    _strcat(searchString, TEXT(" ‰∏™ÂåπÈÖçÁöÑÂØπË±°„ÄÇ"));
     SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, searchString);
 
     // End batch processing
@@ -610,7 +610,7 @@ VOID FindDlgHandleSearch(
         // Signal cancellation
         if (WaitForSingleObject(g_FindDlgContext.SearchThread, 0) == WAIT_TIMEOUT) {
             g_FindDlgContext.SearchCancelled = TRUE;
-            SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("’˝‘⁄»°œ˚..."));
+            SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Ê≠£Âú®ÂèñÊ∂à..."));
             return;
         }
 
@@ -629,13 +629,13 @@ VOID FindDlgHandleSearch(
 
     // Update status and UI
     ListView_DeleteAllItems(g_FindDlgContext.SearchList);
-    SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("’˝‘⁄≤È’“..."));
+    SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("Ê≠£Âú®Êü•Êâæ..."));
     EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), FALSE);
 
     // Allocate search params
     searchParams = (PFIND_SEARCH_PARAMS)supHeapAlloc(sizeof(FIND_SEARCH_PARAMS));
     if (searchParams == NULL) {
-        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("ƒ⁄¥Ê∑÷≈‰ ß∞‹"));
+        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("ÂÜÖÂ≠òÂàÜÈÖçÂ§±Ë¥•"));
         EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), TRUE);
         return;
     }
@@ -663,7 +663,7 @@ VOID FindDlgHandleSearch(
     g_FindDlgContext.SearchThread = CreateThread(NULL, 0, FindDlgSearchWorkerThread, searchParams, 0, NULL);
     if (!g_FindDlgContext.SearchThread) {
         supHeapFree(searchParams);
-        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("¥¥Ω®À—À˜œﬂ≥Ã ß∞‹°£"));
+        SetDlgItemText(hwndDlg, ID_SEARCH_STATUSBAR, TEXT("ÂàõÂª∫ÊêúÁ¥¢Á∫øÁ®ãÂ§±Ë¥•„ÄÇ"));
         EnableWindow(GetDlgItem(hwndDlg, ID_SEARCH_FIND), TRUE);
     }
 }
@@ -683,8 +683,8 @@ VOID FindDlgOnInit(
     INT iImage = ImageList_GetImageCount(g_ListViewImages) - 1;
     LVCOLUMNS_DATA columnData[] =
     {
-        { L"√˚≥∆", 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
-        { L"¿‡–Õ", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { L"ÂêçÁß∞", 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
+        { L"Á±ªÂûã", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     g_FindDlgContext.DialogWindow = hwndDlg;
