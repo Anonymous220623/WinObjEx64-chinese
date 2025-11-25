@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************* 
 *
 *  (C) COPYRIGHT AUTHORS, 2015 - 2025
 *
@@ -1248,9 +1248,9 @@ VOID guiCreateObjectListColumns()
 {
     LVCOLUMNS_DATA columnData[] =
     {
-        { TEXT("Ãû³Æ"), 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  g_ListViewImages ? ImageList_GetImageCount(g_ListViewImages) - 1 : I_IMAGENONE },
-        { TEXT("ÀàÐÍ"), 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { TEXT("¸½¼ÓÐÅÏ¢"), 170, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { TEXT("åç§°"), 300, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  g_ListViewImages ? ImageList_GetImageCount(g_ListViewImages) - 1 : I_IMAGENONE },
+        { TEXT("ç±»åž‹"), 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { TEXT("é™„åŠ ä¿¡æ¯"), 170, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     supAddLVColumnsFromArray(g_hwndObjectList, columnData, RTL_NUMBER_OF(columnData));
@@ -1468,7 +1468,7 @@ VOID guiInsertRunAsMainMenuEntry(
                         //
                         RtlSecureZeroMemory(szWindowTitle, sizeof(szWindowTitle));
                         _strcpy(szWindowTitle, PROGRAM_NAME);
-                        _strcat(szWindowTitle, TEXT(" (ÒÔ SYSTEM Éí·ÝÔËÐÐ)"));
+                        _strcat(szWindowTitle, TEXT(" (ä»¥ SYSTEM èº«ä»½è¿è¡Œ)"));
                         SetWindowText(g_hwndMain, szWindowTitle);
                     }
                 }
@@ -1549,7 +1549,7 @@ DWORD guiCreateMainWindowAndComponents(
         RtlSecureZeroMemory(szWindowTitle, sizeof(szWindowTitle));
         _strcpy(szWindowTitle, PROGRAM_NAME);
         if (bIsFullAdmin != FALSE) {
-            _strcat(szWindowTitle, TEXT(" (ÒÔ¹ÜÀíÔ±Éí·ÝÔËÐÐ)"));
+            _strcat(szWindowTitle, TEXT(" (ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œ)"));
         }
 
         if (Globals->IsWine != FALSE) {
