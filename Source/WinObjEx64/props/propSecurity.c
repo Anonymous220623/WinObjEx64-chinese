@@ -391,7 +391,7 @@ HRESULT STDMETHODCALLTYPE GetObjectInformation(
 {
     pObjectInfo->dwFlags = This->psiFlags;
     pObjectInfo->hInstance = This->hInstance;
-    pObjectInfo->pszPageTitle = TEXT("Security");
+    pObjectInfo->pszPageTitle = TEXT("安全");
     pObjectInfo->pszObjectName = This->ObjectContext->NtObjectName.Buffer;
     return S_OK;
 }

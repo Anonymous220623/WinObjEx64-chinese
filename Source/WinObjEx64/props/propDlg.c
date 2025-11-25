@@ -620,7 +620,7 @@ INT propCreatePages(
     }
 
     PropPages[nPages++] = propAddPage(
-        TEXT("Basic"),
+        TEXT("常规"),
         BasicPropDialogProc,
         pszTemplate,
         (LPARAM)Context);
@@ -645,7 +645,7 @@ INT propCreatePages(
         case ObjectTypeSymbolicLink:
 
             PropPages[nPages++] = propAddPage(
-                TEXT("Object"),
+                TEXT("对象"),
                 ObjectDumpDialogProc,
                 MAKEINTRESOURCE(IDD_PROP_OBJECTDUMP),
                 (LPARAM)Context);
@@ -661,7 +661,7 @@ INT propCreatePages(
         (Context->ObjectTypeIndex == ObjectTypeThread))
     {
         PropPages[nPages++] = propAddPage(
-            TEXT("Token"),
+            TEXT("令牌"),
             TokenPageDialogProc,
             MAKEINTRESOURCE(IDD_DIALOG_TOKEN),
             (LPARAM)Context);
@@ -692,7 +692,7 @@ INT propCreatePages(
     case ObjectTypeToken:
 
         PropPages[nPages++] = propAddPage(
-            TEXT("Process"),
+            TEXT("进程"),
             ProcessListDialogProc,
             MAKEINTRESOURCE(IDD_PROP_PROCESSLIST),
             (LPARAM)Context);
@@ -705,7 +705,7 @@ INT propCreatePages(
         if (Context->ObjectTypeIndex == ObjectTypeWinstation) {
 
             PropPages[nPages++] = propAddPage(
-                TEXT("Desktops"),
+                TEXT("桌面"),
                 DesktopListDialogProc,
                 MAKEINTRESOURCE(IDD_PROP_DESKTOPS),
                 (LPARAM)Context);
@@ -717,7 +717,7 @@ INT propCreatePages(
         // Add registry page.
         //
         PropPages[nPages++] = propAddPage(
-            TEXT("Registry"),
+            TEXT("注册表"),
             DriverRegistryDialogProc,
             MAKEINTRESOURCE(IDD_PROP_SERVICE),
             (LPARAM)Context);
@@ -736,7 +736,7 @@ INT propCreatePages(
         && IsDriverAssisted)
     {
         PropPages[nPages++] = propAddPage(
-            TEXT("Object"),
+            TEXT("对象"),
             SectionPropertiesDialogProc,
             MAKEINTRESOURCE(IDD_PROP_OBJECTDUMP),
             (LPARAM)Context);
@@ -748,7 +748,7 @@ INT propCreatePages(
     if (Context->ObjectTypeIndex == ObjectTypePort && IsDriverAssisted) {
 
         PropPages[nPages++] = propAddPage(
-            TEXT("Connections"),
+            TEXT("连接"),
             AlpcPortListDialogProc,
             MAKEINTRESOURCE(IDD_PROP_ALPCPORTLIST),
             (LPARAM)Context);
@@ -758,7 +758,7 @@ INT propCreatePages(
     // Type Info Page.
     //
     PropPages[nPages++] = propAddPage(
-        TEXT("Type"),
+        TEXT("类型"),
         TypePropDialogProc,
         MAKEINTRESOURCE(IDD_PROP_TYPE),
         (LPARAM)Context);
@@ -836,13 +836,13 @@ VOID propCreateDialog(
             _strncpy(szCaption, MAX_PATH, typeEntry->Name, _strlen(typeEntry->Name));
         }
         else {
-            _strcpy(szCaption, TEXT("Unknown Type"));
+            _strcpy(szCaption, TEXT("未知类型"));
         }
     }
 
     topLevelOwner = Config->hwndParent;
 
-    _strcat(szCaption, TEXT(" Properties"));
+    _strcat(szCaption, TEXT(" 属性"));
     RtlSecureZeroMemory(&PropHeader, sizeof(PropHeader));
     PropHeader.dwSize = sizeof(PropHeader);
     PropHeader.phpage = PropPages;
