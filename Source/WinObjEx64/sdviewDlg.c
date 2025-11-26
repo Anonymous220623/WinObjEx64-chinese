@@ -809,7 +809,7 @@ VOID SDViewInitControls(
         { L"访问掩码", 120, LVCFMT_CENTER, I_IMAGENONE },
         { L"SID", 120, LVCFMT_LEFT, I_IMAGENONE },
         { L"域 \\ 名称", 200, LVCFMT_LEFT, I_IMAGENONE },
-        { L"UseName", 120, LVCFMT_LEFT, I_IMAGENONE }
+        { L"使用名称", 120, LVCFMT_LEFT, I_IMAGENONE }
     };
 
     struct LVGroups {
