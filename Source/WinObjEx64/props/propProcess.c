@@ -600,10 +600,10 @@ BOOL ProcessInitListView(
 {
     LVCOLUMNS_DATA columnData[] =
     {
-        { L"Process", 160, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  2 },
+        { L"进程", 160, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  2 },
         { L"ID", 60, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"Handle", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"Access", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { L"句柄", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { L"访问", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     pDlgContext->ListView = GetDlgItem(hwndDlg, ID_PROCESSLIST);
