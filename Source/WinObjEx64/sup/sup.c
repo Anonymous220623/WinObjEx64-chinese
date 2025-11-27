@@ -1666,7 +1666,7 @@ BOOL supTreeListAddCopyValueItem(
 
         _strcpy(szItem, TEXT("复制 \""));
         _strcat(szItem, szHeaderText);
-        _strcat(szItem, TEXT("\""));
+        _strcat(szItem, TEXT("\" 列信息"));
         if (InsertMenu(hMenu, uPos, MF_BYCOMMAND, uId, szItem)) {
             return TRUE;
         }
@@ -1717,7 +1717,7 @@ BOOL supListViewAddCopyValueItem(
     if (ListView_GetColumn(hwndLv, lvht.iSubItem, &lvc)) {
         _strcpy(szItem, TEXT("复制 \""));
         _strcat(szItem, szColumn);
-        _strcat(szItem, TEXT("\""));
+        _strcat(szItem, TEXT("\" 列信息"));
         if (InsertMenu(hMenu, uPos, MF_BYCOMMAND, uId, szItem)) {
             *pColumnHit = lvht.iSubItem;
             *pItemHit = lvht.iItem;

@@ -513,12 +513,12 @@ VOID propSetTypeListView(
     supAddListViewColumn(hListRights, 0, 0, 0,
         I_IMAGENONE,
         LVCFMT_LEFT,
-        TEXT("Flag"), 190);
+        TEXT("标志"), 190);
 
     supAddListViewColumn(hListRights, 1, 1, 1,
         I_IMAGENONE,
         LVCFMT_LEFT,
-        TEXT("Value"), 80);
+        TEXT("值"), 80);
 }
 
 /*
