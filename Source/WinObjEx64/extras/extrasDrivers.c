@@ -611,7 +611,7 @@ DWORD DumpDialogWorkerThread(
             (SIZE_T)dumpInfo->DumpSize, FALSE, FALSE, NULL);
 
         RtlStringCchPrintfSecure(szBuffer, RTL_NUMBER_OF(szBuffer),
-            TEXT("Read %llu (%llu Kb), Write %llu (%llu Kb), Requested %lu (%lu Kb)"),
+            TEXT("读取 %llu (%llu Kb), 写入 %llu (%llu Kb), 已请求 %lu (%lu Kb)"),
             (ULONGLONG)dumpInfo->ReadSize,
             (ULONGLONG)(dumpInfo->ReadSize / 1024),
             (ULONGLONG)bytesIO,
@@ -621,10 +621,10 @@ DWORD DumpDialogWorkerThread(
 
     }
     else if (dumpInfo->DumpStatus == STATUS_CANCELLED) {
-        _strcpy(szBuffer, TEXT("Operation cancelled by user"));
+        _strcpy(szBuffer, TEXT("操作已被用户取消"));
     }
     else {
-        _strcpy(szBuffer, TEXT("Error while dumping memory"));
+        _strcpy(szBuffer, TEXT("转储内存时出现错误"));
     }
 
     supStatusBarSetText(
@@ -697,7 +697,7 @@ VOID DrvDumpDriver(
         //
         // Run Save As Dialog.
         //
-        if (!supSaveDialogExecute(Context->hwndDlg, szBuffer, TEXT("All files\0*.*\0\0")))
+        if (!supSaveDialogExecute(Context->hwndDlg, szBuffer, TEXT("所有文件\0*.*\0\0")))
             break;
 
         //
@@ -735,7 +735,7 @@ VOID DrvDumpDriver(
 
         // 1 GB cap.
         if (dumpSize > 0x40000000) {
-            supStatusBarSetText(Context->StatusBar, 1, TEXT("Dump size too large"));
+            supStatusBarSetText(Context->StatusBar, 1, TEXT("转储数据过大"));
             break;
         }
 
