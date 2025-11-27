@@ -261,7 +261,7 @@ VOID DrvHandlePopupMenu(
             for (i = ID_CALC_HASH_MD5; i < ID_CALC_HASH_PAGE_SHA1; i++) {
                 RtlStringCchPrintfSecure(szMenuText,
                     MAX_PATH,
-                    TEXT("复制身份验证码 %ws 哈希值"),
+                    TEXT("复制校验码 %ws 哈希值"),
                     CryptAlgoIdRef[i - ID_CALC_HASH_MD5]);
                 InsertMenu(hMenu, ++uPos, MF_BYCOMMAND, i, szMenuText);
             }
