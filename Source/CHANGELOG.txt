@@ -1,264 +1,264 @@
 v2.1.0
-win11 25H2 compatibility improvements
-fixed incorrect object quota information dump
-more descriptions for object types
-internal rearrangement
+win11 25H2 兼容性改进
+修复了对象配额信息转储错误
+对象类型的更多描述
+内部重组
 
 v2.0.9
-internal rearrangement
-updated RTLs (ntos, ntsup, treelist)
+内部重组
+更新后的 RTL（ntos、ntsup、treelist）
 
 v2.0.8
-fixed various spelling errors throughout the codebase and documentation
-plugins have been upgraded to the new interface version, improving compatibility and extensibility
-fixed memory leaks in several plugins and addressed application-wide memory leaks
-performed internal refactoring for object management, which should theoretically improve performance
-optimized the process tree view, resulting in better performance for the process list dialog, especially with large process sets
-improved Authenticode hash calculations, adding better padding logic and enhanced error handling
-updated the object search dialog logic for better handling of large/big search queries
-updated the MSVC compiler versions database for more accurate build/version reporting
-updated RTLs (ntos, ntsup, ntldr, tabctrl, symparser) to their latest versions for improved stability and feature support
-support Vista again (limited set of features), as per feature request #44
+修复了代码库和文档中的各种拼写错误
+插件已升级到新界面版本，提高了兼容性和可扩展性。
+修复了多个插件中的内存泄漏问题，并解决了应用程序范围内的内存泄漏问题。
+对对象管理进行了内部重构，理论上应该可以提高性能。
+优化了进程树视图，从而提高了进程列表对话框的性能，尤其是在处理大型进程集时。
+改进了 Authenticode 哈希计算，增加了更好的填充逻辑并增强了错误处理。
+更新了对象搜索对话框逻辑，以便更好地处理大型搜索查询。
+更新了 MSVC 编译器版本数据库，以便更准确地报告构建/版本信息。
+已将 RTL（ntos、ntsup、ntldr、tabctrl、symparser）更新至最新版本，以提高稳定性和功能支持。
+根据功能请求 #44，重新支持 Vista（功能有限）。
 
 v2.0.7
-win11 24h2 compatibility improvements
+win11 24h2 兼容性改进
 
 v2.0.6
-win11 24h2/25h2 compatibility improvements
-RTLs updated
+win11 24h2/25h2 兼容性改进
+RTL 已更新
 
 v2.0.5
-added Pnp manager callbacks
-win11 22h2/23h2/24h2 compatibility improvements
+添加了 PnP 管理器回调
+win11 22h2/23h2/24h2 兼容性改进
 
 v2.0.4
-win11 23h2 compatibility
-win11+ 24h2 compatibility improvements
-fixed tooltip flickering for drivers list
-fixed log UI highlight glitch
-fixed Authenticode hash missing pad bytes (in some cases)
-driver list tooltip now includes information if the given driver is registered as filter (admin priv. required)
+win11 23h2 兼容性
+win11 24h2 兼容性改进
+修复了驱动程序列表的工具提示闪烁问题
+修复了日志 UI 高亮显示故障
+修复了 Authenticode 哈希缺少填充字节的问题（在某些情况下）
+驱动程序列表工具提示现在包含有关给定驱动程序是否已注册为过滤器的信息（需要管理员权限）
 
 v2.0.3
-recent win11 compatibility improvements
-win11 24h2 preliminary support
+近期对 Win11 兼容性的改进
+win11 24H2 初步支持
 
 v2.0.2
-recent win10/win11 compatibility improvements
-display more details about shimmed drivers
+近期对 Win10/Win11 兼容性的改进
+显示更多关于垫片驱动器的详细信息
 
 v2.0.1
-recent win10/win11 compatibility improvements
-token properties dialog changes
-added and updated some object type descriptions (from Windows Internals 7ed book)
+近期对 Win10/Win11 兼容性的改进
+令牌属性对话框更改
+新增并更新了一些对象类型描述（摘自《Windows Internals》第 7 版）
 
 v2.0.0
-added entirely new handling of object names to support embedded nulls
-added Pico providers, Nmi, SiloMonitor and Errata manager callbacks
-added CmControlVector viewer
-added Copy Name/Copy Name (Binary) commands to the main window popup menus
-added program statistics (see Help->Statistics)
-added legend window description for process list
-added ability to fix image sections for dumped drivers
-added RegistryTransaction object view and access rights
-moved "Globals" from about box to the View->System Information and rearranged its output
-drivers dump operation can now be cancelled
-fixed display of PUNICODE_STRING dump
-fixed ALPC Port type objects sometimes unable to open while they can be opened
-plugin SDK updated to accommodate new named objects handling 
-imagescope plugin updated to accommodate plugin SDK changes
-elevation required features in "extras" will now request elevation instead of just being disabled
-help file updated with drivers and symbols usage
-internal rearrangement and minor UI changes
+新增了对象名称处理方式，以支持嵌入空值。
+新增了 Pico 提供程序、Nmi、SiloMonitor 和 Errata 管理器回调函数
+新增 CmControlVector 查看器
+在主窗口弹出菜单中添加了“复制名称”/“复制名称（二进制）”命令
+添加了程序统计信息（参见帮助->统计信息）
+为进程列表添加了图例窗口说明
+新增了修复已转储驱动程序映像部分的功能
+添加了 RegistryTransaction 对象视图和访问权限
+将“全局设置”从“关于”框移动到“视图”->“系统信息”，并重新排列了其输出。
+司机倾倒作业现在可以取消
+修复了 PUNICODE_STRING 转储的显示问题
+修复了ALPC端口类型对象有时无法打开的问题，尽管它们实际上可以打开。
+插件 SDK 已更新，以支持新的命名对象处理
+ImageScope 插件已更新，以适应插件 SDK 的变更。
+“附加功能”中需要提升高度的功能现在会请求提升高度，而不是直接禁用。
+帮助文件已更新，包含驱动程序和符号用法说明。
+内部结构调整和用户界面细微改动
 
 v1.9.3
-updated SeCiCallbacks search for newest Windows versions
-added Windows Server 2022 support
-fixed win32k ApiSet resolving for Win10 21H2
-fixed ObCallbacks enumeration issues
-support for various kernel driver helpers
-ported to msvc 2022 (with backward compatibility to 2019)
-bugfixes
-RTLs updated
+已更新 SeCiCallbacks 搜索最新 Windows 版本
+新增对 Windows Server 2022 的支持
+修复了 Win10 21H2 的 win32k APISet 解析问题
+修复了 ObCallbacks 枚举问题
+支持各种内核驱动程序辅助函数
+已移植到 msvc 2022（向下兼容 2019 版本）
+错误修复
+RTL 已更新
 
 v1.9.2
-more Win10/11 21h2 compatibility changes
-added FLT_FILTER, FLT_OBJECT structured dump
-added Authenticode hash calculation for loaded drivers (extras->Drivers, use popup menu on driver entry)
-added coalescing callbacks to callbacks list
-various minor UI changes
-fixed misbehavior with recent Wine staging 6.x
-internal rearrangement
-RTLs updated
+更多 Win10/11 21h2 兼容性变更
+添加了 FLT_FILTER、FLT_OBJECT 结构化转储
+为已加载的驱动程序添加了 Authenticode 哈希计算功能（附加功能->驱动程序，在驱动程序条目中使用弹出菜单）
+已将合并回调添加到回调列表中
+各种细微的用户界面改动
+修复了近期 Wine 6.x 测试版中的异常行为
+内部重组
+RTL 已更新
 
 v1.9.1
-21h2 compatibility improvements
-RTLs updated
+21h2 兼容性改进
+RTL 已更新
 
 v1.9.0
-added Section object structured dump
-added ALPC port connections list (similar to !alpc /lpc windbg command)
-added MmUnloadedDrivers list
-added ExCreateCallback list to the callbacks list (PR #26)
-updated ApiSet plugin now supports in-place search filter
-internal rearrangement
+添加了“结构化转储”部分对象
+添加了ALPC端口连接列表（类似于!alpc /lpc windbg命令）
+添加了 MmUnloadedDrivers 列表
+将 ExCreateCallback 列表添加到回调列表中（PR #26）
+更新后的 ApiSet 插件现在支持就地搜索筛选器
+内部重组
 
 v1.8.8
-internal rearrangement
-view security for alpc ports (most of them)
-security descriptor view dialog (object sid, dacl & sacl)
-fixed SCM services list query
-fixed "jump to file may fail under certain conditions" bug
-various minor UI changes
-21h1 compatibility improvements
+内部重组
+查看ALPC端口（大部分）的安全性
+安全描述符视图对话框（对象 SID、DACL 和 SACL）
+固定 SCM 服务列表查询
+修复了“在某些情况下跳转到文件可能失败”的错误
+各种细微的用户界面改动
+21h1 兼容性改进
 
 v1.8.7
-20h1/20h2/21h1 compatibility improvements
-added recognizing of shimmed drivers for drivers list (win10+)
-show process trust label for sections if it present
-plugins system extended and upgraded to support context plugins
-added imagescope plugin for section object types backed by imagefile
-added plugins viewer
-various minor changes
-treelist: fixed tooltips flickering on Windows 7
-turned off Spectre nonsense
-RTLs updated
+20h1/20h2/21h1 兼容性改进
+为驱动程序列表添加了对已安装垫片驱动程序的识别（win10+）
+如果存在，则显示各部分的进程信任标签。
+插件系统已扩展和升级，以支持上下文插件。
+为 imagefile 支持的节对象类型添加了 imagescope 插件
+添加了插件查看器
+各种细微修改
+树状列表：修复了 Windows 7 系统下工具提示闪烁的问题
+关闭了 Spectre 的胡言乱语
+RTL 已更新
 
 v1.8.6
-reimplemented directory object dump to output more data
-added callbacks registered with ExRegisterExtension
-fixed for pipes (PR #17)
-internal rearrangement
-fixed high CPU usage for splitter drag (report/fix by RamMerlabs) 
-fixed security dialog regression (reported by RamMerlabs) 
+重新实现了目录对象转储，以输出更多数据
+添加了通过 ExRegisterExtension 注册的回调函数
+管道问题已解决（PR #17）
+内部重组
+修复了分线器拖拽时 CPU 使用率过高的问题（由 RamMerlabs 报告/修复）
+修复了安全对话框回归问题（由 RamMerlabs 报告）
 
 v1.8.5
-fixed object cookie
-added error log
-20h1/20h2 compatibility improvements
+固定对象 cookie
+添加了错误日志
+20h1/20h2 兼容性改进
 
 v1.8.4
-support of additional helper driver
-fixed Windows 7 regressions
+支持额外的辅助驱动程序
+修复了 Windows 7 的回归问题
 
 v1.8.3
-internal rearrangement
-ported to msvc 2019 (with backward compatibility to 2017)
-fixed current directory value for elevated/system re-launch (reported by RamMerlabs)
+内部重写
+已移植到 MSVC 2019（向下兼容 2017 版本）
+修复了以管理员身份/系统重新启动时的当前目录值（由 RamMerlabs 报告）
 
 v1.8.2
-added Token object properties
-added PsAltSystemCallHandlers to callbacks dialog
-fixed High DPI issues
-fixed Pipe security dialog not shown where available
-fixed multiple Wine/Wine Staging misbehavior
-corrected typo in DebugObject description
-more 20H1 support changes
-various minor changes
+添加了 Token 对象属性
+已将 PsAltSystemCallHandlers 添加到回调对话框
+修复了高DPI问题
+已修复管道安全对话框在可用时未显示
+修复了多个 Wine/Wine-Staging 异常行为
+更正了 DebugObject 描述中的拼写错误
+更多 20H1 支持变更
+各种细微变化
 
 v1.8.1
-19H2 support
-Preliminary 20H1 support
+19H2 支持
+20H1 初步支持
 
 v1.8.0
-improved run as localsystem feature
-added plugin subsystem
-added example plugin
-added Sonar plugin - NDIS protocols viewer
-added ApiSetView plugin - ApiSetSchema viewer (supported v2, v4, v6)
+改进了以本地系统身份运行的功能
+新增插件子系统
+添加了示例插件
+新增 Sonar 插件 - NDIS 协议查看器
+新增 ApiSetView 插件 - ApiSetSchema 查看器（支持 v2、v4、v6）
 
 v1.7.4
-added software licensing cache view (extras)
-resolve apisets while viewing shadow table in Windows 10 20H1 >= 18890 builds
-fixed displaying sid user/domain information for private namespaces
-added refresh (f5) for private namespace dialog
+新增软件许可缓存视图（附加功能）
+在 Windows 10 20H1 >= 18890 版本中查看影子表时解析 API 集
+修复了私有命名空间中 SID 用户/域信息的显示问题
+为私有命名空间对话框添加了刷新 (f5) 功能
 
 v1.7.3
-threads list in processes dialog
-view file properties for KisServiceTable/W32pServiceTable dialogs
-process/thread/token object properties dialogs
-bugfixes
+进程对话框中的线程列表
+查看 KisServiceTable/W32pServiceTable 对话框的文件属性
+进程/线程/令牌对象属性对话框
+错误修复
 
 v1.7.2
-symbolic link object dump
-internal fixes after profiling
-support for 19H1 SeCiCallbacks scan
-added and updated more object type descriptions
+符号链接对象转储
+分析后的内部修复
+支持 19H1 SeCilbacks 扫描
+新增和更新了更多对象类型描述
 
 v1.7.1
-SeCiCallbacks/g_CiCallbacks, DbgkLmdCallbacks added to the callbacks viewer
-Session object view and access rights, merged pull request #8 #9
-fixed regression added in 1.7.0
-treelist updated
+SeCiCallbacks/g_CiCallbacks 和 DbgkLmdCallbacks 已添加到回调查看器中
+会话对象查看和访问权限，合并拉取请求 #8 #9
+1.7.0 版本新增了固定回归。
+树状列表已更新
 
 v1.7.0
-code can now be compiled as C++
-added W32pServiceTable view
-added process list dialog (extras)
-added Callback object type callbacks list (Properties->Object)
-added callbacks viewer for certain callback types (registry, ps, ob, kebugcheck, se, dbg, po, io etc)
-reimplemented "type" object type view (added missing fields from w10+)
-reimplemented service tables extraction code
+现在可以将代码编译为 C++
+添加了 W32pServiceTable 视图
+新增进程列表对话框（附加功能）
+添加了回调对象类型回调列表（属性->对象）
+为某些回调类型（注册表、ps、ob、kebugcheck、se、dbg、po、io 等）添加了回调查看器
+重新实现了“type”对象类型视图（添加了Windows 10及更高版本中缺失的字段）
+重新实现了服务表提取代码
 
 v1.6.0
-ported to msvc 2017 (with backward compatibility to 2015)
-reimplemented private namespaces lookup
-object directory dump reflects Win10 changes
-added alpc port dump and additional dialog
-treelist control updated
-private namespaces dialog updated
-usershareddata dialog updated
-internal rearrangement
-merged pull request #7, fixed Job object process list display
-multiple Wine Staging fixes
-RTLs updated 
+已移植到 MSVC 2017（向下兼容 2015 版本）
+重新实现私有命名空间查找
+对象目录转储反映了 Win10 的更改
+添加了 ALPC 端口转储和附加对话框
+树状列表控件已更新
+私有命名空间对话框已更新
+用户共享数据对话框已更新
+内部重组
+合并了拉取请求 #7，修复了作业对象进程列表显示问题
+多个 Wine Staging 修复
+RTL 已更新
 
 v1.5.5
-tweaked PTL display
+调整后的PTL显示
 
 v1.5.4
-added display of Process Trust Label for Directory object type
+为目录对象类型添加了进程信任标签的显示
 
 v1.5.3
-OpenWindowStation fix
+OpenWindowStation 修复
 
 v1.5.2
-internal rearrangement
+内部重组
 
 v1.5.1
-bugfixes
+错误修复
 
 v1.5.0
-added Partition, DxgkCurrentDxgProcessObject objects description
-added mailslots viewer dialog
-added file properties for drivers (menu -> extras -> Drivers)
-added FltConnectionPort object dump
-switched to hde instead of ldasm
-fixed Wine behavior along with some bugs
-RTLs updated, switched to VS2015 U3
-note: Windows 10 RS2 (15063), RS1 (14393) supported as well as TH1(10240)/TH2(10586), RS3 supported (16288+ build)
+添加了分区、DxgkCurrentDxgProcessObject 对象描述
+新增邮件槽查看器对话框
+为驱动程序添加了文件属性（菜单 -> 附加功能 -> 驱动程序）
+添加了 FltConnectionPort 对象转储
+已切换到hde而不是ldasm
+修复了 Wine 的一些行为问题以及其他一些错误。
+RTL 已更新，已切换到 VS2015 U3
+注：支持 Windows 10 RS2 (15063)、RS1 (14393) 以及 TH1(10240)/TH2(10586)、RS3 (16288+ 版本)。
 
 v1.4.0
-drivers list and dump (menu -> extras)
-kiservicetable dump for all supported Windows versions
-some code revision and corrections
+驱动程序列表和转储（菜单 -> 附加功能）
+适用于所有受支持的 Windows 版本的 kiservicetable 转储
+部分代码修改和修正
 
 v1.3.0
-official support for Windows 10
-private namespaces (menu -> extras)
+官方支持 Windows 10
+私有命名空间（菜单 -> 附加功能）
 
 v1.2.0
-added KUSER_SHARED_DATA dump (menu -> extras)
-code revision and corrections
-ported to msvc 2015
+添加了 KUSER_SHARED_DATA 转储（菜单 -> 附加功能）
+代码修订和修正
+移植到 msvc 2015
 
 v1.1.0
-added popup menu for Process page 
-added file properties dialog for Process page 
-added descriptions for more object types 
-added named pipes dialog (menu -> extras) 
-added information for IoCompletion object type, including structured object body dump2 
-some code revision and corrections 
+为“进程”页面添加了弹出菜单
+为“处理”页面添加了文件属性对话框
+为更多对象类型添加了描述
+添加了命名管道对话框（菜单 -> 附加功能）
+为 IoCompletion 对象类型添加了信息，包括结构化对象主体转储2
+部分代码修改和修正
 
-v1.0.0 (Feb 23, 2015)
-initial release
+v1.0.0（2015年2月23日）
+初始版本
