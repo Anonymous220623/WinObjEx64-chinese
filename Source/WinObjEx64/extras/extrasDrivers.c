@@ -487,11 +487,11 @@ VOID DumpUpdateTimerProc(
         szBuffer[0] = 0;
         RtlStringCchPrintfSecure(szBuffer,
             RTL_NUMBER_OF(szBuffer),
-            TEXT("Reading %llu (%llu Kb) of %lu (%lu Kb)"),
-            (ULONGLONG)dumpInfo->ReadSize,
-            (ULONGLONG)(dumpInfo->ReadSize / 1024),
-            dumpInfo->DumpSize,
-            dumpInfo->DumpSize / 1024);
+            TEXT("正在读取 %lu (%lu Kb) 中的 %llu (%llu Kb)"),        // 原先的顺序：
+            dumpInfo->DumpSize,                                       // (ULONGLONG)dumpInfo->ReadSize,
+            dumpInfo->DumpSize / 1024,                                // (ULONGLONG)(dumpInfo->ReadSize / 1024),
+            (ULONGLONG)dumpInfo->ReadSize,                            // dumpInfo->DumpSize,
+            (ULONGLONG)(dumpInfo->ReadSize / 1024));                  // dumpInfo->DumpSize / 1024,
 
         SetWindowText(hwndProgress, szBuffer);
     }
@@ -575,7 +575,7 @@ DWORD DumpDialogWorkerThread(
 
     DumpWorkerWindow = hwndDlg;
 
-    SetWindowText(hwndDlg, TEXT("Driver dump"));
+    SetWindowText(hwndDlg, TEXT("驱动程序转储"));
 
     supSetFastEvent(&DumpDialogInitializedEvent);
 
