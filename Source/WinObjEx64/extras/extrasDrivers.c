@@ -1362,7 +1362,7 @@ VOID DrvListSetTooltip(
     // Is it filter driver?
     //
     if (supFilterFindByName(&g_DrvFilterListHead, szNameWithoutExt))
-        _strcat(szText, TEXT("\nRegistered as filter"));
+        _strcat(szText, TEXT("\n已注册为筛选器"));
 
     //
     // Shim desc.
@@ -1515,18 +1515,18 @@ VOID DrvDlgOnInit(
 
     LVCOLUMNS_DATA columnDataDrvList[] =
     {
-        { L"LoadOrder", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, iImage },
-        { L"Name", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"Address", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"Size", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"Image Path", 280, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE }
+        { L"加载顺序", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, iImage },
+        { L"名称", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"地址", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"大小", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"映像路径", 280, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE }
     };
 
     LVCOLUMNS_DATA columnsDataUnloadedDrvList[] = {
-        { L"Name", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, iImage },
-        { L"StartAddress", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"EndAddress", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"CurrentTime", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE }
+        { L"名称", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, iImage },
+        { L"起始地址", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"结束地址", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"当前时间", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE }
     };
 
     SetProp(hwndDlg, T_DLGCONTEXT, (HANDLE)lParam);
@@ -1538,12 +1538,12 @@ VOID DrvDlgOnInit(
 
     switch (pDlgContext->DialogMode) {
     case DrvModeUnloaded:
-        lpCaption = TEXT("Unloaded Drivers");
+        lpCaption = TEXT("未加载的驱动程序");
         pvColumnsData = columnsDataUnloadedDrvList;
         columnsCount = RTL_NUMBER_OF(columnsDataUnloadedDrvList);
         break;
     default:
-        lpCaption = TEXT("Drivers");
+        lpCaption = TEXT("驱动程序");
         pvColumnsData = columnDataDrvList;
         columnsCount = RTL_NUMBER_OF(columnDataDrvList);
         break;
@@ -1609,7 +1609,7 @@ VOID DrvDlgOnInit(
                         iColumn,
                         I_IMAGENONE,
                         LVCFMT_CENTER | LVCFMT_BITMAP_ON_RIGHT,
-                        TEXT("Shimmed"), 100);
+                        TEXT("启用兼容模式"), 100);
 
                     DrvDlgShimsEnabled = TRUE;
                     pDlgContext->lvColumnCount += 1;
