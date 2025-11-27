@@ -28,10 +28,10 @@ typedef struct _LOG_TYPE_MAP {
 } LOG_TYPE_MAP;
 
 static const LOG_TYPE_MAP g_LogTypeMap[] = {
-    { EntryTypeError, L"Error", TRUE },
-    { EntryTypeSuccess, L"Success", FALSE },
-    { EntryTypeInformation, L"Information", FALSE },
-    { EntryTypeWarning, L"Warning", TRUE }
+    { EntryTypeError, L"错误", TRUE },
+    { EntryTypeSuccess, L"信息", FALSE },
+    { EntryTypeInformation, L"信息", FALSE },
+    { EntryTypeWarning, L"警告", TRUE }
 };
 
 static WOBJ_LOG g_WinObjLog;
@@ -54,7 +54,7 @@ VOID logCreate()
         sizeof(WOBJ_LOG_ENTRY) * WOBJ_MAX_LOG_CAPACITY);
     if (g_WinObjLog.Entries) {
         g_WinObjLog.Initialized = TRUE;
-        logAdd(EntryTypeInformation, TEXT("Program startup, log created"));
+        logAdd(EntryTypeInformation, TEXT("程序已启动，日志已创建。"));
     }
 }
 

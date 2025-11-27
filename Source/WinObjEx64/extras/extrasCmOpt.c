@@ -515,7 +515,7 @@ VOID CmOptDlgListOptions(
         g_kdctx.Data->CmControlVector = kdQueryCmControlVector(&g_kdctx);
 
     if (g_kdctx.Data->CmControlVector == NULL) {
-        supStatusBarSetText(Context->StatusBar, 1, TEXT("Failed to query CmControlVector"));
+        supStatusBarSetText(Context->StatusBar, 1, TEXT("无法查询 CmControlVector"));
         return;
     }
 

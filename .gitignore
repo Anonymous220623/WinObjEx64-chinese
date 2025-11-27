@@ -5,4 +5,6 @@ Source/WinObjEx64/output/*
 source/plugins/apisetview/output
 source/plugins/apisetview/output/*
 source/winobjex64/plugins
+source/enc_temp_folder
+source/enc_temp_folder/*
 *.aps
