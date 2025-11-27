@@ -118,7 +118,7 @@ VOID CmOptDlgDumpValueToFile(
     if (bSuccess == FALSE) {
         MessageBox(
             Context->hwndDlg,
-            TEXT("Error dumping value"),
+            TEXT("转储值时出现错误"),
             PROGRAM_NAME,
             MB_ICONERROR);
     }
@@ -539,7 +539,7 @@ VOID CmOptDlgListOptions(
 
     supEnableRedraw(hwndList);
 
-    _strcpy(szBuffer, TEXT("Total: "));
+    _strcpy(szBuffer, TEXT("总计: "));
     ultostr(ListView_GetItemCount(Context->ListView), _strend(szBuffer));
     supStatusBarSetText(Context->StatusBar, 0, szBuffer);
 }
@@ -562,11 +562,11 @@ VOID CmOptDlgOnInit(
     BOOLEAN bIoDriverLoaded;
     LVCOLUMNS_DATA columnDataList[] =
     {
-        { L"KeyPath", 200, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, iImage },
-        { L"ValueName", 160, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"Buffer", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"Length", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
-        { L"Type", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE }
+        { L"键路径", 200, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, iImage },
+        { L"值名称", 160, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"缓冲区地址", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"长度", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE },
+        { L"类型", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT, I_IMAGENONE }
     };
 
     SetProp(hwndDlg, T_DLGCONTEXT, (HANDLE)pDlgContext);
@@ -612,7 +612,7 @@ VOID CmOptDlgOnInit(
             iColumn,
             I_IMAGENONE,
             LVCFMT_CENTER | LVCFMT_BITMAP_ON_RIGHT,
-            TEXT("Value (Memory)"), 80);
+            TEXT("值（内存）"), 80);
 
         pDlgContext->lvColumnCount += 1;
         iColumn += 1;
@@ -625,12 +625,12 @@ VOID CmOptDlgOnInit(
             iColumn,
             I_IMAGENONE,
             LVCFMT_CENTER | LVCFMT_BITMAP_ON_RIGHT,
-            TEXT("Flags"), 80);
+            TEXT("标志"), 80);
 
         pDlgContext->lvColumnCount += 1;
     }
 
-    SetWindowText(hwndDlg, TEXT("CmControlVector (Relative to: \\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control)"));
+    SetWindowText(hwndDlg, TEXT("CmControlVector 查看器（关联至: \\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control）"));
 
     CmOptDlgListOptions(pDlgContext);
 
