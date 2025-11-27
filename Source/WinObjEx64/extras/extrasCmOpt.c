@@ -17,7 +17,7 @@
 #include "global.h"
 #include "extras.h"
 
-#define T_DUMP_VALUE TEXT("Dump Value to File")
+#define T_DUMP_VALUE TEXT("将值转储到文件")
 
 #define ID_CMOPTLIST_SAVE 40060
 #define ID_CMOPTLIST_DUMP 40061
@@ -91,7 +91,7 @@ VOID CmOptDlgDumpValueToFile(
         // Run Save As Dialog.
         //
         _strcpy(szBuffer, TEXT("dump.bin"));
-        if (!supSaveDialogExecute(Context->hwndDlg, szBuffer, TEXT("All files\0*.*\0\0"))) {
+        if (!supSaveDialogExecute(Context->hwndDlg, szBuffer, TEXT("所有文件\0*.*\0\0"))) {
             bSuccess = TRUE; //user cancelled
             break;
         }
