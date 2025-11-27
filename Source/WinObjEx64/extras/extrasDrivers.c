@@ -166,7 +166,7 @@ VOID DrvUpdateStatusBar(
     INT sbParts[] = { 100, -1 };
     WCHAR szBuffer[MAX_PATH];
 
-    _strcpy(szBuffer, TEXT("Total: "));
+    _strcpy(szBuffer, TEXT("总计: "));
     ultostr(ListView_GetItemCount(Context->ListView), _strend(szBuffer));
 
     //
@@ -174,7 +174,7 @@ VOID DrvUpdateStatusBar(
     //
     if (Context->DialogMode == DrvModeNormal) {
         if (g_cDrvShimmed) {
-            _strcat(szBuffer, TEXT(", Shimmed: "));
+            _strcat(szBuffer, TEXT(", 启用兼容性填充码: "));
             ultostr(g_cDrvShimmed, _strend(szBuffer));
             sbParts[0] = 240;
         }
@@ -261,7 +261,7 @@ VOID DrvHandlePopupMenu(
             for (i = ID_CALC_HASH_MD5; i < ID_CALC_HASH_PAGE_SHA1; i++) {
                 RtlStringCchPrintfSecure(szMenuText,
                     MAX_PATH,
-                    TEXT("Copy Authenticode %ws hash"),
+                    TEXT("复制身份验证码 %ws 哈希值"),
                     CryptAlgoIdRef[i - ID_CALC_HASH_MD5]);
                 InsertMenu(hMenu, ++uPos, MF_BYCOMMAND, i, szMenuText);
             }
@@ -270,14 +270,14 @@ VOID DrvHandlePopupMenu(
 
             RtlStringCchPrintfSecure(szMenuText,
                 MAX_PATH,
-                TEXT("Copy %ws page hash"),
+                TEXT("复制 %ws 页面哈希值"),
                 BCRYPT_SHA1_ALGORITHM);
 
             InsertMenu(hMenu, ++uPos, MF_BYCOMMAND, ID_CALC_HASH_PAGE_SHA1, szMenuText);
 
             RtlStringCchPrintfSecure(szMenuText,
                 MAX_PATH,
-                TEXT("Copy %ws page hash"),
+                TEXT("复制 %ws 页面哈希值"),
                 BCRYPT_SHA256_ALGORITHM);
 
             InsertMenu(hMenu, ++uPos, MF_BYCOMMAND, ID_CALC_HASH_PAGE_SHA256, szMenuText);
@@ -1609,7 +1609,7 @@ VOID DrvDlgOnInit(
                         iColumn,
                         I_IMAGENONE,
                         LVCFMT_CENTER | LVCFMT_BITMAP_ON_RIGHT,
-                        TEXT("启用兼容模式"), 100);
+                        TEXT("启用兼容性填充码"), 100);
 
                     DrvDlgShimsEnabled = TRUE;
                     pDlgContext->lvColumnCount += 1;
