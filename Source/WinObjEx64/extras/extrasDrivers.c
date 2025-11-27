@@ -941,7 +941,7 @@ VOID DrvListUnloadedDrivers(
         (PENUMERATE_UNLOADED_DRIVERS_CALLBACK)DrvListCbEnumerateUnloadedDrivers,
         (PVOID)Context))
     {
-        _strcpy(szBuffer, TEXT("Could not resolve MmUnloadedDrivers"));
+        _strcpy(szBuffer, TEXT("无法解析 MmUnloadedDrivers"));
         supStatusBarSetText(Context->StatusBar, 0, (LPWSTR)&szBuffer);
         return;
     }
@@ -1108,7 +1108,7 @@ VOID DrvListDrivers(
 
                 }
                 else {
-                    _strcpy(szBuffer, TEXT("Yes"));
+                    _strcpy(szBuffer, TEXT("是"));
                 }
             }
 
@@ -1543,7 +1543,7 @@ VOID DrvDlgOnInit(
         columnsCount = RTL_NUMBER_OF(columnsDataUnloadedDrvList);
         break;
     default:
-        lpCaption = TEXT("驱动程序");
+        lpCaption = TEXT("驱动程序对象查看器");
         pvColumnsData = columnDataDrvList;
         columnsCount = RTL_NUMBER_OF(columnDataDrvList);
         break;
