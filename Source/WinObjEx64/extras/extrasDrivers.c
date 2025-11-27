@@ -48,8 +48,8 @@ BOOLEAN DrvDlgShimsEnabled = FALSE;
 #define COLUMN_DRVLIST_UNLOADED_END_ADDRESS     2
 #define COLUMN_DRVLIST_UNLOADED_CURRENT_TIME    3
 
-#define T_DUMPDRIVER       L"Dump Driver (Raw)"
-#define T_DUMPDRIVER_FIXED L"Dump Driver (Fix Sections)"
+#define T_DUMPDRIVER       L"转储驱动程序 (二进制)"
+#define T_DUMPDRIVER_FIXED L"转储驱动程序（固定节）"
 
 #define DRVLISTDLG_TRACKSIZE_MIN_X 640
 #define DRVLISTDLG_TRACKSIZE_MIN_Y 480
@@ -135,7 +135,7 @@ VOID DrvListCopyHash(
             HashUnloadFile(&fvi);
         }
         else {
-            supShowNtStatus(Context->hwndDlg, TEXT("Error loading file, NTSTATUS: "), ntStatus);
+            supShowNtStatus(Context->hwndDlg, TEXT("加载文件时出现错误, NTSTATUS: "), ntStatus);
         }
 
         supHeapFree(lpWin32Name);
