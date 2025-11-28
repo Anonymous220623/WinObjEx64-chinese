@@ -65,11 +65,11 @@ VOID IpcDisplayError(
 
     switch (DialogMode) {
     case IpcModeMailSlots:
-        _strcpy(szBuffer, TEXT("Cannot open mailslot because: "));
+        _strcpy(szBuffer, TEXT("无法打开邮槽对象: "));
         break;
     case IpcModeNamedPipes:
     default:
-        _strcpy(szBuffer, TEXT("Cannot open pipe because: "));
+        _strcpy(szBuffer, TEXT("无法打开管道对象: "));
         break;
     }
 
@@ -264,10 +264,10 @@ VOID IpcPipeQueryInfo(
         lpType = TEXT("?");
         switch (fpli.NamedPipeType) {
         case FILE_PIPE_BYTE_STREAM_TYPE:
-            lpType = TEXT("Byte stream");
+            lpType = TEXT("字节流");
             break;
         case FILE_PIPE_MESSAGE_TYPE:
-            lpType = TEXT("Message");
+            lpType = TEXT("消息");
             break;
         }
         SetDlgItemText(hwndDlg, ID_PIPE_TYPEMODE, lpType);
@@ -276,13 +276,13 @@ VOID IpcPipeQueryInfo(
         lpType = TEXT("?");
         switch (fpli.NamedPipeConfiguration) {
         case FILE_PIPE_INBOUND:
-            lpType = TEXT("Inbound");
+            lpType = TEXT("入站");
             break;
         case FILE_PIPE_OUTBOUND:
-            lpType = TEXT("Outbound");
+            lpType = TEXT("出站");
             break;
         case FILE_PIPE_FULL_DUPLEX:
-            lpType = TEXT("Duplex");
+            lpType = TEXT("双工");
             break;
         }
         SetDlgItemText(hwndDlg, ID_PIPE_ACCESSMODE, lpType);
@@ -295,7 +295,7 @@ VOID IpcPipeQueryInfo(
 
         //MaximumInstances
         if (fpli.MaximumInstances == MAXDWORD) {
-            _strcpy(szBuffer, TEXT("Unlimited"));
+            _strcpy(szBuffer, TEXT("未限制"));
         }
         else {
             ultostr(fpli.MaximumInstances, szBuffer);
@@ -470,12 +470,12 @@ VOID IpcDlgShowProperties(
     switch (pDlgContext->DialogMode) {
     case IpcModeMailSlots:
         Page.pszTemplate = MAKEINTRESOURCE(IDD_PROP_MAILSLOT);
-        Page.pszTitle = TEXT("Mailslot");
+        Page.pszTitle = TEXT("邮槽");
         break;
     case IpcModeNamedPipes:
     default:
         Page.pszTemplate = MAKEINTRESOURCE(IDD_PROP_PIPE);
-        Page.pszTitle = TEXT("Pipe");
+        Page.pszTitle = TEXT("管道");
         break;
     }
     Page.lParam = (LPARAM)Context;
@@ -505,7 +505,7 @@ VOID IpcDlgShowProperties(
     //
     //Create property sheet
     //
-    _strcpy(szCaption, TEXT("Properties"));
+    _strcpy(szCaption, TEXT("属性"));
     RtlSecureZeroMemory(&PropHeader, sizeof(PropHeader));
     PropHeader.dwSize = sizeof(PropHeader);
     PropHeader.phpage = IpcPages;
@@ -808,19 +808,19 @@ VOID IpcDlgOnInit(
         iResId = IDI_ICON_MAILSLOT;
         sz = DEVICE_MAILSLOT_LENGTH;
         lpObjectsRoot = DEVICE_MAILSLOT;
-        SetWindowText(hwndDlg, TEXT("Mailslots"));
+        SetWindowText(hwndDlg, TEXT("邮槽"));
         break;
     default:
         iResId = IDI_ICON_PIPE;
         sz = DEVICE_NAMED_PIPE_LENGTH;
         lpObjectsRoot = DEVICE_NAMED_PIPE;
-        SetWindowText(hwndDlg, TEXT("Pipes"));
+        SetWindowText(hwndDlg, TEXT("管道"));
         break;
     }
 
     lpObjectRelativePath = (LPWSTR)supHeapAlloc(sz + 100);
     if (lpObjectRelativePath) {
-        _strcpy(lpObjectRelativePath, TEXT("Relative Path ( "));
+        _strcpy(lpObjectRelativePath, TEXT("关联的路径 ( "));
         _strcat(lpObjectRelativePath, lpObjectsRoot);
         _strcat(lpObjectRelativePath, TEXT(" )"));
         SetDlgItemText(hwndDlg, ID_IPCROOT, lpObjectRelativePath);
@@ -865,7 +865,7 @@ VOID IpcDlgOnInit(
         supAddListViewColumn(pDlgContext->ListView, 0, 0, 0,
             2,
             LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,
-            TEXT("Name"), 500);
+            TEXT("名称"), 500);
 
         supDisableRedraw(pDlgContext->ListView);
 
