@@ -650,7 +650,7 @@ VOID PsListHandleObjectProp(
             _strcpy(lpName, T_IDLE_PROCESS);
         }
         else {
-            _strcpy(lpName, TEXT("UnknownProcess"));
+            _strcpy(lpName, TEXT("未知进程"));
         }
     }
     else {
@@ -916,7 +916,7 @@ LPWSTR PsListGetThreadStateAsString(
 
     if (ThreadState == StateWait) {
 
-        _strcpy(StateBuffer, TEXT("Wait:"));
+        _strcpy(StateBuffer, TEXT("等待:"));
         lpWaitReason = T_WAITREASON[WaitReason];
         _strcat(StateBuffer, lpWaitReason);
     }
@@ -925,22 +925,22 @@ LPWSTR PsListGetThreadStateAsString(
 
         switch (ThreadState) {
         case StateInitialized:
-            lpState = TEXT("Initiailized");
+            lpState = TEXT("已初始化");
             break;
         case StateReady:
-            lpState = TEXT("Ready");
+            lpState = TEXT("就绪");
             break;
         case StateRunning:
-            lpState = TEXT("Running");
+            lpState = TEXT("正在运行");
             break;
         case StateStandby:
-            lpState = TEXT("Standby");
+            lpState = TEXT("待命/备用");
             break;
         case StateTerminated:
-            lpState = TEXT("Terminated");
+            lpState = TEXT("已终止");
             break;
         case StateTransition:
-            lpState = TEXT("Transition");
+            lpState = TEXT("正在转换");
             break;
 
         }
@@ -1163,10 +1163,10 @@ DWORD WINAPI CreateThreadListProc(
             }
 
             if (ErrorCount != 0) {
-                _strcpy(szBuffer, TEXT("Some queries for threads information are failed"));
+                _strcpy(szBuffer, TEXT("部分线程信息查询失败"));
             }
             else {
-                _strcpy(szBuffer, TEXT("All queries for threads information are succeeded"));
+                _strcpy(szBuffer, TEXT("所有线程信息查询均成功"));
             }
 
             supStatusBarSetText(PsDlgContext.StatusBar, 2, (LPWSTR)&szBuffer);
@@ -1256,7 +1256,7 @@ DWORD WINAPI CreateProcessListProc(
                 supDestroyHeap(g_PsListHeap);
                 g_PsListHeap = supCreateHeap(HEAP_GROWABLE, TRUE);
                 if (g_PsListHeap == NULL) {
-                    lpErrorMsg = TEXT("Could not allocate heap for process enumeration!");
+                    lpErrorMsg = TEXT("无法为进程枚举分配堆内存!");
                     supStatusBarSetText(PsDlgContext.StatusBar, 2, lpErrorMsg);
                     __leave;
                 }
@@ -1269,7 +1269,7 @@ DWORD WINAPI CreateProcessListProc(
             }
 
             if (!supCreateSCMSnapshot(ServiceEnumType, &ServicesList)) {
-                lpErrorMsg = TEXT("Error building services list!");
+                lpErrorMsg = TEXT("构建服务列表时出现错误!");
                 supStatusBarSetText(PsDlgContext.StatusBar, 2, lpErrorMsg);
                 __leave;
             }
@@ -1281,7 +1281,7 @@ DWORD WINAPI CreateProcessListProc(
 
             InfoBuffer = supGetSystemInfo(SystemProcessInformation, NULL);
             if (InfoBuffer == NULL) {
-                lpErrorMsg = TEXT("Error query process list!");
+                lpErrorMsg = TEXT("查询进程列表时出现错误!");
                 supStatusBarSetText(PsDlgContext.StatusBar, 2, lpErrorMsg);
                 __leave;
             }
@@ -1291,7 +1291,7 @@ DWORD WINAPI CreateProcessListProc(
                 &nProcesses,
                 &nThreads))
             {
-                lpErrorMsg = TEXT("Error building handle list!");
+                lpErrorMsg = TEXT("构建句柄列表时出现错误!");
                 supStatusBarSetText(PsDlgContext.StatusBar, 2, lpErrorMsg);
                 __leave;
             }
@@ -1299,11 +1299,11 @@ DWORD WINAPI CreateProcessListProc(
             //
             // Show processes/threads count
             //
-            _strcpy(szBuffer, TEXT("Processes: "));
+            _strcpy(szBuffer, TEXT("进程: "));
             ultostr(nProcesses, _strend(szBuffer));
             supStatusBarSetText(PsDlgContext.StatusBar, 0, (LPWSTR)&szBuffer);
 
-            _strcpy(szBuffer, TEXT("Threads: "));
+            _strcpy(szBuffer, TEXT("线程: "));
             ultostr(nThreads, _strend(szBuffer));
             supStatusBarSetText(PsDlgContext.StatusBar, 1, (LPWSTR)&szBuffer);
 
@@ -1833,11 +1833,11 @@ DWORD extrasPsListDialogWorkerThread(
     LVCOLUMNS_DATA columnData[] =
     {
         { L"TID", 60, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
-        { L"Priority", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"State", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"Object", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"StartAddress", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"Module(System threads)", 200, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { L"优先级", 100, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { L"状态", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { L"对象", 150, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { L"起始地址", 140, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { L"模块（系统线程）", 200, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     UNREFERENCED_PARAMETER(Parameter);
@@ -1872,7 +1872,7 @@ DWORD extrasPsListDialogWorkerThread(
         PsDlgContext.hwndDlg = hwndDlg;
 
         if (g_kdctx.IsFullAdmin == FALSE) {
-            SetWindowText(PsDlgContext.hwndDlg, TEXT("Processes (Non elevated mode, some information maybe unavailable)"));
+            SetWindowText(PsDlgContext.hwndDlg, TEXT("进程（非管理员模式，部分信息可能无法获取）"));
         }
 
         PsDlgContext.tlSubItemHit = -1;
@@ -1906,7 +1906,7 @@ DWORD extrasPsListDialogWorkerThread(
             hdritem.mask = HDI_FORMAT | HDI_TEXT | HDI_WIDTH;
             hdritem.fmt = HDF_LEFT | HDF_BITMAP_ON_RIGHT | HDF_STRING;
             hdritem.cxy = 300;
-            hdritem.pszText = TEXT("Process");
+            hdritem.pszText = TEXT("进程");
             TreeList_InsertHeaderItem(PsDlgContext.TreeList, 0, &hdritem);
 
             hdritem.cxy = 80;
@@ -1914,11 +1914,11 @@ DWORD extrasPsListDialogWorkerThread(
             TreeList_InsertHeaderItem(PsDlgContext.TreeList, 1, &hdritem);
 
             hdritem.cxy = 130;
-            hdritem.pszText = TEXT("Object");
+            hdritem.pszText = TEXT("对象");
             TreeList_InsertHeaderItem(PsDlgContext.TreeList, 2, &hdritem);
 
             hdritem.cxy = 180;
-            hdritem.pszText = TEXT("User");
+            hdritem.pszText = TEXT("用户");
             TreeList_InsertHeaderItem(PsDlgContext.TreeList, 3, &hdritem);
 
             wndStyles = GetWindowLongPtr(PsDlgContext.TreeList, GWL_STYLE);
