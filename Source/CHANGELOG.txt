@@ -74,7 +74,7 @@ ImageScope 插件已更新，以适应插件 SDK 的变更。
 v1.9.3
 已更新 SeCiCallbacks 搜索最新 Windows 版本
 新增对 Windows Server 2022 的支持
-修复了 Win10 21H2 的 win32k APISet 解析问题
+修复了 Win10 21H2 的 win32k API 集解析问题
 修复了 ObCallbacks 枚举问题
 支持各种内核驱动程序辅助函数
 已移植到 msvc 2022（向下兼容 2019 版本）
@@ -97,7 +97,7 @@ RTL 已更新
 
 v1.9.0
 添加了“结构化转储”部分对象
-添加了ALPC端口连接列表（类似于!alpc /lpc windbg命令）
+添加了 ALPC 端口连接列表（类似于!alpc /lpc windbg 命令）
 添加了 MmUnloadedDrivers 列表
 将 ExCreateCallback 列表添加到回调列表中（PR #26）
 更新后的 ApiSet 插件现在支持就地搜索筛选器
@@ -148,12 +148,12 @@ v1.8.3
 v1.8.2
 添加了 Token 对象属性
 已将 PsAltSystemCallHandlers 添加到回调对话框
-修复了高DPI问题
+修复了高 DPI 问题
 已修复管道安全对话框在可用时未显示
 修复了多个 Wine/Wine-Staging 异常行为
 更正了 DebugObject 描述中的拼写错误
 更多 20H1 支持变更
-各种细微变化
+各种细微改动
 
 v1.8.1
 19H2 支持
@@ -196,13 +196,13 @@ v1.7.0
 新增进程列表对话框（附加功能）
 添加了回调对象类型回调列表（属性->对象）
 为某些回调类型（注册表、ps、ob、kebugcheck、se、dbg、po、io 等）添加了回调查看器
-重新实现了“type”对象类型视图（添加了Windows 10及更高版本中缺失的字段）
+重新实现了 “type”（类型）对象类型视图（添加了 Windows 10 及更高版本中缺失的字段）
 重新实现了服务表提取代码
 
 v1.6.0
 已移植到 MSVC 2017（向下兼容 2015 版本）
 重新实现私有命名空间查找
-对象目录转储反映了 Win10 的更改
+对象目录转储反映了 Windows 10 的更改
 添加了 ALPC 端口转储和附加对话框
 树状列表控件已更新
 私有命名空间对话框已更新
@@ -239,7 +239,7 @@ RTL 已更新，已切换到 VS2015 U3
 
 v1.4.0
 驱动程序列表和转储（菜单 -> 附加功能）
-适用于所有受支持的 Windows 版本的 kiservicetable 转储
+适用于所有受支持的 Windows 版本的 KiServiceTable 转储
 部分代码修改和修正
 
 v1.3.0
