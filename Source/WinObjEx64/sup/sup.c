@@ -5966,35 +5966,35 @@ LPWSTR supIntegrityToString(
     _In_ DWORD IntegrityLevel
 )
 {
-    LPWSTR lpValue = L"Unknown";
+    LPWSTR lpValue = L"未知";
 
     if (IntegrityLevel == SECURITY_MANDATORY_UNTRUSTED_RID) {
-        lpValue = L"Untrusted";
+        lpValue = L"不受信任";
     }
     else if (IntegrityLevel == SECURITY_MANDATORY_LOW_RID) {
-        lpValue = L"Low";
+        lpValue = L"低";
     }
     else if (IntegrityLevel >= SECURITY_MANDATORY_MEDIUM_RID &&
         IntegrityLevel < SECURITY_MANDATORY_HIGH_RID)
     {
         if (IntegrityLevel == SECURITY_MANDATORY_MEDIUM_PLUS_RID)
-            lpValue = L"MediumPlus";
+            lpValue = L"中等偏上";
         else
-            lpValue = L"Medium";
+            lpValue = L"中";
     }
     else if (IntegrityLevel >= SECURITY_MANDATORY_HIGH_RID &&
         IntegrityLevel < SECURITY_MANDATORY_SYSTEM_RID)
     {
-        lpValue = L"High";
+        lpValue = L"高";
     }
     else if (IntegrityLevel >= SECURITY_MANDATORY_SYSTEM_RID &&
         IntegrityLevel < SECURITY_MANDATORY_PROTECTED_PROCESS_RID)
     {
-        lpValue = L"System";
+        lpValue = L"系统";
     }
     else if (IntegrityLevel >= SECURITY_MANDATORY_PROTECTED_PROCESS_RID)
     {
-        lpValue = L"ProtectedProcess";
+        lpValue = L"受保护";
     }
 
     return lpValue;
