@@ -90,9 +90,9 @@ VOID PmpReportInvalidPlugin(
 
     lpCombined = (LPWSTR)supHeapAlloc(cbSize);
     if (lpCombined) {
-        _strcpy(lpCombined, TEXT("File "));
+        _strcpy(lpCombined, TEXT("文件 "));
         _strcat(lpCombined, lpszPluginFileName);
-        _strcat(lpCombined, TEXT(" is not a valid WinObjEx64 plugin"));
+        _strcat(lpCombined, TEXT(" 不是有效的 WinObjEx64 插件"));
         logAdd(EntryTypeInformation, lpCombined);
         supHeapFree(lpCombined);
     }
@@ -280,7 +280,7 @@ BOOL CALLBACK PmGuiInitCallback(
         dwLastError = GetLastError();
 
         if ((classAtom == 0) && (dwLastError != ERROR_CLASS_ALREADY_EXISTS))
-            kdDebugPrint("Could not register window class, err = %lu\r\n", dwLastError);
+            kdDebugPrint("无法注册窗口类，错误代码为 %lu\r\n", dwLastError);
 
     }
     __except (WOBJ_EXCEPTION_FILTER_LOG) {
@@ -306,11 +306,11 @@ VOID PmpShowInitializationError(
 {
     WCHAR szMessage[1024];
 
-    _strcpy(szMessage, TEXT("There is an error "));
-    ultohex(ErrorCode, _strend(szMessage));
-    _strcat(szMessage, TEXT(" while initializing plugin\r\n"));
+    _strcpy(szMessage, TEXT("初始化插件 "));
     _strcat(szMessage, FileName);
-    _strcat(szMessage, TEXT("\r\n\nThis plugin will be skipped."));
+    _strcat(szMessage, TEXT(" 时出现错误。\r\n错误代码："));
+    ultohex(ErrorCode, _strend(szMessage));
+    _strcat(szMessage, TEXT("\r\n\n此插件将被跳过。"));
     MessageBox(ParentWindow, szMessage, NULL, MB_ICONERROR);
 }
 
@@ -686,9 +686,9 @@ VOID PmProcessEntry(
             if (!PluginEntry->Plugin.Capabilities.u1.SupportMultipleInstances) {
                 if (PluginEntry->Plugin.State == PluginRunning) {
 
-                    _strcpy(szMessage, TEXT("The following plugin \""));
+                    _strcpy(szMessage, TEXT("以下插件 \""));
                     _strcat(szMessage, PluginEntry->Plugin.Name);
-                    _strcat(szMessage, TEXT("\" reports it is already running.\r\n\nRestart it?"));
+                    _strcat(szMessage, TEXT("\" 报告它已经在运行。\r\n\n是否需要重启？"));
 
                     if (MessageBox(ParentWindow,
                         szMessage,
@@ -702,7 +702,7 @@ VOID PmProcessEntry(
                             PluginEntry->Plugin.StopPlugin();
                         }
                         __except (EXCEPTION_EXECUTE_HANDLER) {
-                            _strcpy(szMessage, TEXT("There is an error during plugin stop, code = "));
+                            _strcpy(szMessage, TEXT("插件停止时发生错误，错误代码为 "));
                             ultohex(GetExceptionCode(), _strend(szMessage));
                             MessageBox(ParentWindow, szMessage, NULL, MB_ICONERROR);
                         }
@@ -723,7 +723,7 @@ VOID PmProcessEntry(
             if (g_WinObj.IsWine && PluginEntry->Plugin.Capabilities.u1.SupportWine == FALSE) {
                 
                 MessageBox(ParentWindow, 
-                    TEXT("This plugin does not support Wine"), 
+                    TEXT("此插件不支持 Wine"), 
                     PROGRAM_NAME, MB_ICONINFORMATION);
 
                 return;
@@ -732,7 +732,7 @@ VOID PmProcessEntry(
             if (PluginEntry->Plugin.Capabilities.u1.NeedAdmin && g_kdctx.IsFullAdmin == FALSE) {
                 
                 MessageBox(ParentWindow, 
-                    TEXT("This plugin requires administrator privileges and cannot be run.\n\nIf your account is in an Administrator group make sure you run WinObjEx64 elevated."), 
+                    TEXT("此插件需要管理员权限，无法运行。\n\n如果您的账户属于管理员组，请确保以管理员身份运行 WinObjEx64。"), 
                     PROGRAM_NAME, MB_ICONINFORMATION);
 
                 return;
@@ -741,7 +741,7 @@ VOID PmProcessEntry(
             if (PluginEntry->Plugin.Capabilities.u1.NeedDriver && kdIoDriverLoaded() == FALSE) {
                 
                 MessageBox(ParentWindow, 
-                    TEXT("This plugin requires driver usage to run"), 
+                    TEXT("此插件需要使用驱动程序才能运行"), 
                     PROGRAM_NAME, MB_ICONINFORMATION);
 
                 return;
@@ -757,7 +757,7 @@ VOID PmProcessEntry(
                 if (!PmpAllocateObjectData(&ParamBlock.Object)) {
                     
                     MessageBox(ParentWindow, 
-                        TEXT("Cannot allocate memory for plugin data"), 
+                        TEXT("无法为插件数据分配内存"), 
                         PROGRAM_NAME, MB_ICONERROR);
                     
                     return;
@@ -784,7 +784,7 @@ VOID PmProcessEntry(
             ntStatus = PluginEntry->Plugin.StartPlugin(&ParamBlock);
 
             if (!NT_SUCCESS(ntStatus)) {
-                _strcpy(szMessage, TEXT("Could not start plugin, error code 0x"));
+                _strcpy(szMessage, TEXT("插件无法启动，错误代码 0x"));
                 ultohex((ULONG)ntStatus, _strend(szMessage));
                 MessageBox(ParentWindow, szMessage, NULL, MB_ICONERROR);
             }
@@ -910,10 +910,10 @@ VOID PmpEnumerateEntries(
 
     LVCOLUMNS_DATA columnData[] =
     {
-        { L"Name", 200, LVCFMT_LEFT,  I_IMAGENONE },
-        { L"Authors", 80, LVCFMT_CENTER,  I_IMAGENONE },
-        { L"Type", 80, LVCFMT_CENTER,  I_IMAGENONE },
-        { L"Version", 80, LVCFMT_CENTER,  I_IMAGENONE }
+        { L"名称", 200, LVCFMT_LEFT,  I_IMAGENONE },
+        { L"验证方", 80, LVCFMT_CENTER,  I_IMAGENONE },
+        { L"类型", 80, LVCFMT_CENTER,  I_IMAGENONE },
+        { L"版本", 80, LVCFMT_CENTER,  I_IMAGENONE }
     };
 
     supSetListViewSettings(ListView,
@@ -1044,30 +1044,30 @@ VOID PmpShowPluginInfo(
     supDisableRedraw(hwndDlg);
 
     if (PluginData->Plugin.Capabilities.u1.NeedAdmin)
-        lpType = TEXT("Yes");
+        lpType = TEXT("是");
     else
-        lpType = TEXT("No");
+        lpType = TEXT("否");
 
     SetDlgItemText(hwndDlg, IDC_PLUGIN_ADMIN, lpType);
 
     if (PluginData->Plugin.Capabilities.u1.NeedDriver)
-        lpType = TEXT("Yes");
+        lpType = TEXT("是");
     else
-        lpType = TEXT("No");
+        lpType = TEXT("否");
 
     SetDlgItemText(hwndDlg, IDC_PLUGIN_DRIVER, lpType);
 
     if (PluginData->Plugin.Capabilities.u1.SupportWine)
-        lpType = TEXT("Yes");
+        lpType = TEXT("是");
     else
-        lpType = TEXT("No");
+        lpType = TEXT("否");
 
     SetDlgItemText(hwndDlg, IDC_PLUGIN_WINE, lpType);
 
     if (PluginData->Plugin.Capabilities.u1.SupportMultipleInstances)
-        lpType = TEXT("Yes");
+        lpType = TEXT("是");
     else
-        lpType = TEXT("No");
+        lpType = TEXT("否");
 
     SetDlgItemText(hwndDlg, IDC_PLUGIN_MINSTANCES, lpType);
 
