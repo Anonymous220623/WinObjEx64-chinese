@@ -378,7 +378,7 @@ VOID propObDumpByte(
 
     RtlSecureZeroMemory(szValue, sizeof(szValue));
     if (IsBool) {
-        _strcpy(szValue, (BOOL)(Value) ? L"TRUE" : L"FALSE");
+        _strcpy(szValue, (BOOL)(Value) ? L"是" : L"否");
     }
     else {
 
