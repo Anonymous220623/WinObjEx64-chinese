@@ -736,7 +736,7 @@ VOID ShowSysInfoDialog(
 )
 {
     if (!supRichEdit32Load()) {
-        MessageBox(hwndParent, TEXT("Could not load RichEdit library"), NULL, MB_ICONERROR);
+        MessageBox(hwndParent, TEXT("无法加载 RichEdit 库"), NULL, MB_ICONERROR);
         return;
     }
 
