@@ -35,7 +35,7 @@ typedef struct _MITIGATION_BIT_MAP {
 
 // ExtensionPointDisablePolicy
 static const MITIGATION_BIT_MAP g_ExtensionPointDisablePolicyMap[] = {
-    { 0, TEXT("Extension points disabled") },           // DisableExtensionPoints : 1
+    { 0, TEXT("扩展点已禁用") },           // DisableExtensionPoints : 1
 };
 
 // ASLRPolicy
