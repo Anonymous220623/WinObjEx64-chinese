@@ -173,7 +173,7 @@ VOID AddParameterValueBool(
     _In_ BOOL Value)
 {
     AddParameterValue(OutputWindow, Parameter, 
-        (Value) ? TEXT("TRUE") : TEXT("FALSE"));
+        (Value) ? TEXT("是") : TEXT("否"));
 }
 
 /*
@@ -255,7 +255,7 @@ VOID SysInfoCollectInformation(
         PROGRAM_MINOR_VERSION,
         PROGRAM_REVISION_NUMBER);
 
-    AddParameterValue(hwndOutput, TEXT("Windows Object Explorer 64"), szBuffer);
+    AddParameterValue(hwndOutput, TEXT("Windows 对象管理器 64 位"), szBuffer);
 
     //
     // OS version.
@@ -267,9 +267,9 @@ VOID SysInfoCollectInformation(
         if (0 == MultiByteToWideChar(CP_ACP, 0, lpWineVersion, (INT)_strlen_a(lpWineVersion),
             szWineVer, RTL_NUMBER_OF(szWineVer)))
         {
-            _strcpy(szWineVer, TEXT("<unknown>"));
+            _strcpy(szWineVer, TEXT("<未知>"));
         }
-        RtlStringCchPrintfSecure(szBuffer, MAX_PATH, TEXT("Wine v%ws, reported as "), szWineVer);
+        RtlStringCchPrintfSecure(szBuffer, MAX_PATH, TEXT("Wine v%ws, 报告为 "), szWineVer);
     }
 
     Remaining = RTL_NUMBER_OF(szBuffer) - _strlen(szBuffer);
