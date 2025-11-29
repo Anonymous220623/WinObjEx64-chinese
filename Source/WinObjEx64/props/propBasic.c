@@ -49,7 +49,7 @@ static const MITIGATION_BIT_MAP g_ASLRPolicyMap[] = {
 // DynamicCodePolicy
 static const MITIGATION_BIT_MAP g_DynamicCodePolicyMap[] = {
     { 0, TEXT("禁止动态代码") },                 // ProhibitDynamicCode : 1
-    { 3, TEXT("禁止动态代码审计") },             // AuditProhibitDynamicCode : 1
+    { 3, TEXT("禁止动态代码审核") },             // AuditProhibitDynamicCode : 1
     { 1, TEXT("禁止动态代码（按线程）") },    // AllowThreadOptOut : 1
     { 2, TEXT("动态代码可降级") },               // AllowRemoteDowngrade : 1
 };
@@ -70,72 +70,72 @@ static const MITIGATION_BIT_MAP g_SystemCallDisablePolicyMap[] = {
 
 // SignaturePolicy
 static const MITIGATION_BIT_MAP g_SignaturePolicyMap[] = {
-    { 0, TEXT("Signatures restricted (Microsoft only)") },        // MicrosoftSignedOnly : 1
-    { 1, TEXT("Signatures restricted (Store only)") },            // StoreSignedOnly : 1
-    { 2, TEXT("Signatures restricted (Microsoft only, Audit)") }, // AuditMicrosoftSignedOnly : 1
-    { 3, TEXT("Signatures restricted (Store only, Audit)") },     // AuditStoreSignedOnly : 1
-    { 4, TEXT("Signatures opt-in restriction") },                 // MitigationOptIn : 1
+    { 0, TEXT("签名受限（仅限 Microsoft）") },        // MicrosoftSignedOnly : 1
+    { 1, TEXT("签名受限（仅限 MS Store）") },            // StoreSignedOnly : 1
+    { 2, TEXT("签名受限（仅限 Microsoft，审核）") }, // AuditMicrosoftSignedOnly : 1
+    { 3, TEXT("签名受限（仅限 MS Store，审核）") },     // AuditStoreSignedOnly : 1
+    { 4, TEXT("签名选择性限制") },                 // MitigationOptIn : 1
 };
 
 // ImageLoadPolicy
 static const MITIGATION_BIT_MAP g_ImageLoadPolicyMap[] = {
-    { 0, TEXT("Prefer system32 images") },                        // PreferSystem32Images : 1
-    { 1, TEXT("Restricted remote images") },                      // NoRemoteImages : 1
-    { 2, TEXT("Restricted low mandatory label images") },         // NoLowMandatoryLabelImages : 1
-    { 3, TEXT("Restricted remote images (Audit)") },              // AuditNoRemoteImages : 1
-    { 4, TEXT("Low integrity images blocked (Audit)") },          // AuditNoLowMandatoryLabelImages : 1
+    { 0, TEXT("首选 System32 目录映像") },                        // PreferSystem32Images : 1
+    { 1, TEXT("远程映像受限") },                      // NoRemoteImages : 1
+    { 2, TEXT("低强制完整性级别映像受限") },         // NoLowMandatoryLabelImages : 1
+    { 3, TEXT("远程映像受限（审核）") },              // AuditNoRemoteImages : 1
+    { 4, TEXT("低强制完整性级别映像受限（审核）") },          // AuditNoLowMandatoryLabelImages : 1
 };
 
 // FontDisablePolicy
 static const MITIGATION_BIT_MAP g_FontDisablePolicyMap[] = {
-    { 0, TEXT("Non-system fonts disabled") },           // DisableNonSystemFonts : 1
-    { 1, TEXT("Non-system font loading (Audit)") },     // AuditNonSystemFontLoading : 1
+    { 0, TEXT("禁用非系统字体") },           // DisableNonSystemFonts : 1
+    { 1, TEXT("禁用非系统字体（审核）") },     // AuditNonSystemFontLoading : 1
 };
 
 // ControlFlowGuardPolicy
 static const MITIGATION_BIT_MAP g_ControlFlowGuardPolicyMap[] = {
-    { 0, TEXT("Control Flow Guard (CFG) enabled") },    // EnableControlFlowGuard : 1
-    { 1, TEXT("Export suppression enabled") },          // EnableExportSuppression : 1
-    { 2, TEXT("CFG strict mode") },                     // StrictMode : 1
-    { 3, TEXT("eXtended Flow Guard (XFG) enabled") },   // EnableXfg : 1
-    { 4, TEXT("XFG audit mode") },                      // EnableXfgAuditMode : 1
+    { 0, TEXT("启用控制流保护 (CFG)") },    // EnableControlFlowGuard : 1
+    { 1, TEXT("启用导出抑制(Export Suppression)") },          // EnableExportSuppression : 1
+    { 2, TEXT("CFG 严格模式") },                     // StrictMode : 1
+    { 3, TEXT("启用扩展流保护 (XFG)") },   // EnableXfg : 1
+    { 4, TEXT("XFG 审核模式") },                      // EnableXfgAuditMode : 1
 };
 
 // PayloadRestrictionPolicy
 static const MITIGATION_BIT_MAP g_PayloadRestrictionPolicyMap[] = {
-    { 0,  TEXT("Export address filter enabled") },      // EnableExportAddressFilter : 1
-    { 1,  TEXT("Export address filter (Audit)") },      // AuditExportAddressFilter : 1
-    { 2,  TEXT("Export address filter plus enabled") }, // EnableExportAddressFilterPlus : 1
-    { 3,  TEXT("Export address filter plus (Audit)") }, // AuditExportAddressFilterPlus : 1
-    { 4,  TEXT("Import address filter enabled") },      // EnableImportAddressFilter : 1
-    { 5,  TEXT("Import address filter (Audit)") },      // AuditImportAddressFilter : 1
-    { 6,  TEXT("ROP stack pivot enabled") },            // EnableRopStackPivot : 1
-    { 7,  TEXT("ROP stack pivot (Audit)") },            // AuditRopStackPivot : 1
-    { 8,  TEXT("ROP caller check enabled") },           // EnableRopCallerCheck : 1
-    { 9,  TEXT("ROP caller check (Audit)") },           // AuditRopCallerCheck : 1
-    { 10, TEXT("ROP sim exec enabled") },               // EnableRopSimExec : 1
-    { 11, TEXT("ROP sim exec (Audit)") },               // AuditRopSimExec : 1
+    { 0,  TEXT("启用导出地址过滤器") },      // EnableExportAddressFilter : 1
+    { 1,  TEXT("启用导出地址过滤器（审核）") },      // AuditExportAddressFilter : 1
+    { 2,  TEXT("启用导出地址过滤器增强模式") }, // EnableExportAddressFilterPlus : 1
+    { 3,  TEXT("启用导出地址过滤器增强模式（审核）") }, // AuditExportAddressFilterPlus : 1
+    { 4,  TEXT("启用导入地址筛选器") },      // EnableImportAddressFilter : 1
+    { 5,  TEXT("启用导入地址筛选器（审核）") },      // AuditImportAddressFilter : 1
+    { 6,  TEXT("启用 ROP 堆栈枢轴") },            // EnableRopStackPivot : 1
+    { 7,  TEXT("启用 ROP 堆栈枢轴（审核）") },            // AuditRopStackPivot : 1
+    { 8,  TEXT("启用 ROP 调用方检查") },           // EnableRopCallerCheck : 1
+    { 9,  TEXT("启用 ROP 调用方检查（审核）") },           // AuditRopCallerCheck : 1
+    { 10, TEXT("启用 ROP sim 执行") },               // EnableRopSimExec : 1
+    { 11, TEXT("启用 ROP sim 执行（审核）") },               // AuditRopSimExec : 1
 };
 
 // SideChannelIsolationPolicy
 static const MITIGATION_BIT_MAP g_SideChannelIsolationPolicyMap[] = {
-    { 0, TEXT("Page combining disabled") },                 // DisablePageCombine : 1
-    { 1, TEXT("Distinct security domain") },                // IsolateSecurityDomain : 1
-    { 2, TEXT("SMT branch target isolation") },             // SmtBranchTargetIsolation : 1
-    { 3, TEXT("Speculative execution protection (SSBD)") }, // SpeculativeStoreBypassDisable : 1
+    { 0, TEXT("禁用页面合并功能") },                 // DisablePageCombine : 1
+    { 1, TEXT("独立安全域") },                // IsolateSecurityDomain : 1
+    { 2, TEXT("SMT 分支目标分离") },             // SmtBranchTargetIsolation : 1
+    { 3, TEXT("推测执行保护（SSBD）") }, // SpeculativeStoreBypassDisable : 1
 };
 
 // UserShadowStackPolicy
 static const MITIGATION_BIT_MAP g_UserShadowStackPolicyMap[] = {
-    { 0, TEXT("Shadow Stack enabled") },                  // EnableUserShadowStack : 1
-    { 1, TEXT("Shadow Stack (Audit)") },                  // AuditUserShadowStack : 1
-    { 2, TEXT("SetContext IP validation enabled") },      // SetContextIpValidation : 1
-    { 3, TEXT("SetContext IP validation (Audit)") },      // AuditSetContextIpValidation : 1
-    { 4, TEXT("Shadow Stack strict mode") },              // EnableUserShadowStackStrictMode : 1
-    { 5, TEXT("Non-CET binaries blocked") },              // BlockNonCetBinaries : 1
-    { 6, TEXT("Non-CET binaries (non-EHCont) blocked") }, // BlockNonCetBinariesNonEhcont : 1
-    { 7, TEXT("Non-CET binaries blocked (Audit)") },      // AuditBlockNonCetBinaries : 1
-    { 8, TEXT("CET dynamic APIs (out-of-proc only)") },   // CetDynamicApisOutOfProcOnly : 1
+    { 0, TEXT("启用影子堆栈") },                  // EnableUserShadowStack : 1
+    { 1, TEXT("启用影子堆栈（审核）") },                  // AuditUserShadowStack : 1
+    { 2, TEXT("启用 SetContext IP 验证") },      // SetContextIpValidation : 1
+    { 3, TEXT("启用 SetContext IP 验证（审核）") },      // AuditSetContextIpValidation : 1
+    { 4, TEXT("启用影子堆栈严格模式") },              // EnableUserShadowStackStrictMode : 1
+    { 5, TEXT("阻止非 CET 二进制文件") },              // BlockNonCetBinaries : 1
+    { 6, TEXT("阻止非 CET 二进制文件（非 EHCont）") }, // BlockNonCetBinariesNonEhcont : 1
+    { 7, TEXT("阻止非 CET 二进制文件（审计）") },      // AuditBlockNonCetBinaries : 1
+    { 8, TEXT("启用 CET 动态 API（仅限进程外）") },   // CetDynamicApisOutOfProcOnly : 1
 };
 
 // RedirectionTrustPolicy
