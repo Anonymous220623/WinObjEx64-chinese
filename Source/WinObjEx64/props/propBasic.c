@@ -40,32 +40,32 @@ static const MITIGATION_BIT_MAP g_ExtensionPointDisablePolicyMap[] = {
 
 // ASLRPolicy
 static const MITIGATION_BIT_MAP g_ASLRPolicyMap[] = {
-    { 0, TEXT("ASLR (Bottom-up)") },                // EnableBottomUpRandomization : 1
-    { 1, TEXT("ASLR (Force relocate)") },           // EnableForceRelocateImages : 1
-    { 2, TEXT("ASLR (High entropy)") },             // EnableHighEntropy : 1
-    { 3, TEXT("ASLR (Disallow stripped images)") }, // DisallowStrippedImages : 1
+    { 0, TEXT("ASLR (自下而上)") },                // EnableBottomUpRandomization : 1
+    { 1, TEXT("ASLR (强制重定位)") },           // EnableForceRelocateImages : 1
+    { 2, TEXT("ASLR (高熵)") },             // EnableHighEntropy : 1
+    { 3, TEXT("ASLR (不允许剥离映像)") }, // DisallowStrippedImages : 1
 };
 
 // DynamicCodePolicy
 static const MITIGATION_BIT_MAP g_DynamicCodePolicyMap[] = {
-    { 0, TEXT("Dynamic code prohibited") },                 // ProhibitDynamicCode : 1
-    { 3, TEXT("Dynamic code audit prohibit") },             // AuditProhibitDynamicCode : 1
-    { 1, TEXT("Dynamic code prohibited (per-thread)") },    // AllowThreadOptOut : 1
-    { 2, TEXT("Dynamic code downgradable") },               // AllowRemoteDowngrade : 1
+    { 0, TEXT("禁止动态代码") },                 // ProhibitDynamicCode : 1
+    { 3, TEXT("禁止动态代码审计") },             // AuditProhibitDynamicCode : 1
+    { 1, TEXT("禁止动态代码（按线程）") },    // AllowThreadOptOut : 1
+    { 2, TEXT("动态代码可降级") },               // AllowRemoteDowngrade : 1
 };
 
 // StrictHandleCheckPolicy
 static const MITIGATION_BIT_MAP g_StrictHandleCheckPolicyMap[] = {
-    { 0, TEXT("Strict handle checks") },               // RaiseExceptionOnInvalidHandleReference : 1
-    { 1, TEXT("Handle exceptions permanently") },      // HandleExceptionsPermanentlyEnabled : 1
+    { 0, TEXT("严格处理句柄检查") },               // RaiseExceptionOnInvalidHandleReference : 1
+    { 1, TEXT("强制处理异常") },      // HandleExceptionsPermanentlyEnabled : 1
 };
 
 // SystemCallDisablePolicy
 static const MITIGATION_BIT_MAP g_SystemCallDisablePolicyMap[] = {
-    { 0, TEXT("Disallow Win32k system calls") },           // DisallowWin32kSystemCalls : 1
-    { 1, TEXT("Disallow Win32k system calls (Audit)") },   // AuditDisallowWin32kSystemCalls : 1
-    { 2, TEXT("Disallow Fsctl system calls") },            // DisallowFsctlSystemCalls : 1
-    { 3, TEXT("Disallow Fsctl system calls (Audit)") },    // AuditDisallowFsctlSystemCalls : 1
+    { 0, TEXT("禁止 Win32k 系统调用") },           // DisallowWin32kSystemCalls : 1
+    { 1, TEXT("禁止 Win32k 系统调用（审核）") },   // AuditDisallowWin32kSystemCalls : 1
+    { 2, TEXT("禁止 Fsctl 系统调用") },            // DisallowFsctlSystemCalls : 1
+    { 3, TEXT("禁止 Fsctl 系统调用（审核）") },    // AuditDisallowFsctlSystemCalls : 1
 };
 
 // SignaturePolicy
@@ -141,25 +141,25 @@ static const MITIGATION_BIT_MAP g_UserShadowStackPolicyMap[] = {
 // RedirectionTrustPolicy
 // RedirectionTrustPolicy (W10 version - matches struct definition)
 static const MITIGATION_BIT_MAP g_RedirectionTrustPolicyMap[] = {
-    { 0, TEXT("Redirection Trust enforced") },           // EnforceRedirectionTrust : 1
-    { 1, TEXT("Redirection Trust (Audit)") },            // AuditRedirectionTrust : 1
+    { 0, TEXT("强制执行重定向信任") },           // EnforceRedirectionTrust : 1
+    { 1, TEXT("重定向信任（审核）") },            // AuditRedirectionTrust : 1
 };
 
 // UserPointerAuthPolicy (W11 version)
 static const MITIGATION_BIT_MAP g_UserPointerAuthPolicyMap[] = {
-    { 0, TEXT("Pointer Authentication (User IP) enabled") }, // EnablePointerAuthUserIp : 1
+    { 0, TEXT("启用指针身份认证（用户 IP）") }, // EnablePointerAuthUserIp : 1
 };
 
 // ChildProcessPolicy
 static const MITIGATION_BIT_MAP g_ChildProcessPolicyMap[] = {
-    { 0, TEXT("Child process creation blocked") },       // NoChildProcessCreation : 1
-    { 1, TEXT("Child process creation (Audit)") },       // AuditNoChildProcessCreation : 1
-    { 2, TEXT("Secure child processes allowed") },       // AllowSecureProcessCreation : 1
+    { 0, TEXT("阻止创建子进程") },       // NoChildProcessCreation : 1
+    { 1, TEXT("创建子进程（审核）") },       // AuditNoChildProcessCreation : 1
+    { 2, TEXT("允许创建安全子进程") },       // AllowSecureProcessCreation : 1
 };
 
 // SEHOPPolicy (W11 version)
 static const MITIGATION_BIT_MAP g_SEHOPPolicyMap[] = {
-    { 0, TEXT("SEH Overwrite Protection enabled") },     // EnableSehop : 1
+    { 0, TEXT("SEH 覆盖保护已启用") },     // EnableSehop : 1
 };
 
 //
@@ -260,7 +260,7 @@ VOID AddASLRPolicyString(
     SIZE_T i;
 
     if (Flags == 0) {
-        ComboBox_AddString(hwndCB, TEXT("ASLR (Disabled)"));
+        ComboBox_AddString(hwndCB, TEXT("ASLR (已禁用)"));
         return;
     }
 
@@ -273,16 +273,16 @@ VOID AddASLRPolicyString(
             }
 
             if (g_ASLRPolicyMap[i].BitPosition == 0) {
-                _strcat(szBuffer, TEXT("(Bottom-up)"));
+                _strcat(szBuffer, TEXT("(自下而上)"));
             }
             else if (g_ASLRPolicyMap[i].BitPosition == 1) {
-                _strcat(szBuffer, TEXT("(Force relocate)"));
+                _strcat(szBuffer, TEXT("(强制重定位)"));
             }
             else if (g_ASLRPolicyMap[i].BitPosition == 2) {
-                _strcat(szBuffer, TEXT("(High entropy)"));
+                _strcat(szBuffer, TEXT("(高熵)"));
             }
             else if (g_ASLRPolicyMap[i].BitPosition == 3) {
-                _strcat(szBuffer, TEXT("(No stripped images)"));
+                _strcat(szBuffer, TEXT("(无剥离映像)"));
             }
 
             bFirst = FALSE;
@@ -332,9 +332,9 @@ VOID propSetProcessMitigationsInfo(
     if (bQuery && Policies.DEPPolicy.Flags) {
         RtlStringCchPrintfSecure(szBuffer, ARRAYSIZE(szBuffer), 
             TEXT("DEP %ws%ws"),
-            Policies.DEPPolicy.Permanent ? TEXT("(Permanent)") :
-            Policies.DEPPolicy.Enable ? TEXT("(Enabled)") : TEXT("(Disabled)"),
-            Policies.DEPPolicy.DisableAtlThunkEmulation ? TEXT(" (ATL thunk disabled)") : TEXT(""));
+            Policies.DEPPolicy.Permanent ? TEXT("(强制)") :
+            Policies.DEPPolicy.Enable ? TEXT("(已启用)") : TEXT("(已禁用)"),
+            Policies.DEPPolicy.DisableAtlThunkEmulation ? TEXT(" (ATL 形式转换已禁用)") : TEXT(""));
         ComboBox_AddString(hwndCB, szBuffer);
     }
 
@@ -802,7 +802,7 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryIoCompletion)
 
     if (NT_SUCCESS(status)) {
         SetDlgItemText(hwndDlg, ID_IOCOMPLETIONSTATE,
-            (iobi.Depth > 0) ? TEXT("Signaled") : TEXT("Nonsignaled"));
+            (iobi.Depth > 0) ? TEXT("有信号") : TEXT("无信号"));
     }
 
     //
@@ -858,7 +858,7 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryTimer)
 
         //Timer state
         SetDlgItemText(hwndDlg, ID_TIMERSTATE,
-            (tbi.TimerState) ? TEXT("Signaled") : TEXT("Nonsignaled"));
+            (tbi.TimerState) ? TEXT("有信号") : TEXT("无信号"));
 
         if (tbi.TimerState != TRUE) {
             ConvertedSeconds = (tbi.RemainingTime.QuadPart / 10000000LL);
@@ -931,10 +931,10 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryEvent)
         //Event type
         switch (ebi.EventType) {
         case NotificationEvent:
-            lpInfo = TEXT("Notification");
+            lpInfo = TEXT("通知事件");
             break;
         case SynchronizationEvent:
-            lpInfo = TEXT("Synchronization");
+            lpInfo = TEXT("同步事件");
             break;
         default:
             lpInfo = T_UnknownType;
@@ -945,13 +945,13 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryEvent)
         //Event state
         switch (ebi.EventState) {
         case 0:
-            lpInfo = TEXT("Nonsignaled");
+            lpInfo = TEXT("无信号");
             break;
         case 1:
-            lpInfo = TEXT("Signaled");
+            lpInfo = TEXT("有信号");
             break;
         default:
-            lpInfo = TEXT("UnknownState");
+            lpInfo = TEXT("未知状态");
             break;
         }
         SetDlgItemText(hwndDlg, ID_EVENTSTATE, lpInfo);
@@ -1158,12 +1158,12 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryMutant)
 
             RtlStringCchPrintfSecure(szBuffer,
                 MAX_PATH,
-                TEXT("Held recursively %d times"),
+                TEXT("递归持有 %d 次"),
                 mbi.CurrentCount);
 
         }
         else {
-            _strcpy(szBuffer, TEXT("Not Held"));
+            _strcpy(szBuffer, TEXT("未持有"));
         }
         SetDlgItemText(hwndDlg, ID_MUTANTSTATE, szBuffer);
     }
