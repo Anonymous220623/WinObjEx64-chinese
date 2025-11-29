@@ -275,7 +275,7 @@ VOID SysInfoCollectInformation(
     Remaining = RTL_NUMBER_OF(szBuffer) - _strlen(szBuffer);
     RtlStringCchPrintfSecure(_strend(szBuffer),
         (ULONG)Remaining,
-        TEXT("Windows NT %1u.%1u (build %u"),
+        TEXT("Windows NT %1u.%1u (构建版本号：%u"),
         g_WinObj.osver.dwMajorVersion,
         g_WinObj.osver.dwMinorVersion,
         g_WinObj.osver.dwBuildNumber);
