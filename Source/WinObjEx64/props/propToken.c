@@ -274,7 +274,7 @@ VOID TokenPageListInfo(
                     _strcpy(szBuffer, ElementName);
 
                     if (pTokenPrivs->Privileges[i].Attributes & SE_PRIVILEGE_ENABLED_BY_DEFAULT) {
-                        _strcat(szBuffer, TEXT(", 默认已启用"));
+                        _strcat(szBuffer, TEXT("，默认已启用"));
                     }
 
                     TokenPageListAdd(0, szPrivName, szBuffer, hwndDlg);
