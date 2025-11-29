@@ -2370,7 +2370,7 @@ LPWSTR propFormatTokenAttribute(
 
         case TOKEN_SECURITY_ATTRIBUTE_TYPE_BOOLEAN:
             _strcpy(szTemp, Attribute->Values.pInt64[ValueIndex] != 0 ?
-                TEXT("True") : TEXT("False"));
+                TEXT("是") : TEXT("否"));
 
             IsSimpleConvert = TRUE;
             break;
