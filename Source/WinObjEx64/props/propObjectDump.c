@@ -268,7 +268,7 @@ VOID propObDumpAddressWithModuleEx(
         //if SelfDriverBase & SelfDriverSize present, look if Address routine points to current driver
         if (SelfDriverBase != NULL && SelfDriverSize) {
             if (!IN_REGION(Address, SelfDriverBase, SelfDriverSize)) {
-                _strcpy(szModuleName, L"Hooked by ");
+                _strcpy(szModuleName, L"挂钩调用方：");
                 subitems.ColorFlags = TLF_BGCOLOR_SET;
                 subitems.BgColor = CLR_HOOK;
             }
@@ -4438,7 +4438,7 @@ PROP_OBJECT_DUMP_ROUTINE(propObDumpAlpcPort)
         TVIF_TEXT,
         0,
         0,
-        TEXT("State"),
+        TEXT("状态"),
         NULL);
 
     PortState.State = 0;
@@ -4543,7 +4543,7 @@ PROP_OBJECT_DUMP_ROUTINE(propObDumpCallback)
         TVIF_TEXT | TVIF_STATE,
         TVIS_EXPANDED,
         TVIS_EXPANDED,
-        TEXT("Callbacks"),
+        TEXT("回调"),
         NULL);
 
     //
@@ -4594,7 +4594,7 @@ PROP_OBJECT_DUMP_ROUTINE(propObDumpCallback)
     //
     if (Count == 0) {
         supObDumpShowError(hwndDlg,
-            TEXT("This object has no registered callbacks or there is an query error."));
+            TEXT("此对象没有已注册的回调函数，或者存在查询错误。"));
     }
 
     supFreeDuplicatedUnicodeString(g_obexHeap, &NormalizedName, FALSE);
