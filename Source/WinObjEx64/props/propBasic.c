@@ -2376,7 +2376,7 @@ LPWSTR propFormatTokenAttribute(
             break;
 
         case TOKEN_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING:
-            _strcpy(szTemp, TEXT("(Octet String)"));
+            _strcpy(szTemp, TEXT("(八位字符串)"));
             IsSimpleConvert = TRUE;
             break;
 
@@ -2393,7 +2393,7 @@ LPWSTR propFormatTokenAttribute(
 
             RtlStringCchPrintfSecure(Result,
                 needChars,
-                TEXT("[%lu] Version %I64u: "),
+                TEXT("[%lu] 版本 %I64u: "),
                 ValueIndex,
                 TempFQBNPtr->Version);
 
