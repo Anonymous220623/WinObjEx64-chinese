@@ -17,7 +17,7 @@
 
 <img src="https://raw.githubusercontent.com/hfiref0x/WinObjEx64/master/Docs/Screenshots/ViewingSectionObject.png" width="600" />
 
-查看 Section 对象类型及其子结构（如 CONTROL_AREA、SEGMENT 等）的内容。请注意，此视图并不完整，仅列出重要字段，类似于 WinDBG *!ca 0xX 4* 命令。
+查看 Section 对象类型及其子结构（如 CONTROL_AREA、SEGMENT 等）的内容。请注意，此视图并不完整，仅列出重要字段，类似于 WinDbg *!ca 0xX 4* 命令。
 
 - **已更新的 ApiSetSchema 扩展**
 
