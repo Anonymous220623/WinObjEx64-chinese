@@ -1148,7 +1148,7 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryMutant)
         //
         // Show Abandoned state.
         //
-        SetDlgItemText(hwndDlg, ID_MUTANTABANDONED, (mbi.AbandonedState) ? TEXT("Yes") : TEXT("No"));
+        SetDlgItemText(hwndDlg, ID_MUTANTABANDONED, (mbi.AbandonedState) ? TEXT("是") : TEXT("否"));
 
         //
         // Show state.
@@ -1326,7 +1326,7 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQuerySection)
 
                 //Executable			
                 SetDlgItemText(hwndDlg, ID_IMAGE_EXECUTABLE,
-                    (sii.ImageContainsCode) ? TEXT("Yes") : TEXT("No"));
+                    (sii.ImageContainsCode) ? TEXT("是") : TEXT("否"));
 
                 //Subsystem               
                 switch (sii.SubSystemType) {
@@ -1430,7 +1430,7 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryWindowStation)
         &bytesNeeded))
     {
         SetDlgItemText(hwndDlg, ID_WINSTATIONVISIBLE,
-            (userFlags.dwFlags & WSF_VISIBLE) ? TEXT("Yes") : TEXT("No"));
+            (userFlags.dwFlags & WSF_VISIBLE) ? TEXT("是") : TEXT("否"));
     }
 
     //
@@ -1843,7 +1843,7 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryProcess)
             &i)))
         {
             SetDlgItemText(hwndDlg, IDC_PROCESS_CRITICAL,
-                (BreakOnTermination != 0) ? TEXT("Yes") : TEXT("No"));
+                (BreakOnTermination != 0) ? TEXT("是") : TEXT("否"));
         }
 
         //
@@ -1965,7 +1965,7 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQueryThread)
             &dummy)))
         {
             SetDlgItemText(hwndDlg, IDC_THREAD_CRITICAL, 
-                (ulCriticalThread > 0) ? TEXT("Yes") : TEXT("No"));
+                (ulCriticalThread > 0) ? TEXT("是") : TEXT("否"));
         }
 
         //
