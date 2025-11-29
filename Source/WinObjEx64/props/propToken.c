@@ -103,30 +103,30 @@ VOID TokenPageInitControls(
     supAddListViewColumn(pCtx->hwndList, 0, 0, 0,
         I_IMAGENONE,
         LVCFMT_LEFT,
-        TEXT("Name"), 400);
+        TEXT("名称"), 400);
 
     supAddListViewColumn(pCtx->hwndList, 1, 1, 1,
         I_IMAGENONE,
         LVCFMT_LEFT,
-        TEXT("Status"), 150);
+        TEXT("状态"), 150);
 
     RtlSecureZeroMemory(&lvg, sizeof(lvg));
     lvg.cbSize = sizeof(LVGROUP);
     lvg.mask = LVGF_HEADER | LVGF_ALIGN | LVGF_GROUPID;
     lvg.uAlign = LVGA_HEADER_LEFT;
 
-    lvg.pszHeader = TEXT("Privileges");
+    lvg.pszHeader = TEXT("特权");
     lvg.cchHeader = (INT)_strlen(lvg.pszHeader);
     lvg.iGroupId = 0;
     SendMessage(pCtx->hwndList, LVM_INSERTGROUP, (WPARAM)0, (LPARAM)&lvg);
 
-    lvg.pszHeader = TEXT("Groups");
+    lvg.pszHeader = TEXT("组");
     lvg.cchHeader = (INT)_strlen(lvg.pszHeader);
     lvg.iGroupId = 1;
     SendMessage(pCtx->hwndList, LVM_INSERTGROUP, (WPARAM)1, (LPARAM)&lvg);
 
     if (IsAppContainer) {
-        lvg.pszHeader = TEXT("Capabilities");
+        lvg.pszHeader = TEXT("能力");
         lvg.cchHeader = (INT)_strlen(lvg.pszHeader);
         lvg.iGroupId = 2;
         SendMessage(pCtx->hwndList, LVM_INSERTGROUP, (WPARAM)2, (LPARAM)&lvg);
@@ -266,15 +266,15 @@ VOID TokenPageListInfo(
                 if (LookupPrivilegeName(NULL, &pTokenPrivs->Privileges[i].Luid,
                     szPrivName, &cchName))
                 {
-                    ElementName = TEXT("Disabled");
+                    ElementName = TEXT("已禁用");
                     if (pTokenPrivs->Privileges[i].Attributes & SE_PRIVILEGE_ENABLED) {
-                        ElementName = TEXT("Enabled");
+                        ElementName = TEXT("已启用");
                     }
 
                     _strcpy(szBuffer, ElementName);
 
                     if (pTokenPrivs->Privileges[i].Attributes & SE_PRIVILEGE_ENABLED_BY_DEFAULT) {
-                        _strcat(szBuffer, TEXT(", Default Enabled"));
+                        _strcat(szBuffer, TEXT(", 默认已启用"));
                     }
 
                     TokenPageListAdd(0, szPrivName, szBuffer, hwndDlg);
@@ -300,30 +300,30 @@ VOID TokenPageListInfo(
                     pString = NULL;
                     szBuffer[0] = 0;
                     if (r & SE_GROUP_USE_FOR_DENY_ONLY)
-                        pString = _strcpy(szBuffer, TEXT("Deny"));
+                        pString = _strcpy(szBuffer, TEXT("拒绝"));
 
                     if (r & SE_GROUP_RESOURCE) {
                         if (pString)
                             _strcat(szBuffer, TEXT(", "));
-                        pString = _strcat(szBuffer, TEXT("Domain-Local"));
+                        pString = _strcat(szBuffer, TEXT("本地域"));
                     }
 
                     if ((r & SE_GROUP_MANDATORY) && (!(r & SE_GROUP_OWNER))) {
                         if (pString)
                             _strcat(szBuffer, TEXT(", "));
-                        pString = _strcat(szBuffer, TEXT("Mandatory"));
+                        pString = _strcat(szBuffer, TEXT("强制"));
                     }
                     if (r & SE_GROUP_OWNER) {
                         if (pString)
                             _strcat(szBuffer, TEXT(", "));
-                        pString = _strcat(szBuffer, TEXT("Owner"));
+                        pString = _strcat(szBuffer, TEXT("所有者"));
                     }
                     if (r & SE_GROUP_INTEGRITY) {
                         if (pString)
                             _strcat(szBuffer, TEXT(", "));
-                        ElementName = TEXT("Integrity");
+                        ElementName = TEXT("完整性");
                         if (!(r & SE_GROUP_INTEGRITY_ENABLED)) {
-                            ElementName = TEXT("DesktopIntegrity");
+                            ElementName = TEXT("桌面完整性");
                         }
                         _strcat(szBuffer, ElementName);
                     }
@@ -345,29 +345,29 @@ VOID TokenPageListInfo(
             (PVOID)&TokenElv, sizeof(TokenElv), &r)))
         {
             if (TokenElv.TokenIsElevated) {
-                _strcpy(szBuffer, TEXT("Yes"));
+                _strcpy(szBuffer, TEXT("是"));
                 if (NT_SUCCESS(NtQueryInformationToken(TokenHandle, TokenElevationType,
                     &TokenElevType, sizeof(TokenElevType), &r)))
                 {
                     switch (TokenElevType) {
                     case TokenElevationTypeDefault:
-                        _strcat(szBuffer, TEXT(" (Default)")); // User is not using a split token, so they cannot elevate.
+                        _strcat(szBuffer, TEXT(" (默认)")); // User is not using a split token, so they cannot elevate.
                         break;
                     case TokenElevationTypeFull: // User has a split token, and the process is running elevated.
-                        _strcat(szBuffer, TEXT(" (Full)"));
+                        _strcat(szBuffer, TEXT(" (全部)"));
                         break;
                     case TokenElevationTypeLimited: // User has a split token, but the process is not running elevated.
-                        _strcat(szBuffer, TEXT(" (Limited)"));
+                        _strcat(szBuffer, TEXT(" (受限)"));
                         break;
                     default:
-                        _strcat(szBuffer, TEXT(" (Unknown)"));
+                        _strcat(szBuffer, TEXT(" (未知)"));
                         break;
                     }
 
                 }
             }
             else
-                _strcpy(szBuffer, TEXT("No"));
+                _strcpy(szBuffer, TEXT("否"));
 
 
             SetDlgItemText(hwndDlg, IDC_TOKEN_ELEVATED, szBuffer);
@@ -385,13 +385,13 @@ VOID TokenPageListInfo(
                 if (NT_SUCCESS(NtQueryInformationToken(TokenHandle, TokenVirtualizationEnabled,
                     (PVOID)&i, sizeof(i), &r)))
                 {
-                    ElementName = (i > 0) ? TEXT("Yes") : TEXT("No");
+                    ElementName = (i > 0) ? TEXT("是") : TEXT("否");
                     SetDlgItemText(hwndDlg, IDC_TOKEN_VIRTUALIZED, ElementName);
                 }
             }
         }
         else {
-            SetDlgItemText(hwndDlg, IDC_TOKEN_VIRTUALIZED, TEXT("Not allowed"));
+            SetDlgItemText(hwndDlg, IDC_TOKEN_VIRTUALIZED, TEXT("不允许"));
         }
 
         //
@@ -465,7 +465,7 @@ VOID TokenPageListInfo(
                     if (pTokenGroups->Groups[i].Sid) {
                         ElementName = NULL;
                         if (ConvertSidToStringSid(pTokenGroups->Groups[i].Sid, &ElementName)) {
-                            TokenPageListAdd(2, ElementName, TEXT("Capabilities"), hwndDlg);
+                            TokenPageListAdd(2, ElementName, TEXT("能力"), hwndDlg);
                             LocalFree(ElementName);
                         }
                     }
@@ -480,7 +480,7 @@ VOID TokenPageListInfo(
         if (NT_SUCCESS(NtQueryInformationToken(TokenHandle, TokenUIAccess,
             (PVOID)&i, sizeof(i), &r)))
         {
-            ElementName = (i > 0) ? TEXT("Yes") : TEXT("No");
+            ElementName = (i > 0) ? TEXT("是") : TEXT("否");
             SetDlgItemText(hwndDlg, IDC_TOKEN_UIACCESS, ElementName);
         }
 
@@ -505,7 +505,7 @@ VOID TokenPageListInfo(
     }
     else {
         if (Status == STATUS_NO_TOKEN)
-            ErrMsg = TEXT("Token doesn't exist, thread is not impersonating a client.");
+            ErrMsg = TEXT("令牌不存在，线程未模拟客户端。");
 
         TokenPageShowError(hwndDlg, ErrMsg);
     }
@@ -530,7 +530,7 @@ VOID TokenPageShowLinkedTokenProperties(
     PROP_UNNAMED_OBJECT_INFO TokenObject, LinkedTokenObject;
     OBJECT_ATTRIBUTES ObjectAttributes = RTL_INIT_OBJECT_ATTRIBUTES((PUNICODE_STRING)NULL, 0);
 
-    LPWSTR FormatStringLinkedTokenProcess = TEXT("Linked Token, PID:%llu");
+    LPWSTR FormatStringLinkedTokenProcess = TEXT("已关联令牌，PID：%llu");
 
     UNICODE_STRING usObjectName;
     PROP_CONFIG propConfig;
@@ -586,13 +586,13 @@ VOID TokenPageShowLinkedTokenProperties(
             NtClose(LinkedTokenHandle);
         }
         else {
-            RtlStringCchPrintfSecure(szBuffer, MAX_PATH, TEXT("Unable to open linked token, NTSTATUS: 0x%lX"), Status);
+            RtlStringCchPrintfSecure(szBuffer, MAX_PATH, TEXT("无法打开已关联令牌, NTSTATUS: 0x%lX"), Status);
             TokenPageShowError(hwndDlg, szBuffer);
         }
         NtClose(TokenHandle);
     }
     else {
-        RtlStringCchPrintfSecure(szBuffer, MAX_PATH, TEXT("Unable to open token, NTSTATUS: 0x%lX"), Status);
+        RtlStringCchPrintfSecure(szBuffer, MAX_PATH, TEXT("无法打开令牌, NTSTATUS: 0x%lX"), Status);
         TokenPageShowError(hwndDlg, szBuffer);
     }
 
@@ -613,8 +613,8 @@ VOID TokenPageShowAdvancedProperties(
     PROP_UNNAMED_OBJECT_INFO TokenObject;
     PROP_CONFIG propConfig;
 
-    LPWSTR FormatStringTokenProcess = TEXT("Process Token, PID:%llu");
-    LPWSTR FormatStringTokenThread = TEXT("Thread Token, PID:%llu, TID:%llu");
+    LPWSTR FormatStringTokenProcess = TEXT("进程令牌, PID:%llu");
+    LPWSTR FormatStringTokenThread = TEXT("线程令牌, PID:%llu, TID:%llu");
 
     HANDLE TokenHandle = NULL;
     WCHAR szFakeName[MAX_PATH + 1];
