@@ -1225,47 +1225,47 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQuerySection)
         bSet = FALSE;
         szBuffer[0] = 0;
         if (sbi.AllocationAttributes & SEC_BASED) {
-            _strcat(szBuffer, TEXT("Based"));
+            _strcat(szBuffer, TEXT("基节"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_NO_CHANGE) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("NoChange"));
+            _strcat(szBuffer, TEXT("未修改"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_FILE) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("File"));
+            _strcat(szBuffer, TEXT("文件"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_IMAGE) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("Image"));
+            _strcat(szBuffer, TEXT("映像"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_RESERVE) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("Reserve"));
+            _strcat(szBuffer, TEXT("保留"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_COMMIT) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("Commit"));
+            _strcat(szBuffer, TEXT("已提交"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_NOCACHE) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("NoCache"));
+            _strcat(szBuffer, TEXT("未缓存"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_GLOBAL) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("Global"));
+            _strcat(szBuffer, TEXT("全局"));
             bSet = TRUE;
         }
         if (sbi.AllocationAttributes & SEC_LARGE_PAGES) {
             if (bSet) _strcat(szBuffer, TEXT(" + "));
-            _strcat(szBuffer, TEXT("LargePages"));
+            _strcat(szBuffer, TEXT("大页面"));
         }
         SetDlgItemText(hwndDlg, ID_SECTION_ATTR, szBuffer);
 
@@ -1349,19 +1349,19 @@ PROP_QUERY_INFORMATION_ROUTINE(propBasicQuerySection)
                     lpType = TEXT("XBox");
                     break;
                 case IMAGE_SUBSYSTEM_EFI_APPLICATION:
-                    lpType = TEXT("EFI Application");
+                    lpType = TEXT("EFI 应用程序");
                     break;
                 case IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER:
-                    lpType = TEXT("EFI Boot Service Driver");
+                    lpType = TEXT("EFI Boot 服务驱动程序");
                     break;
                 case IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER:
-                    lpType = TEXT("EFI Runtime Driver");
+                    lpType = TEXT("EFI 运行时驱动程序");
                     break;
                 case IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION:
-                    lpType = TEXT("Windows Boot Application");
+                    lpType = TEXT("Windows 引导应用程序");
                     break;
                 case IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG:
-                    lpType = TEXT("XBox Code Catalog");
+                    lpType = TEXT("XBox 代码目录");
                     break;
                 default:
                     lpType = T_Unknown;
