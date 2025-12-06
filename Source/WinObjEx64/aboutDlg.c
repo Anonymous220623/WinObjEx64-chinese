@@ -80,9 +80,9 @@ VOID AboutDialogInit(
         _strcat(szBuffer, TEXT(")"));
     }
 #if defined(__cplusplus)
-    _strcat(szBuffer, TEXT(" compiled as C++"));
+    _strcat(szBuffer, TEXT(" 使用 C++ 构建"));
 #else
-    _strcat(szBuffer, TEXT(" compiled as C"));
+    _strcat(szBuffer, TEXT(" 使用 C 构建"));
 #endif
 
     SetDlgItemText(hwndDlg, ID_ABOUT_COMPILERINFO, szBuffer);
@@ -104,12 +104,12 @@ VOID AboutDialogInit(
     //
     RtlSecureZeroMemory(szBuffer, sizeof(szBuffer));
     if (g_WinObj.IsWine) {
-        _strcpy(szBuffer, TEXT("Reported as "));
+        _strcpy(szBuffer, TEXT("报告为 "));
     }
 
     RtlStringCchPrintfSecure(_strend(szBuffer),
         100,
-        TEXT("Windows NT %1u.%1u (build %u"),
+        TEXT("Windows NT %1u.%1u (构建版本 %u"),
         g_WinObj.osver.dwMajorVersion,
         g_WinObj.osver.dwMinorVersion,
         g_WinObj.osver.dwBuildNumber);
@@ -126,7 +126,7 @@ VOID AboutDialogInit(
     if (g_WinObj.IsWine) {
         wine_ver = GetWineVersion();
         if (wine_ver == NULL)
-            wine_ver = "Unknown";
+            wine_ver = "未知";
         verLen = _strlen_a(wine_ver);
         totalLen = verLen + 5 + 1; // "Wine " + 0
         wbuf = (PWCHAR)supHeapAlloc(totalLen * sizeof(WCHAR));
@@ -148,7 +148,7 @@ VOID AboutDialogInit(
         // Query KD debugger enabled.
         //
         if (supIsKdEnabled(NULL, NULL)) {
-            _strcpy(szBuffer, TEXT("Debug, "));
+            _strcpy(szBuffer, TEXT("调试模式, "));
         }
 
         //
@@ -178,18 +178,21 @@ VOID AboutDialogInit(
                     _strcat(szBuffer, TEXT("BIOS"));
                 }
                 else {
-                    _strcat(szBuffer, TEXT("Unknown"));
+                    _strcat(szBuffer, TEXT("未知"));
                 }
             }
 
             if (firmwareType == FirmwareTypeUefi) {
                 bSecureBoot = FALSE;
                 if (supQuerySecureBootState(&bSecureBoot)) {
-                    _strcat(szBuffer, TEXT(" with"));
+                    
                     if (bSecureBoot == FALSE) {
-                        _strcat(szBuffer, TEXT("out"));
+                        _strcat(szBuffer, TEXT("（已禁用"));
                     }
-                    _strcat(szBuffer, TEXT(" SecureBoot"));
+                    else {
+                        _strcat(szBuffer, TEXT("（已启用"));
+                    }
+                    _strcat(szBuffer, TEXT("安全引导）"));
                 }
                 g_kdctx.IsSecureBoot = bSecureBoot;
 
@@ -197,7 +200,7 @@ VOID AboutDialogInit(
                     if (bHVCIEnabled) {
                         _strcat(szBuffer, TEXT(", HVCI"));
                         if (bHVCIStrict)
-                            _strcat(szBuffer, TEXT(" (strict)"));
+                            _strcat(szBuffer, TEXT(" (严格)"));
                         if (bHVCIIUMEnabled)
                             _strcat(szBuffer, TEXT(", IUM"));
                     }
