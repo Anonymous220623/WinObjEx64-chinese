@@ -146,7 +146,7 @@ WinObjEx64 仅适用于以下 x64 Windows 系统：Windows 7、Windows 8、Windo
 		- `DbgSetDebugPrintCallback`  
 		- `DbgkLkmdRegisterCallback`  
 		- `PsRegisterAltSystemCallHandler`  
-		- CodeIntegrity `SeCiCallbacks`  
+		- 代码完整性 (CodeIntegrity) `SeCiCallbacks`  
 		- `ExRegisterExtension`  
 		- `PoRegisterCoalescingCallback`  
 		- `PsRegisterPicoProvider`  
