@@ -161,7 +161,7 @@ VOID SdtListOutputTable(
                     MAX_PATH);
             }
             else {
-                _strcpy(szBuffer, TEXT("Unknown Module"));
+                _strcpy(szBuffer, TEXT("未知模块"));
             }
 
             lvItem.iSubItem = 3;
@@ -395,9 +395,9 @@ VOID SdtListErrorProcedureNotFound(
         MultiByteToWideChar(CP_ACP, 0, FunctionName, -1, szFunctionName, MAX_PATH);
 
         RtlStringCchPrintfSecure(pszErrorMsg, sz / sizeof(WCHAR),
-            L"the entry point for %ws was not found in module %wZ",
-            szFunctionName,
-            ModuleName);
+            L"在模块 %wZ 中未找到 %ws 的入口点",
+            ModuleName,
+            szFunctionName);
 
         SdtListReportEvent(EntryTypeError, __FUNCTIONW__, pszErrorMsg);
 
@@ -431,14 +431,14 @@ VOID SdtListReportResolveModuleError(
     switch (Status) {
 
     case STATUS_INTERNAL_ERROR:
-        _strcpy(szErrorBuffer, TEXT("Internal error"));
+        _strcpy(szErrorBuffer, TEXT("内部错误"));
         break;
 
     case STATUS_APISET_NOT_HOSTED:
         //
         // Corresponding apiset not found.
         //
-        _strcpy(szErrorBuffer, TEXT("not an ApiSet adapter for "));
+        _strcpy(szErrorBuffer, TEXT("不是以下项的 ApiSet 适配器："));
         MultiByteToWideChar(CP_ACP, 0, Table->Name, -1, _strend(szErrorBuffer), MAX_PATH);
         break;
 
@@ -446,7 +446,7 @@ VOID SdtListReportResolveModuleError(
         //
         // ApiSet extension present but empty.
         // 
-        _strcpy(szErrorBuffer, TEXT("ApiSet host is empty for "));
+        _strcpy(szErrorBuffer, TEXT("以下项中的 ApiSet Host 为空："));
         MultiByteToWideChar(CP_ACP, 0, Table->Name, -1, _strend(szErrorBuffer), MAX_PATH);
         break;
 
@@ -454,9 +454,9 @@ VOID SdtListReportResolveModuleError(
         //
         // Not a critical issue. This mean we cannot pass this service next to forwarder lookup code.
         //
-        _strcpy(szErrorBuffer, TEXT("could not resolve function name in module for "));
+        _strcpy(szErrorBuffer, TEXT("以下模块中的函数名无法解析："));
         MultiByteToWideChar(CP_ACP, 0, Table->Name, -1, _strend(szErrorBuffer), MAX_PATH);
-        _strcat(szErrorBuffer, TEXT(", service id "));
+        _strcat(szErrorBuffer, TEXT(", 服务 ID "));
         ultostr(Table->Index, _strend(szErrorBuffer));
         break;
 
@@ -464,7 +464,7 @@ VOID SdtListReportResolveModuleError(
 
         RtlStringCchPrintfSecure(szErrorBuffer,
             RTL_NUMBER_OF(szErrorBuffer),
-            L"could not load import dll %wZ",
+            L"无法加载导入的 DLL 文件 %wZ",
             ResolvedModuleName);
 
         break;
@@ -472,14 +472,14 @@ VOID SdtListReportResolveModuleError(
     case STATUS_ILLEGAL_FUNCTION:
 
         MultiByteToWideChar(CP_ACP, 0, Table->Name, -1, szErrorBuffer, MAX_PATH);
-        _strcpy(szErrorBuffer, TEXT(" code does not look like a import thunk"));
+        _strcpy(szErrorBuffer, TEXT(" 代码看起来不是导入形式转换（import thunk）"));
         break;
 
     default:
         //
         // Unexpected error code.
         //
-        _strcpy(szErrorBuffer, TEXT("unexpected error 0x"));
+        _strcpy(szErrorBuffer, TEXT("意外错误 0x"));
         ultohex(Status, _strend(szErrorBuffer));
         break;
     }
@@ -678,7 +678,7 @@ BOOL SdtListCreateTableShadow(
                                             //
                                             // Log error.
                                             //
-                                            SdtListReportEvent(EntryTypeError, __FUNCTIONW__, TEXT("could not load forwarded module"));
+                                            SdtListReportEvent(EntryTypeError, __FUNCTIONW__, TEXT("无法加载转发模块"));
                                         }
 
                                     }
@@ -861,13 +861,13 @@ VOID SdtListCreate(
 
     __try {
 
-        supStatusBarSetText(pDlgContext->StatusBar, 1, TEXT("Initializing table view"));
+        supStatusBarSetText(pDlgContext->StatusBar, 1, TEXT("正在初始化表格视图"));
 
         pModules = (PRTL_PROCESS_MODULES)supGetLoadedModulesList(NULL);
         if (pModules == NULL) {
 
             supStatusBarSetText(pDlgContext->StatusBar, 1,
-                TEXT("Could not allocate memory for kernel modules list!"));
+                TEXT("无法为内核模块列表分配内存！"));
 
             __leave;
         }
@@ -887,7 +887,7 @@ VOID SdtListCreate(
                 SdtListOutputTable(hwndDlg, pModules, &KiServiceTable);
             }
             else {
-                supStatusBarSetText(pDlgContext->StatusBar, 1, TEXT("Error dumping table"));
+                supStatusBarSetText(pDlgContext->StatusBar, 1, TEXT("转储列表时出现错误"));
             }
 
         }
@@ -906,7 +906,7 @@ VOID SdtListCreate(
 
                 if (returnStatus == ErrShadowApiSetNotFound) {
                     supStatusBarSetText(pDlgContext->StatusBar, 1,
-                        TEXT("Win32kApiSet not found"));
+                        TEXT("Win32kApiSet 未找到"));
                 }
 
                 SdtListOutputTable(hwndDlg, pModules, &W32pServiceTable);
@@ -919,14 +919,14 @@ VOID SdtListCreate(
 
                     RtlStringCchPrintfSecure(szText,
                         RTL_NUMBER_OF(szText),
-                        TEXT("Could not find %ws module"),
+                        TEXT("无法找到模块 %ws"),
                         WIN32K_FILENAME);
 
                     break;
 
                 case ErrShadowMemAllocFail:
 
-                    _strcpy(szText, TEXT("Could not create heap for table"));
+                    _strcpy(szText, TEXT("无法为列表创建堆"));
                     break;
 
                 case ErrShadowWin32uLoadFail:
@@ -944,40 +944,40 @@ VOID SdtListCreate(
 
                     RtlStringCchPrintfSecure(szText,
                         RTL_NUMBER_OF(szText),
-                        TEXT("Could not load %ws module"),
+                        TEXT("无法加载模块 %ws"),
                         lpModule);
                     break;
 
                 case ErrShadowW32pServiceLimitNotFound:
-                    _strcpy(szText, TEXT("W32pServiceLimit was not found in win32k module"));
+                    _strcpy(szText, TEXT("在 win32k 模块中未找到 W32pServiceLimit"));
                     break;
 
                 case ErrShadowWin32uMismatch:
-                    _strcpy(szText, TEXT("Not all services found in win32u"));
+                    _strcpy(szText, TEXT("在 win32u 模块中未找到所有服务"));
                     break;
 
                 case ErrShadowW32pServiceTableNotFound:
-                    _strcpy(szText, TEXT("W32pServiceTable was not found in win32k module"));
+                    _strcpy(szText, TEXT("在 win32k 模块中未找到 W32pServiceTable"));
                     break;
 
                 case ErrShadowApiSetSchemaVerUnknown:
-                    _strcpy(szText, TEXT("ApiSetSchema version is unknown"));
+                    _strcpy(szText, TEXT("ApiSetSchema 版本未知"));
                     break;
 
                 case ErrShadowWin32kGlobalsNotFound:
-                    _strcpy(szText, TEXT("Could not find win32k.sys globals variable"));
+                    _strcpy(szText, TEXT("找不到 win32k.sys 全局变量"));
                     break;
 
                 case ErrShadowWin32kOffsetNotFound:
-                    _strcpy(szText, TEXT("Could not find win32k.sys Win32kApiSetTable offset"));
+                    _strcpy(szText, TEXT("找不到 win32k.sys!Win32kApiSetTable 偏移量"));
                     break;
 
                 case ErrShadowWin32kGetStateNotFound:
-                    _strcpy(szText, TEXT("Could not find win32k.sys W32GetSessionState pointer"));
+                    _strcpy(szText, TEXT("找不到 win32k.sys!W32GetSessionState 指针"));
                     break;
 
                 default:
-                    _strcpy(szText, TEXT("Unknown error"));
+                    _strcpy(szText, TEXT("未知错误"));
                     break;
                 }
 
@@ -997,7 +997,7 @@ VOID SdtListCreate(
     }
 
     if (bSuccess) {
-        supStatusBarSetText(pDlgContext->StatusBar, 1, TEXT("Table read OK"));
+        supStatusBarSetText(pDlgContext->StatusBar, 1, TEXT("列表读取完成"));
         CallbackParam.lParam = 0;
         CallbackParam.Value = pDlgContext->DialogMode;
         ListView_SortItemsEx(pDlgContext->ListView, &SdtDlgCompareFunc, (LPARAM)&CallbackParam);
@@ -1182,10 +1182,10 @@ VOID SdtDlgOnInit(
 
     LVCOLUMNS_DATA columnData[] =
     {
-        { L"Id", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
-        { L"Service Name", 280, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"Address", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
-        { L"Module", 220, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { L"ID", 80, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
+        { L"服务例程名称", 280, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { L"地址", 130, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE },
+        { L"模块", 220, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     SetProp(hwndDlg, T_DLGCONTEXT, (HANDLE)lParam);
@@ -1198,11 +1198,11 @@ VOID SdtDlgOnInit(
     pDlgContext->StatusBar = GetDlgItem(hwndDlg, ID_EXTRASLIST_STATUSBAR);
     SendMessage(pDlgContext->StatusBar, SB_SETPARTS, 2, (LPARAM)&SbParts);
 
-    _strcpy(szText, TEXT("Viewing "));
+    _strcpy(szText, TEXT("查看 "));
     if (pDlgContext->DialogMode == SST_Ntos)
-        _strcat(szText, TEXT("ntoskrnl service table"));
+        _strcat(szText, TEXT("ntoskrnl 内部服务调度表（KiServiceTable）"));
     else
-        _strcat(szText, TEXT("win32k service table"));
+        _strcat(szText, TEXT("win32k 私有服务调度表（W32pServiceTable）"));
 
     SetWindowText(hwndDlg, szText);
 
