@@ -465,7 +465,7 @@ DWORD WINAPI PmpWorkerThread(
                                         RtlSecureZeroMemory(&MenuItem, sizeof(MenuItem));
                                         MenuItem.cbSize = sizeof(MenuItem);
                                         MenuItem.fMask = MIIM_SUBMENU | MIIM_STRING;
-                                        MenuItem.dwTypeData = TEXT("Plugins");
+                                        MenuItem.dwTypeData = TEXT("扩展(&P)");
                                         MenuItem.hSubMenu = hPluginMenu;
 
                                         MenuInitialized = InsertMenuItem(hMainMenu,
