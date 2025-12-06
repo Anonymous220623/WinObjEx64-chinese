@@ -8,3 +8,9 @@ source/winobjex64/plugins
 source/enc_temp_folder
 source/enc_temp_folder/*
 *.aps
+Source/Plugins/ExamplePlugin/output/*
+Source/Plugins/ExamplePlugin/output
+Source/Plugins/ImageScope/output/*
+Source/Plugins/ImageScope/output
+Source/Plugins/Sonar/output/*
+Source/Plugins/Sonar/output
