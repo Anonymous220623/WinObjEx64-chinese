@@ -517,7 +517,7 @@ VOID SLCacheListItems(
         &enumContext);
 
     RtlStringCchPrintfSecure(szBuffer, ARRAYSIZE(szBuffer),
-        TEXT("Software Licensing Cache, descriptors: %i"),
+        TEXT("软件许可缓存（描述符：%i）"),
         ListView_GetItemCount(Context->ListView));
 
     SetWindowText(Context->hwndDlg, szBuffer);
@@ -543,8 +543,8 @@ VOID SLCacheDialogOnInit(
     EXTRASCONTEXT* pDlgContext = (EXTRASCONTEXT*)lParam;
     LVCOLUMNS_DATA columnData[] =
     {
-        { L"Name", 450, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
-        { L"Type", 120, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
+        { L"名称", 450, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  iImage },
+        { L"类型", 120, LVCFMT_LEFT | LVCFMT_BITMAP_ON_RIGHT,  I_IMAGENONE }
     };
 
     SetProp(hwndDlg, T_DLGCONTEXT, (HANDLE)lParam);
