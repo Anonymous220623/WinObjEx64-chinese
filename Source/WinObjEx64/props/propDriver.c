@@ -125,33 +125,33 @@ VOID DriverSetInfo(
                 lpType = T_UnknownType;
                 switch (psci->dwServiceType) {
                 case SERVICE_KERNEL_DRIVER:
-                    lpType = TEXT("Kernel-Mode Driver");
+                    lpType = TEXT("内核模式驱动程序");
                     break;
                 case SERVICE_FILE_SYSTEM_DRIVER:
-                    lpType = TEXT("File System Driver");
+                    lpType = TEXT("文件系统驱动程序");
                     break;
                 case SERVICE_ADAPTER:
-                    lpType = TEXT("Adapter");
+                    lpType = TEXT("适配器");
                     break;
                 case SERVICE_RECOGNIZER_DRIVER:
-                    lpType = TEXT("File System Recognizer");
+                    lpType = TEXT("文件系统识别程序");
                     break;
                 case SERVICE_WIN32_OWN_PROCESS:
-                    lpType = TEXT("Own Process");
+                    lpType = TEXT("自有进程");
                     break;
                 case SERVICE_WIN32_SHARE_PROCESS:
-                    lpType = TEXT("Share Process");
+                    lpType = TEXT("共享进程");
                     break;
                 case (SERVICE_WIN32_OWN_PROCESS | SERVICE_INTERACTIVE_PROCESS):
-                    lpType = TEXT("Own Process (Interactive)");
+                    lpType = TEXT("自有进程（交互）");
                     SetDlgItemText(hwndDlg, ID_SERVICE_NAME, psci->lpServiceStartName);
                     break;
                 case (SERVICE_WIN32_SHARE_PROCESS | SERVICE_INTERACTIVE_PROCESS):
-                    lpType = TEXT("Share Process (Interactive)");
+                    lpType = TEXT("共享进程（交互）");
                     SetDlgItemText(hwndDlg, ID_SERVICE_NAME, psci->lpServiceStartName);
                     break;
                 case SERVICE_PKG_SERVICE:
-                    lpType = TEXT("Package");
+                    lpType = TEXT("包");
                     break;
                 }
                 SetDlgItemText(hwndDlg, ID_SERVICE_TYPE, lpType);
@@ -160,19 +160,19 @@ VOID DriverSetInfo(
                 lpType = T_UnknownType;
                 switch (psci->dwStartType) {
                 case SERVICE_BOOT_START:
-                    lpType = TEXT("Boot");
+                    lpType = TEXT("引导");
                     break;
                 case SERVICE_SYSTEM_START:
-                    lpType = TEXT("System");
+                    lpType = TEXT("系统");
                     break;
                 case SERVICE_AUTO_START:
-                    lpType = TEXT("Auto");
+                    lpType = TEXT("自动");
                     break;
                 case SERVICE_DEMAND_START:
-                    lpType = TEXT("On Demand");
+                    lpType = TEXT("延迟启动");
                     break;
                 case SERVICE_DISABLED:
-                    lpType = TEXT("Disabled");
+                    lpType = TEXT("禁用");
                     break;
                 }
                 SetDlgItemText(hwndDlg, ID_SERVICE_START, lpType);
@@ -181,16 +181,16 @@ VOID DriverSetInfo(
                 lpType = T_Unknown;
                 switch (psci->dwErrorControl) {
                 case SERVICE_ERROR_IGNORE:
-                    lpType = TEXT("Ignore");
+                    lpType = TEXT("可忽略");
                     break;
                 case SERVICE_ERROR_NORMAL:
-                    lpType = TEXT("Normal");
+                    lpType = TEXT("正常");
                     break;
                 case SERVICE_ERROR_SEVERE:
-                    lpType = TEXT("Severe");
+                    lpType = TEXT("严重");
                     break;
                 case SERVICE_ERROR_CRITICAL:
-                    lpType = TEXT("Critical");
+                    lpType = TEXT("不可恢复");
                     break;
                 }
                 SetDlgItemText(hwndDlg, ID_SERVICE_ERROR, lpType);
@@ -214,25 +214,25 @@ VOID DriverSetInfo(
                     lpType = T_Unknown;
                     switch (ssp.dwCurrentState) {
                     case SERVICE_STOPPED:
-                        lpType = TEXT("Stopped");
+                        lpType = TEXT("已停止");
                         break;
                     case SERVICE_START_PENDING:
-                        lpType = TEXT("Start Pending");
+                        lpType = TEXT("开始挂起");
                         break;
                     case SERVICE_STOP_PENDING:
-                        lpType = TEXT("Stop Pending");
+                        lpType = TEXT("停止挂起");
                         break;
                     case SERVICE_RUNNING:
-                        lpType = TEXT("Running");
+                        lpType = TEXT("正在运行");
                         break;
                     case SERVICE_CONTINUE_PENDING:
-                        lpType = TEXT("Continue Pending");
+                        lpType = TEXT("继续挂起");
                         break;
                     case SERVICE_PAUSE_PENDING:
-                        lpType = TEXT("Pause Pending");
+                        lpType = TEXT("暂停挂起");
                         break;
                     case SERVICE_PAUSED:
-                        lpType = TEXT("Paused");
+                        lpType = TEXT("已挂起");
                         break;
                     }
                     SetDlgItemText(hwndDlg, ID_SERVICE_CURRENT, lpType);
