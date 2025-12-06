@@ -1,8 +1,8 @@
 # WinObjEx64
 
-> [!WARNING]
+> [!NOTE]
 >
-> 项目正在施工，施工完成后此警告会删除。
+> 该项目正在持续追踪 [hfiref0x/WinObjEx64](https://github.com/hfiref0x/WinObjEx64) 的更新。
 
 <img width="786" height="593" alt="图片" src="https://github.com/user-attachments/assets/991369d1-513e-4490-82ad-7cdb5a1b30a8" />
 
